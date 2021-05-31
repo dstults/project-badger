@@ -3,13 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Board</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-	<!-- CSS only -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+	<title>Console</title>
 	<style>
 		* {
 			margin: 0;
@@ -18,10 +12,12 @@
 		}
 
 		body {
-			background-color: rgb(32, 32, 32);
+			/*background-color: rgb(32, 32, 32);*/
 			background-image: url("images/pexels-lucas-pezeta-3772378Small.jpg");
 			margin: 0 auto;
 		}
+
+		/* start console-specific css */
 
 		div.game-console {
 			width: 60rem;
@@ -33,6 +29,7 @@
 			overflow: hidden;
 			font-family: monospace;
 			font-size: 200%;
+			color: azure;
 		}
 
 		div.game-console>* {
@@ -43,8 +40,12 @@
 			overflow: hidden;
 		}
 
+		div.game-console>*>span {
+			color: aqua;
+			text-shadow: 0 0 8px aqua;
+		}
+
 		div.console-head {
-			color: azure;
 			background-color: #8b5151;
 			height: 3rem;
 			line-height: 3rem;
@@ -54,27 +55,19 @@
 		div.console-main {
 			background-color: rgba(0, 0, 0, 0.5);
 			height: 26rem;
-			color: azure;
-			text-shadow: 0 0 4px azure;
-			padding: 2rem;
+			text-shadow: 0 0 8px azure;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
 		}
 
-		table {
-			/* background-color: #16181e;*/
-			background: #3a557b;
-			color: #999;
-			width: 100%;
-			border-collapse: collapse;
-			overflow: hidden;
-
+		div.console-main>span {
+			text-shadow: 0 0 8px aqua, 0 0 12px aqua;
 		}
 
 		.console-option {
 			color: rgb(192, 192, 192);
 			height: 2rem;
 			line-height: 2rem;
-			padding-left: 2rem;
-			padding-right: 2rem;
 		}
 
 		.opt1,
@@ -88,23 +81,32 @@
 			background-color: rgb(88, 90, 92);
 		}
 
-		h1 {
-			font-size: 2rem;
-			line-height: 3rem;
-			/* position: absolute;*/
-
-			top: 4rem;
-			text-align: center;
-
+		.anim-typewriter {
+			animation: blinkTextCursor 500ms steps(44) infinite normal;
 		}
 
+		@keyframes blinkTextCursor {
+			from {
+				border-right-color: rgba(255, 255, 255, .75);
+			}
+
+			to {
+				border-right-color: transparent;
+			}
+		}
+
+		/* end console-specific css */
+
 		a {
-			color: white;
+			color: rgb(255, 255, 192);
 			text-decoration: none;
+			transition: 0.4s;
 		}
 
 		a:hover {
 			color: yellow;
+			text-shadow: 0 0 8px yellow, 0 0 12px yellow;
+			transition: 0;
 		}
 	</style>
 
@@ -114,28 +116,32 @@
 <body>
 	<div class="game-console">
 		<div class="console-head">
-			Stardate: [ 472384738947389 ]&nbsp;&nbsp;&nbsp;&nbsp;Location: [ ASTEROID BELT OUTER REACHES ]
+			Location: [ <span>ASTEROID BELT</span> ]
 		</div>
-		<div class="console-main">
-			You feel light-headed
+		<div id="typewriter" class="console-main cursor-blink">
+			Stardate: <span>33291225</span>-<span>032514</span><br><br>
+			You feel light-headed.<br><br>
+			Something doesn't seem right...
 		</div>
-		<div class="console-option opt1">
+		<div id="opt1" class="console-option opt1">
 			<a href="">Take medicine</a>
 		</div>
-		<div class="console-option opt2">
+		<div id="opt2" class="console-option opt2">
 			<a href="">Run away -- emulating a really long option that's way too long this should be dots</a>
 		</div>
-		<div class="console-option opt3">
+		<div id="opt3" class="console-option opt3">
 			<a href="">Do push-ups</a>
 		</div>
-		<div class="console-option opt4">
+		<div id="opt4" class="console-option opt4">
 			<a href=""></a>
 		</div>
-		<div class="console-option opt5">
+		<div id="opt5" class="console-option opt5">
 			<a href=""></a>
 		</div>
 	</div>
 
 </body>
+
+<script src="scripts/typewriter.js"></script>
 
 </html>
