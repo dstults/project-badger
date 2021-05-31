@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Board</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: rgb(32, 32, 32);
+			background-image: url("images/pexels-lucas-pezeta-3772378Small.jpg");
+			margin: 0 auto;
+		}
+
+		div.game-console {
+			width: 60rem;
+			margin: 4rem auto auto auto;
+			display: grid;
+			grid-template-columns: auto;
+			border-radius: 1rem;
+			box-shadow: 0 0 16px black;
+			overflow: hidden;
+			font-family: monospace;
+			font-size: 200%;
+		}
+
+		div.game-console>* {
+			padding-left: 2rem;
+			padding-right: 2rem;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		div.console-head {
+			color: azure;
+			background-color: #8b5151;
+			height: 3rem;
+			line-height: 3rem;
+			overflow: ellipsis;
+		}
+
+		div.console-main {
+			background-color: rgba(0, 0, 0, 0.5);
+			height: 26rem;
+			color: azure;
+			text-shadow: 0 0 4px azure;
+			padding: 2rem;
+		}
+
+		table {
+			/* background-color: #16181e;*/
+			background: #3a557b;
+			color: #999;
+			width: 100%;
+			border-collapse: collapse;
+			overflow: hidden;
+
+		}
+
+		.console-option {
+			color: rgb(192, 192, 192);
+			height: 2rem;
+			line-height: 2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		.opt1,
+		.opt3,
+		.opt5 {
+			background-color: rgb(56, 56, 114);
+		}
+
+		.opt2,
+		.opt4 {
+			background-color: rgb(88, 90, 92);
+		}
+
+		h1 {
+			font-size: 2rem;
+			line-height: 3rem;
+			/* position: absolute;*/
+
+			top: 4rem;
+			text-align: center;
+
+		}
+
+		a {
+			color: white;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: yellow;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div class="game-console">
+		<div class="console-head">
+			Stardate: [ 472384738947389 ]&nbsp;&nbsp;&nbsp;&nbsp;Location: [ ASTEROID BELT OUTER REACHES ]
+		</div>
+		<div class="console-main">
+			You feel light-headed
+		</div>
+		<div class="console-option opt1">
+			<a href="">Take medicine</a>
+		</div>
+		<div class="console-option opt2">
+			<a href="">Run away -- emulating a really long option that's way too long this should be dots</a>
+		</div>
+		<div class="console-option opt3">
+			<a href="">Do push-ups</a>
+		</div>
+		<div class="console-option opt4">
+			<a href=""></a>
+		</div>
+		<div class="console-option opt5">
+			<a href=""></a>
+		</div>
+	</div>
+
+</body>
+
+</html>
