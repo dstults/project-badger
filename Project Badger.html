@@ -104,7 +104,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 }
 @font-face {
   font-family: aiFont;
-  src: url("fonts/square_sans_serif_7.ttf");
+  src: url("https://dstults.net/play-badger/fonts/visitor1.ttf");
 }
 body {
 	min-height: 450px;
@@ -290,7 +290,7 @@ div.console-main>span {
 }
 .ai-normal {
 	color: lightgreen !important;
-	text-shadow: 0 0 8px lightgreen, 0 0 12px lightgreen !important;
+	text-shadow: 0 0 8px lightgreen !important;
 	font-family: aiFont, monospace !important;
 }
 .ai-virus {
@@ -301,6 +301,7 @@ div.console-main>span {
 .ai-normal>span,.ai-virus>span {
 	text-transform: uppercase !important;
 	font-weight: bold !important;
+  	font-size: 120%;
 }
 .console-option {
 	color: rgb(192, 192, 192);
@@ -524,10 +525,10 @@ Enter your name and press enter:
 
 &lt;&lt;if $debugMode&gt;&gt;
 Your Unique Identifier: [ &lt;span style=&quot;color: goldenrod;&quot;&gt;$uid&lt;/span&gt; ]
-
+&lt;!--
 &lt;&lt;ai&gt;&gt;AI boot sequence complete.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;ai&gt;&gt;You are wonerful.&lt;&lt;virus&gt;&gt;You are a pitiful fool.&lt;&lt;/ai&gt;&gt;
-
+--&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/console&gt;&gt;
@@ -708,12 +709,12 @@ The turbo-encabulator has now reached a high level of development, and it’s be
 &lt;button onclick=&quot;setup.runPassage(&#39;Intro (4)&#39;);&quot;&gt;Next&lt;/button&gt;</tw-passagedata><tw-passagedata pid="17" name="The Landing" tags="" position="2000,100" size="100,100">&lt;&lt;console null true&gt;&gt;You&#39;ve landed on the new planet.
 
 It is scary here. You poop your pants. The end.
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="init-cache-audio" tags="" position="400,300" size="100,100">&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;typewriter&quot; &quot;audio/344816__nakhas__data-transfer.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;drone&quot; &quot;audio/mixkit-large-drone-engine-2741.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;door1&quot; &quot;audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;door2&quot; &quot;audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;door3&quot; &quot;audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="init-cache-audio" tags="" position="400,300" size="100,100">&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;https://dstults.net/play-badger/audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;typewriter&quot; &quot;https://dstults.net/play-badger/audio/344816__nakhas__data-transfer.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;drone&quot; &quot;https://dstults.net/play-badger/audio/mixkit-large-drone-engine-2741.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;door1&quot; &quot;https://dstults.net/play-badger/audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;door2&quot; &quot;https://dstults.net/play-badger/audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;door3&quot; &quot;https://dstults.net/play-badger/audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
 </tw-passagedata><tw-passagedata pid="19" name="init-run-scripts" tags="" position="400,400" size="100,100">
 &lt;&lt;script&gt;&gt;
 State.variables.uid = setup.randomUID();
@@ -758,7 +759,6 @@ nearest space station.&lt;&lt;/ai&gt;&gt;
 </tw-passagedata><tw-passagedata pid="25" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;console&gt;&gt;
 You soar across the system.
 
-&lt;&lt;ai&gt;&gt;We must hurry, we are low on power.&lt;&lt;virus&gt;&gt;Could you fly this thing any slower?&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Fly for Space Station|transition-to-part3-2]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
 You approach the space station.
