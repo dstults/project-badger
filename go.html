@@ -1,0 +1,61 @@
+<html>
+
+<head>
+	<title>Go Game of Life</title>
+	<style>
+		.lifeboard-holder {
+			margin: 10rem;
+			text-align: center;
+		}
+		.lifeboard {
+			border: 1px solid black;
+			margin: 0 auto;
+			display: inline-grid;
+			grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+			min-width: 10rem;
+			min-height: 10rem;
+		}
+		.lifeboard button {
+			border: none;
+			background: none;
+			width: 2rem;
+			height: 2rem;
+			padding: 0;
+		}
+		.lifeboard button:hover {
+			background-color: aqua;
+		}
+		.lifeboard button:active {
+			background-color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="lifeboard-holder"><div id="lifeboard" class="lifeboard"></div></div>
+</body>
+<script>
+	const lifeboard = document.getElementById('lifeboard');
+	let x;
+	let y;
+	let grid = [];
+	let gridrow;
+	for (y = 0; y < 10; y++) {
+		grid.push([]);
+		gridrow = grid[y];
+		for (x = 0; x < 10; x++) {
+			const elem = document.createElement('button');
+			gridrow.push(elem);
+			//elem.innerHTML = x + ' ' + y;
+			elem.x = x;
+			elem.y = y;
+			elem.onclick = (ev) => {
+				elem.innerHTML = elem.x + ', ' + elem.y;
+			};
+			//elem.onclick.bind(gridrow[y][x]);
+			lifeboard.appendChild(elem);	
+		}
+	}
+</script>
+
+</html>
