@@ -655,18 +655,11 @@ postHighScore();
 	[[OK, go back.|Start]]&lt;br&gt;
 	&lt;&lt;set $name = &#39;Snu Snu&#39;&gt;&gt;
 &lt;&lt;else&gt;&gt;
-	&lt;&lt;if $debugMode&gt;&gt;
-		Hello, $name.
-		&lt;br&gt;DEBUG MODE IS ENABLED.&lt;br&gt;&lt;br&gt;
-		[[Go to Part 1|Intro (1)]]&lt;br&gt;
-		[[Go to Part 2|transition-to-part2-1]]&lt;br&gt;
-		[[Go to Part 3 (AI Win)|transition-to-part3-1]]&lt;br&gt;
-		[[Go to Part 3 (Virus Win)|transition-to-part3-1][$virusWon = true]]&lt;br&gt;
-		[[Just show me the scoreboard!|Display Scores]]&lt;br&gt;&lt;br&gt;
-		[[No, go back.|Start]]&lt;br&gt;
-	&lt;&lt;else&gt;&gt;
-		&lt;&lt;goto &quot;Intro (1)&quot;&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
+	&lt;!--&lt;&lt;goto &quot;Intro (1)&quot;&gt;&gt;--&gt;
+	Hello, $name. Are you ready to start?&lt;br&gt;&lt;br&gt;
+	[[Yes, let&#39;s start!|Intro (1)]]&lt;br&gt;&lt;br&gt;
+	[[Just show me the scoreboard!|Display Scores]]&lt;br&gt;&lt;br&gt;
+	[[No, go back.|Start]]&lt;br&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Intro (1)" tags="" position="1100,500" size="100,100">&lt;&lt;console true&gt;&gt;
 STARDATE: 32041224-043254
@@ -685,7 +678,7 @@ Commence salvage operations to gather materials to repair ship.
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Part 1" tags="" position="1500,500" size="100,100">Insert Ahmed&#39;s section here.
 
 
-[[Restart the ship&#39;s power supply!|transition-to-part2-1]]</tw-passagedata><tw-passagedata pid="13" name="Patrick" tags="" position="3600,100" size="100,100">&lt;&lt;console &#39;&#39; true &#39;Look in the closet.|Closet&#39;&gt;&gt;
+[[Restart the ship&#39;s power supply!|transition-to-part2-1]]</tw-passagedata><tw-passagedata pid="13" name="Patrick" tags="" position="3900,100" size="100,100">&lt;&lt;console &#39;&#39; true &#39;Look in the closet.|Closet&#39;&gt;&gt;
 
 outline
 
@@ -731,7 +724,7 @@ The main winding was of the normal lotus-o-delta type placed in panendermic semi
 The turbo-encabulator has now reached a high level of development, and it’s being successfully used in the operation of novertrunnions. Moreover, whenever a forescent skor motion is required, it may also be employed in conjunction with a drawn reciprocation dingle arm, to reduce sinusoidal repleneration.”
 
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="14" name="Closet" tags="" position="3600,225" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="15" name="demo-iframe" tags="" position="100,1150" size="100,100">&lt;iframe src=&quot;https://dstults.net&quot;&gt;
+</tw-passagedata><tw-passagedata pid="14" name="Closet" tags="" position="3900,200" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="15" name="demo-iframe" tags="" position="100,1150" size="100,100">&lt;iframe src=&quot;https://dstults.net&quot;&gt;
 &lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="16" name="coded-passage-change" tags="" position="100,1275" size="100,100">
 &lt;button onclick=&quot;setup.runPassage(&#39;Intro (4)&#39;);&quot;&gt;Next&lt;/button&gt;</tw-passagedata><tw-passagedata pid="17" name="The Landing" tags="" position="2000,100" size="100,100">&lt;&lt;console null true&gt;&gt;You&#39;ve landed on the new planet.
 
@@ -819,7 +812,8 @@ modial interaction of magneto-reluctance and capacitive
 diractance.
 
 &lt;&lt;add-tab&gt;&gt;[[Beam to outpost|Enter Outpost]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Part 3" tags="" position="2700,500" size="100,100">Insert Patrick&#39;s section here.
+&lt;&lt;/console&gt;&gt;
+&lt;&lt;set $tool = &#39;None&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Part 3" tags="" position="2700,500" size="100,100">Insert Patrick&#39;s section here.
 [[patricks-section]] 
 
 [[Fix/get power supply at the space station!|Entering Space Station]]
@@ -833,18 +827,19 @@ You pick up a &lt;span&gt;protein bar&lt;/span&gt; off the ground.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;Protein Bars: $proteinBars
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Enter Outpost" tags="" position="3200,100" size="100,100">&lt;&lt;console true&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="Enter Outpost" tags="" position="3200,100" size="100,100">&lt;&lt;console false&gt;&gt;
 
 Entering outpost
 
-You see a door marked Machine Room.
-You see a passageway marked Generator.
+You see a door marked Machine Room
+You see a passageway marked Generator
 
 
 
-&lt;&lt;add-tab&gt;&gt;[[Hall|Hall]]
+&lt;&lt;add-tab&gt;&gt;[[Passageway|Hall]]
 &lt;&lt;add-tab&gt;&gt;[[Machine Room|Machine Room]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Hall" tags="" position="3200,250" size="100,100">&lt;&lt;console true&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Hall" tags="" position="3200,250" size="100,100">&lt;&lt;console false&gt;&gt;
 
  As you walk down the hall a red beam scans you as you pass.
  
@@ -852,64 +847,56 @@ You see a passageway marked Generator.
  
  Behind is the outpost landing spot.
 
-****Note: If virus=true
+/* Note: If virus=true
 	here is where I will check for the virus. If present, alarms
 	go off, blast door lower (trapping hero inside), 
 	Change background.
 
 	Rule breaking: We don&#39;t have time to deal with this. 
 	Just walk through the blast doors.
-****
+*/
 
 
 
-&lt;&lt;add-tab&gt;&gt;[[Power Generatro|Outpost Power Generator]]
+&lt;&lt;add-tab&gt;&gt;[[Power Generatror|Outpost Power Generator]]
 &lt;&lt;add-tab&gt;&gt;[[Landing spot|Enter Outpost]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Machine Room" tags="" position="3350,100" size="100,100">&lt;&lt;console true&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Machine Room" tags="" position="3400,100" size="100,100">&lt;&lt;set $tool = &#39;None&#39;&gt;&gt;
+&lt;&lt;console false&gt;&gt;
 
 This is a pretty small machine room. More like a closet. 
 
 You see:
-	A pair of plyers.
-	A screw driver.
-	A tremie pipe wrench
-	A hammer.
-	
-	**** note: must add code to select one tool. The hero will
-		need the tremie pipe wrench to remove the tremie pipe
-		from the generator. User can only carry one tool at a 
-		time 
-	****
+	[[A pair of plyers|Pickup Plyers]]
+	[[A screw drive|Pickup Driver]]
+	[[A tremie pipe wrench|Pickup Wrench]]
+	[[A hammer|Pickup Hammer]]
 
-[[Out|Enter Outpost]]
+
+
 
 
 
 &lt;&lt;add-tab&gt;&gt;[[Leave machine room|Enter Outpost]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Outpost Power Generator" tags="" position="3200,400" size="100,100">&lt;&lt;console true&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Outpost Power Generator" tags="" position="3200,400" size="100,100">&lt;&lt;console false&gt;&gt;
+You see the tremie pipe but it is locked in place. 
 
-
-You see the tremie pipe but it is locked in place. You&#39;ll need a tool to get it loose.
-
-**** if tool = tremie pipe wrench
-			get tremie pipe
-	esle
-		You need the proper tool for that.
-****
+[[Get the tremie pipe|Get Pipe]]
 
 You see a door labeled Hydrocoptic Room.
 
 
 &lt;&lt;add-tab&gt;&gt;[[Open doorway|Hydrocoptic Room]]
 &lt;&lt;add-tab&gt;&gt;[[Hall]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
 &lt;&lt;/console&gt;&gt;
 
 
 
-</tw-passagedata><tw-passagedata pid="37" name="Hydrocoptic Room" tags="" position="3200,550" size="100,100">&lt;&lt;console true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="37" name="Hydrocoptic Room" tags="" position="3200,550" size="100,100">&lt;&lt;console false&gt;&gt;
 
 
-There they are... six beautiful hydrocoptic marzlevanes&quot;.
+There they are... six beautiful hydrocoptic marzlevanes.
 
 You notice they are locked behind a digital deterrence device.
 
@@ -919,8 +906,9 @@ It looks like you&#39;ll need a 7 digit entry code.
 &lt;&lt;add-tab&gt;&gt;[[Enter Code]]
 &lt;&lt;add-tab&gt;&gt;[[Control Room]]
 &lt;&lt;add-tab&gt;&gt;[[Outpost Power Generator]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Control Room" tags="" position="3200,700" size="100,100">
-&lt;&lt;console true&gt;&gt;
+&lt;&lt;console fasle&gt;&gt;
 
 Wow, an impressive control room. Computer consoles 
 and lights blinking everywhere…
@@ -931,6 +919,7 @@ ah, what&#39;s this? A code fragment in a biometric buffer.
 
 &lt;&lt;add-tab&gt;&gt;[[Read the code fragment.|Code Fragment]]
 &lt;&lt;add-tab&gt;&gt;[[Hydrocoptic Room]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
 &lt;&lt;/console&gt;&gt;
 
 
@@ -942,18 +931,92 @@ ah, what&#39;s this? A code fragment in a biometric buffer.
 
 
 &lt;&lt;add-tab&gt;&gt;[[Control Room]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="to-do" tags="" position="3600,350" size="100,100">Transition into outpost or space station. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="41" name="Blast Doors Closed" tags="" position="3325,250" size="100,100">**** here is where the virus true scene will take place. ****</tw-passagedata><tw-passagedata pid="42" name="Enter Code" tags="" position="3325,550" size="100,100">&lt;&lt;console true&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="to-do" tags="" position="3900,300" size="100,100">Transition into outpost or space station. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="41" name="Blast Doors Closed" tags="" position="3075,250" size="100,100">**** here is where the virus true scene will take place. ****</tw-passagedata><tw-passagedata pid="42" name="Enter Code" tags="" position="3325,550" size="100,100">&lt;&lt;console false&gt;&gt;
 
 
-**** Figure out text entry then check for correct code
+/* Figure out text entry then check for correct code
 	if textentry == code
 		grab the goodies
 	else
 		buzzer... Wrong
+*/
 
 
 
 
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Pickup Wrench" tags="" position="3600,0" size="100,100">&lt;&lt;set $tool = &quot;Tremie Pipe Wrench&quot;&gt;&gt;
+&lt;&lt;console false&gt;&gt;
+
+You grab the tremie pipe wrench.
+
+You see:
+	[[A pair of plyers|Pickup Plyers]]
+	[[A screw drive|Pickup Driver]]
+	[[A tremie pipe wrench|Pickup Wrench]]
+	[[A hammer|Pickup Hammer]]
+
+
+&lt;&lt;add-tab&gt;&gt;[[Leave machine room|Enter Outpost]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="Pickup Plyers" tags="" position="3600,100" size="100,100">&lt;&lt;set $tool = &quot;Plyers&quot;&gt;&gt;
+&lt;&lt;console false&gt;&gt;
+
+You grab the plyers.
+
+You see:
+	[[A pair of plyers|Pickup Plyers]]
+	[[A screw drive|Pickup Driver]]
+	[[A tremie pipe wrench|Pickup Wrench]]
+	[[A hammer|Pickup Hammer]]
+
+
+&lt;&lt;add-tab&gt;&gt;[[Leave machine room|Enter Outpost]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Pickup Driver" tags="" position="3600,300" size="100,100">&lt;&lt;set $tool = &quot;Screw Driver&quot;&gt;&gt;
+&lt;&lt;console false&gt;&gt;
+
+You grab the screw driver.
+
+You see:
+	[[A pair of plyers|Pickup Plyers]]
+	[[A screw drive|Pickup Driver]]
+	[[A tremie pipe wrench|Pickup Wrench]]
+	[[A hammer|Pickup Hammer]]
+
+
+&lt;&lt;add-tab&gt;&gt;[[Leave machine room|Enter Outpost]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Pickup Hammer" tags="" position="3600,200" size="100,100">&lt;&lt;set $tool = &quot;Hammer&quot;&gt;&gt;
+&lt;&lt;console false&gt;&gt;
+
+You grab the hammer.
+
+You see:
+	[[A pair of plyers|Pickup Plyers]]
+	[[A screw drive|Pickup Driver]]
+	[[A tremie pipe wrench|Pickup Wrench]]
+	[[A hammer|Pickup Hammer]]
+
+
+&lt;&lt;add-tab&gt;&gt;[[Leave machine room|Enter Outpost]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Tool Check Code" tags="" position="3800,500" size="100,100">&lt;&lt;if</tw-passagedata><tw-passagedata pid="48" name="Get Pipe" tags="" position="3325,400" size="100,100">&lt;&lt;console false&gt;&gt;
+&lt;&lt;if $tool is &quot;None&quot;&gt;&gt;
+	You&#39;ll need a tool to get it loose.
+&lt;&lt;elseif $tool is &quot;Tremie Pipe Wrench&quot;&gt;&gt;
+	You use the wrench and disconnect the tremie pipe.
+
+	Congrats, you’ve got the tremie pipe!
+	
+&lt;&lt;else&gt;&gt;
+	You&#39;ll need a different tool
+&lt;&lt;/if&gt;&gt;
+
+
+&lt;&lt;add-tab&gt;&gt;[[Open doorway|Hydrocoptic Room]]
+&lt;&lt;add-tab&gt;&gt;[[Hall]]
+&lt;&lt;add-tab&gt;&gt;Tool: $tool
 &lt;&lt;/console&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
