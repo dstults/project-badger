@@ -655,11 +655,18 @@ postHighScore();
 	[[OK, go back.|Start]]&lt;br&gt;
 	&lt;&lt;set $name = &#39;Snu Snu&#39;&gt;&gt;
 &lt;&lt;else&gt;&gt;
-	&lt;!--&lt;&lt;goto &quot;Intro (1)&quot;&gt;&gt;--&gt;
-	Hello, $name. Are you ready to start?&lt;br&gt;&lt;br&gt;
-	[[Yes, let&#39;s start!|Intro (1)]]&lt;br&gt;&lt;br&gt;
-	[[Just show me the scoreboard!|Display Scores]]&lt;br&gt;&lt;br&gt;
-	[[No, go back.|Start]]&lt;br&gt;
+	&lt;&lt;if $debugMode&gt;&gt;
+		Hello, $name.
+		&lt;br&gt;DEBUG MODE IS ENABLED.&lt;br&gt;&lt;br&gt;
+		[[Go to Part 1|Intro (1)]]&lt;br&gt;
+		[[Go to Part 2|transition-to-part2-1]]&lt;br&gt;
+		[[Go to Part 3 (AI Win)|transition-to-part3-1]]&lt;br&gt;
+		[[Go to Part 3 (Virus Win)|transition-to-part3-1][$virusWon = true]]&lt;br&gt;
+		[[Just show me the scoreboard!|Display Scores]]&lt;br&gt;&lt;br&gt;
+		[[No, go back.|Start]]&lt;br&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Intro (1)&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Intro (1)" tags="" position="1100,500" size="100,100">&lt;&lt;console true&gt;&gt;
 STARDATE: 32041224-043254
