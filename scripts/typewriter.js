@@ -29,12 +29,12 @@ const runTypewriter = () => {
 	const durationMin = 10;
 	let tempTypeSpeed = 0;
 
-	// Variables to help spit tags out instantly
+	// Variables to deal with tags
 	let tag = '';
 	let writingTag = false;
 	let tagOpen = false;
 
-	// Make recursive typing function
+	// Recursive typing function
 	const printNextChar = () => {
 
 		if (writingTag === true) {
@@ -55,17 +55,10 @@ const runTypewriter = () => {
 		}
 		if (!writingTag && tagOpen) {
 			tag.innerHTML += rawText[cursorPosition];
-		}
-		if (!writingTag && !tagOpen) {
-			if (rawText[cursorPosition] === ' ') {
-				tempTypeSpeed = 0;
-			} else {
-				tempTypeSpeed = (Math.random() * durationVariation) + durationMin;
-			}
+		} else if (!writingTag && !tagOpen) {
 			typewriterElement.innerHTML += rawText[cursorPosition];
 		}
 		if (writingTag === true && rawText[cursorPosition] === '>') {
-			tempTypeSpeed = (Math.random() * durationVariation) + durationMin;
 			writingTag = false;
 			if (tagOpen) {
 				const newSpan = document.createElement('span');
@@ -78,6 +71,7 @@ const runTypewriter = () => {
 		// NextPos
 		cursorPosition += 1;
 		// Pause longer if new line
+		if (!writingTag) tempTypeSpeed = (Math.random() * durationVariation) + durationMin;
 		if (rawText[cursorPosition] === '\n') tempTypeSpeed += 200;
 
 		if (cursorPosition < rawText.length - 1) {
