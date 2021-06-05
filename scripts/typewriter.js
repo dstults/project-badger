@@ -24,55 +24,68 @@ const runTypewriter = () => {
 	typewriterElement.innerHTML = '';
 
 	// Position tracker and speed configurations
-	let cursorPosition = 0;
+	let cursorPosition = -1;
 	const durationVariation = 0;
 	const durationMin = 10;
 	let tempTypeSpeed = 0;
 
 	// Variables to deal with tags
 	let tag = '';
-	let writingTag = false;
+	let readingTag = false;
 	let tagOpen = false;
 
 	// Recursive typing function
 	const printNextChar = () => {
+		cursorPosition++;
 
-		if (writingTag === true) {
+		if (readingTag === true) {
 			tag += rawText[cursorPosition];
 		}
 
+		// Determine if we're about to start a tag
 		if (rawText[cursorPosition] === '<') {
-			tempTypeSpeed = 0;
 			if (tagOpen) {
 				tagOpen = false;
-				writingTag = true;
+				readingTag = true;
 			} else {
 				tag = '';
 				tagOpen = true;
-				writingTag = true;
+				readingTag = true;
 				tag += rawText[cursorPosition];
 			}
 		}
-		if (!writingTag && tagOpen) {
+
+		// Add data to appropriate element
+		if (!readingTag && tagOpen) {
 			tag.innerHTML += rawText[cursorPosition];
-		} else if (!writingTag && !tagOpen) {
+		} else if (!readingTag && !tagOpen) {
 			typewriterElement.innerHTML += rawText[cursorPosition];
-		}
-		if (writingTag === true && rawText[cursorPosition] === '>') {
-			writingTag = false;
+		} else if (readingTag === true && rawText[cursorPosition] === '>') {
+			readingTag = false;
 			if (tagOpen) {
-				const newSpan = document.createElement('span');
-				typewriterElement.appendChild(newSpan);
-				newSpan.innerHTML = tag;
-				tag = newSpan.firstChild;
+				if (tag === '<br>') {
+					const newSpan = document.createElement('br');
+					typewriterElement.appendChild(newSpan);
+					tagOpen = false;
+					readingTag = false;
+				} else {
+					const newSpan = document.createElement(tag.substr(1, tag.length - 2));
+					typewriterElement.appendChild(newSpan);
+					newSpan.innerHTML = tag;
+					tag = newSpan.firstChild;
+				}
 			}
 		}
 
-		// NextPos
-		cursorPosition += 1;
-		// Pause longer if new line
-		if (!writingTag) tempTypeSpeed = (Math.random() * durationVariation) + durationMin;
-		if (rawText[cursorPosition] === '\n') tempTypeSpeed += 200;
+		// Pause if not a tag, longer if new line, don't pause if tag
+		if (!readingTag)
+			tempTypeSpeed = (Math.random() * durationVariation) + durationMin;
+		else if (readingTag)
+			tempTypeSpeed = 0;
+		else if (rawText[cursorPosition] === '\n')
+			tempTypeSpeed += 200;
+		else // this should never be thrown
+			console.log('Debug this black magic!');
 
 		if (cursorPosition < rawText.length - 1) {
 			setTimeout(printNextChar, tempTypeSpeed);
