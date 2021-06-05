@@ -2,6 +2,7 @@
 
 const runTypewriter = () => {
 
+	/*
 	// First clear and store the 5 options
 	const options = [];
 	for (let i = 1; i <= 5; i++) {
@@ -17,6 +18,7 @@ const runTypewriter = () => {
 			options[i].element.innerHTML = options[i].text;
 		}
 	}
+	*/
 
 	// Typewriter element and text reset
 	const typewriterElement = document.getElementById('typewriter');
@@ -90,10 +92,10 @@ const runTypewriter = () => {
 		if (cursorPosition < rawText.length - 1) {
 			setTimeout(printNextChar, tempTypeSpeed);
 		} else {
-			populateOptions();
+			/* populateOptions(); */
 		}
 	};
 
-	printNextChar();
+	setTimeout(printNextChar, 500);
 };
 runTypewriter();
