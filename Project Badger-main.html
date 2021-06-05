@@ -331,6 +331,98 @@ div.console-main>span {
 
 /* end console-specific css */
 /* -------------------------------------------------------- */
+
+
+
+
+/* Patrick - section 3 -------------------------------------*/
+
+body.machine-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/todd-kent-onnJOfF-okU-unsplash__1622842915_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+body.hall-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/hallway-802068_1280__1622844620_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+body.hydro-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/markus-spiske-kK7uPfb2YWU-unsplash__1622843015_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+body.control-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/ibrahim-boran-iYkqHp5cGQ4-unsplash__1622842974_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+
+body.generator-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/lost-place-2765843_1280__1622844054_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+body.blast-css {
+  	min-height: 450px;
+	height: 100vh;
+	background-image: url("http://www.patricknormile.com/assets/galvanized-5223587_1280__1622845140_73.225.163.6.jpg");
+	margin: 0 auto;
+	background-size: cover;
+  	background-attachment: fixed;
+  	background-repeat:   no-repeat;
+  	background-position: center center;
+	background-attachment: fixed;
+}
+
+/*
+http://www.patricknormile.com/assets/ibrahim-boran-iYkqHp5cGQ4-unsplash__1622842974_73.225.163.6.jpg - control panel
+
+http://www.patricknormile.com/assets/markus-spiske-kK7uPfb2YWU-unsplash__1622843015_73.225.163.6.jpg - hydro
+
+http://www.patricknormile.com/assets/todd-kent-onnJOfF-okU-unsplash__1622842915_73.225.163.6.jpg - machine
+
+http://www.patricknormile.com/assets/lost-place-2765843_1280__1622844054_73.225.163.6.
+
+http://www.patricknormile.com/assets/hallway-802068_1280__1622844620_73.225.163.6.jpg - hall 
+
+http://www.patricknormile.com/assets/galvanized-5223587_1280__1622845140_73.225.163.6.jpg - blast
+*/
+
+/*  End Patrick Section 3 ------------------------------------ */
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = true;
 State.variables.debugMode = debugMode;
 
@@ -530,8 +622,12 @@ due to the ships lac of gull winged doors.
 
 
 &lt;&lt;set $tool = &#39;None&#39;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="" position="2700,900" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="hall-css" position="2700,900" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;audio &quot;drone&quot; volume 0.2 loop play&gt;&gt;
+&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;set $location = &#39;Northern Corridor&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+
 You are in a T-shaped corridor.
 
 There are two doors and a long hallway that extends south.
@@ -545,7 +641,8 @@ The east door is labeled &lt;span&gt;Machine Room&lt;/span&gt;.
 &lt;&lt;add-tab&gt;&gt;[[Walk down Passageway|OP Central Corridor]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include list-tools&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="OP Central Corridor" tags="" position="2700,1100" size="100,100">&lt;&lt;set $location = &#39;Central Corridor&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="OP Central Corridor" tags="hall-css" position="2700,1100" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;
+&lt;&lt;set $location = &#39;Central Corridor&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
 
  As you walk down the hall a red beam scans you as you pass.
  
@@ -559,12 +656,15 @@ The east door is labeled &lt;span&gt;Machine Room&lt;/span&gt;.
 
 
 
+
+
 &lt;&lt;add-tab&gt;&gt;[[Walk back up to Northern Corridor|OP Northern Corridor]]
 &lt;&lt;add-tab&gt;&gt;[[Enter Power Generator room|OP Power Generator]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include list-tools&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="" position="2900,900" size="100,100">&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="machine-css" position="2875,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;
+&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 This is a pretty small machine room. More like a closet. 
 
@@ -575,11 +675,15 @@ You see:&lt;&lt;if !$hasPliers&gt;&gt;&lt;br&gt; - A pair of &lt;span&gt;pliers&
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasDriver&gt;&gt;[[Pick up screwdriver|OP Machine Room][$hasDriver = true]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasWrench&gt;&gt;[[Pick up wrench|OP Machine Room][$hasWrench = true]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include list-tools&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="" position="2700,1300" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="generator-css" position="2700,1300" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;
+&lt;&lt;audio &quot;drone&quot; volume 1&gt;&gt;
 &lt;&lt;console false&gt;&gt;
 You see a door labeled Hydrocoptic Room.
-
+&lt;&lt;if !$hasTremie&gt;&gt;
 You see the tremie pipe but it is locked in place. 
+&lt;&lt;else&gt;&gt;
+The generator is missing it&#39; tremie pipe.
+&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Get the tremie pipe|Get Pipe]]
 &lt;&lt;add-tab&gt;&gt;[[OP Central Corridor]]
@@ -589,14 +693,19 @@ You see the tremie pipe but it is locked in place.
 
 
 
-</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-coptics" tags="" position="2700,1500" size="100,100">&lt;&lt;console false&gt;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-coptics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;
+&lt;&lt;console false&gt;&gt;
 
-
+&lt;&lt;if !$hasHyrdro&gt;&gt;
 There they are... six beautiful hydrocoptic marzlevanes.
 
 You notice they are locked behind a digital deterrence device.
 
 It looks like you&#39;ll need a 7 digit entry code.
+&lt;&lt;else&gt;&gt;
+There are six emply marzlevane slots.
+&lt;&lt;/if&gt;&gt;
+
 
 
 &lt;&lt;add-tab&gt;&gt;[[Enter Code]]
@@ -612,7 +721,8 @@ It looks like you&#39;ll need a 7 digit entry code.
 
 
 
-</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="" position="2700,1700" size="100,100">&lt;&lt;console&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;
+&lt;&lt;console&gt;&gt;
 
 Wow, an impressive control room. Computer consoles 
 and lights blinking everywhere…
@@ -628,15 +738,15 @@ ah, what&#39;s this? A code fragment in a biometric buffer.
 
 
 
-</tw-passagedata><tw-passagedata pid="8" name="Code Fragment" tags="" position="2700,1900" size="100,100">&lt;&lt;console true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="8" name="Code Fragment" tags="control-css" position="2700,1900" size="100,100">&lt;&lt;console true&gt;&gt;
 
 %^DFEJ e fe &lt;b&gt;8675309&lt;/b&gt;  Je n ny fe  ea fea   #@
 
 
-&lt;&lt;add-tab&gt;&gt;[[Control Room|OP Control Room]]
+&lt;&lt;add-tab&gt;&gt;[[Hydrocoptic Room|OP Hydro-coptics]]
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include list-tools&gt;&gt;
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="9" name="Blast-Doors-Closed" tags="" position="2575,1100" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;
+</tw-passagedata><tw-passagedata pid="9" name="Blast-Doors-Closed" tags="blast-css" position="2575,1100" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;
 &lt;&lt;set $location = &#39;Central Corridor&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 VIRUS DETECTED!!!!
@@ -654,14 +764,14 @@ Let&#39;s just break the rules and walk right through the doors.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include list-tools&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="" position="2850,1500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="hydro-css" position="2850,1500" size="100,100">&lt;&lt;console&gt;&gt;
 
 Enter 7 Digit Code:
 &lt;&lt;textbox &#39;$code&#39; $code [[CodeEntryValidator]]&gt;&gt;
 
 
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Get Pipe" tags="" position="2825,1300" size="100,100">&lt;&lt;console false&gt;&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Get Pipe" tags="generator-css" position="2825,1300" size="100,100">&lt;&lt;console false&gt;&gt;
 &lt;&lt;if $tool is &quot;None&quot;&gt;&gt;
 	You&#39;ll need a tool to get it loose. Perhaps in the Machine Room.
 &lt;&lt;elseif $tool is &quot;Wrench&quot;&gt;&gt;
@@ -690,7 +800,7 @@ You pick up a &lt;span&gt;protein bar&lt;/span&gt; off the ground.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;Protein Bars: $proteinBars
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="list-tools" tags="" position="3000,800" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="list-tools" tags="leaderboard-css" position="3000,800" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set _count = 0&gt;&gt;
 Tools:
 &lt;&lt;if $hasPliers&gt;&gt;&lt;&lt;if _count &gt; 0&gt;&gt;,&lt;&lt;/if&gt;&gt; Pliers&lt;&lt;set _count++&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hasDriver&gt;&gt;&lt;&lt;if _count &gt; 0&gt;&gt;,&lt;&lt;/if&gt;&gt; Screwdriver&lt;&lt;set _count++&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hasWrench&gt;&gt;&lt;&lt;if _count &gt; 0&gt;&gt;,&lt;&lt;/if&gt;&gt; Wrench&lt;&lt;set _count++&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1240,7 +1350,7 @@ Oh hey, it&#39;s your spaceship! You went in a big circle...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="CodeEntryValidator" tags="" position="2975,1500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="CodeEntryValidator" tags="hydro-css" position="2975,1500" size="100,100">&lt;&lt;console&gt;&gt;
 
 &lt;&lt;if $code is &quot;8675309&quot;&gt;&gt;
 	Congratulations!
