@@ -3,59 +3,119 @@
 <head>
 	<title>Go Game of Life</title>
 	<style>
+		body {
+			background-color: black;
+		}
+
 		.lifeboard-holder {
 			margin: 10rem;
 			text-align: center;
 		}
+
 		.lifeboard {
-			border: 1px solid black;
+			border: 1px solid white;
 			margin: 0 auto;
 			display: inline-grid;
-			grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+			grid-template-columns: repeat(30, auto);
 			min-width: 10rem;
 			min-height: 10rem;
 		}
+
 		.lifeboard button {
 			border: none;
 			background: none;
-			width: 2rem;
-			height: 2rem;
+			width: 1rem;
+			height: 1rem;
 			padding: 0;
 		}
+
 		.lifeboard button:hover {
 			background-color: aqua;
 		}
+
 		.lifeboard button:active {
 			background-color: yellow;
+		}
+
+		.lifeboard .green {
+			background-color: lightgreen;
+		}
+
+		.lifeboard .purple {
+			background-color: pink;
 		}
 	</style>
 </head>
 
 <body>
-	<div class="lifeboard-holder"><div id="lifeboard" class="lifeboard"></div></div>
+	<div class="lifeboard-holder">
+		<div id="lifeboard" class="lifeboard"></div>
+	</div>
 </body>
+<script src="scripts/dstults_gameoflife_dueling_teams.js"></script>
 <script>
 	const lifeboard = document.getElementById('lifeboard');
-	let x;
-	let y;
-	let grid = [];
-	let gridrow;
-	for (y = 0; y < 10; y++) {
-		grid.push([]);
-		gridrow = grid[y];
-		for (x = 0; x < 10; x++) {
+
+	const cols = 30;
+	const rows = 20;
+
+	let col;
+	let row;
+	let buttons = [];
+	let buttonRow;
+	for (row = 0; row < rows; row++) {
+		buttons.push([]);
+		buttonRow = buttons[row];
+		for (col = 0; col < cols; col++) {
 			const elem = document.createElement('button');
-			gridrow.push(elem);
+			buttonRow.push(elem);
 			//elem.innerHTML = x + ' ' + y;
-			elem.x = x;
-			elem.y = y;
+			elem.col = col;
+			elem.row = row;
 			elem.onclick = (ev) => {
-				elem.innerHTML = elem.x + ', ' + elem.y;
+				if (myGrid[elem.row][elem.col] === 0) {
+					setTeam(elem.row, elem.col, 1);
+					myGrid[elem.row][elem.col] = 1;
+				}
 			};
 			//elem.onclick.bind(gridrow[y][x]);
-			lifeboard.appendChild(elem);	
+			lifeboard.appendChild(elem);
 		}
 	}
+
+	const setTeam = (row, col, team) => {
+		buttons[row][col].classList.remove('green');
+		buttons[row][col].classList.remove('purple');
+		switch (team) {
+			case 1:
+				buttons[row][col].classList.add('green');
+				break;
+			case 2:
+				buttons[row][col].classList.add('purple');
+				break;
+		}
+	}
+
+	const displayButtons = () => {
+		for (row = 0; row < rows; row++) {
+			for (col = 0; col < cols; col++) {
+				setTeam(row, col, myGrid[row][col]);
+			}
+		}
+	};
+
+	const myGrid = make2dArrayRandom(rows, cols, 2);
+	displayButtons();
+	const simulator = setInterval(() => {
+		runXgenerations(1, myGrid);
+		displayButtons();
+	}, 2000);
+
+	// const temp = make2dArrayRandom(9, 20); // [[0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 2, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0]];
+	// consoleLogGrid(temp);
+	// getNextGen(temp);
+	// getNextGen(temp);
+	// getNextGen(temp);
 </script>
 
 </html>
