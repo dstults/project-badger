@@ -126,7 +126,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
   	overflow: hidden;
 }
-
+h1 {
+	margin: 0;
+}
 div#passages {
   	/* background-color: rgba(255,255,255,10%); */
     min-height: 600px;
@@ -155,6 +157,13 @@ a:hover {
 	text-shadow: 0 0 8px yellow, 0 0 12px yellow;
 	text-decoration: none;
 	transition: none;
+}
+.blinking {
+	animation: simpleBlink 0.5s infinite normal;
+}
+@keyframes simpleBlink {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 /* end general css */
@@ -298,17 +307,6 @@ div.console-main span.error {
 .opt2, .opt4 {
 	background-color: rgb(88, 90, 92);
 }
-.anim-typewriter {
-	animation: blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes blinkTextCursor {
-	from {
-	  border-right-color: rgba(255, 255, 255, .75);
-	}
-	to {
-		border-right-color: transparent;
-	}
-}
 
 /* end console css */
 /* -------------------------------------------------------- */
@@ -317,7 +315,7 @@ div.console-main span.error {
 /* start lifeboard css */
 
 .lifeboard-holder {
-	margin: 1rem;
+	margin: 0.2rem;
 	text-align: center;
 }
 .lifeboard {
@@ -457,7 +455,7 @@ body.leaderboard-css {
 
 /* end leaderboard css */
 /* -------------------------------------------------------- */
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = true;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = false;
 State.variables.debugMode = debugMode;
 
 if (!debugMode) {
@@ -810,7 +808,7 @@ Congrats, you got the &lt;span&gt;tremie pipe&lt;/span&gt;!
 &lt;&lt;elseif $freeHands &lt;= 0&gt;&gt;You&#39;ll need a free hand to carry the tremie pipe!
 
 Try returning some of your &quot;borrowed&quot; items.
-&lt;&lt;elseif !$hasWrench&gt;&gt;You&#39;ll need a tool to get it loose.
+&lt;&lt;elseif !$hasWrench&gt;&gt;You&#39;ll need &lt;span&gt;a tool that can undo pipes&lt;/span&gt; to get it loose.
 
 Perhaps in the &lt;span&gt;Machine Room&lt;/span&gt;.
 &lt;&lt;else&gt;&gt;You use the wrench and disconnect the tremie pipe.
@@ -1185,15 +1183,25 @@ It is scary here. You poop your pants. The end.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="" position="2100,500" size="100,100">&lt;&lt;console false &#39;ELIMINATE ALL VIRUSES&#39;&gt;&gt;
-&lt;div class=&quot;lifeboard-holder&quot;&gt;&lt;div id=&quot;lifeboard&quot; class=&quot;lifeboard&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="" position="2100,500" size="100,100">&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
-&lt;button onclick=&quot;setup.runPassage(&#39;AI Won&#39;);&quot;&gt;THE VIRUS HAS BEEN LOCKED OUT&lt;/button&gt;
-&lt;button onclick=&quot;setup.runPassage(&#39;Virus Won&#39;);&quot;&gt;THE VIRUS HAS TAKEN OVER&lt;/button&gt;
+	Click to spawn &lt;span class=&quot;ai-normal&quot;&gt;friendly&lt;/span&gt; cells!&lt;br&gt;
+	&lt;div class=&quot;lifeboard-holder&quot;&gt;
+		&lt;div id=&quot;lifeboard&quot; class=&quot;lifeboard&quot;&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;lifeboard-scorebox&quot;&gt;
+		&lt;h1 id=&quot;score1&quot; class=&quot;ai-normal&quot;&gt;24&lt;/h1&gt;
+		&lt;h1 id=&quot;score2&quot; class=&quot;ai-virus&quot;&gt;23&lt;/h1&gt;
+	&lt;/div&gt;
+	&lt;button style=&quot;display: none;&quot; id=&quot;btnWin&quot; onclick=&quot;setup.runPassage(&#39;AI Won&#39;);&quot;&gt;
+		THE VIRUS HAS BEEN LOCKED OUT
+	&lt;/button&gt;
+	&lt;button style=&quot;display: none;&quot; id=&quot;btnLose&quot; onclick=&quot;setup.runPasage(&#39;Virus Won&#39;);&quot;&gt;
+		THE VIRUS HAS TAKEN OVER
+	&lt;/button&gt;
 &lt;/div&gt;
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
 You breathe a sigh of relief.
 
 &lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
@@ -1457,8 +1465,8 @@ Brrrttt!! Incorrect Code!
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter Code]]&lt;&lt;else&gt;&gt;[[Mission Complete]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[OP Power Generator]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[OP Control Room]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Return to the Generator Room|OP Power Generator]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;
@@ -1501,6 +1509,214 @@ Your total score is... $score! Great job!
 Beeeee-oooooo-ooop!
 &lt;/div&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+/* Darren Stults -- Dueling life */
+
+const make2dArray = (rows, cols, setTeams = 1) =&gt; {
+	teams = setTeams;
+	let arr = new Array(rows);
+	for (let row = 0; row &lt; rows; row++) {
+		arr[row] = new Array(cols).fill(0);
+	}
+	return arr;
+};
+
+const make2dArrayRandom = (rows, cols, setTeams = 1) =&gt; {
+	teams = setTeams;
+	let arr = new Array(rows);
+	for (let row = 0; row &lt; rows; row++) {
+		arr[row] = new Array(cols);
+		for (let col = 0; col &lt; cols; col++) {
+			arr[row][col] = Math.random() &gt; 0.5 ? Math.trunc(Math.random() * (teams)) + 1 : 0;
+		}
+	}
+	return arr;
+};
+
+const addPrefab = (generationGrid, prefab) =&gt; {
+	const prefabRows = prefab.length;
+	const prefabCols = prefab[0].length;
+	const prefabOffsetCol = Math.trunc(prefabCols / 2);
+	const prefabOffsetRow = Math.trunc(prefabRows / 2);
+	let globalRow;
+	let globalCol;
+
+	for (let row = 0; row &lt; prefabRows; row++) {
+		globalRow = row + centerRow(generationGrid) - prefabOffsetRow;
+		for (let col = 0; col &lt; prefabCols; col++) {
+			globalCol = col + centerCol(generationGrid) - prefabOffsetCol;
+			generationGrid[globalRow][globalCol] = prefab[row][col];
+		}
+	}
+};
+
+const consoleLogGrid = (generation) =&gt; {
+	console.log(&#39;\nGeneration: &#39; + totalGenerationCount);
+	let row;
+	for (const arr of generation) {
+		row = &#39;&#39;;
+		for (const cell of arr) {
+			row += cell;
+		}
+		console.log(row);
+	}
+};
+
+const getCellNextGen = (currentGen, globalRow, globalCol) =&gt; {
+	let neighborSum = 0;
+	const rows = currentGen.length;
+	const cols = currentGen[0].length;
+	let localCol;
+	let localRow;
+	const cellTeams = [];
+	for (let offsetX = -1; offsetX &lt; 2; offsetX++) {
+		for (let offsetY = -1; offsetY &lt; 2; offsetY++) {
+			localCol = (globalCol + offsetX + cols) % cols;
+			localRow = (globalRow + offsetY + rows) % rows;
+			if (currentGen[localRow][localCol] &gt; 0) {
+				neighborSum += 1;
+				cellTeams.push(currentGen[localRow][localCol]);
+			}
+		}
+	}
+	neighborSum -= currentGen[globalRow][globalCol] &gt; 0 ? 1 : 0;
+
+	let currentState = currentGen[globalRow][globalCol];
+	if (currentState === 0 &amp;&amp; neighborSum === 3) {
+		return cellTeams[Math.trunc(Math.random() * cellTeams.length)];
+	} else if (currentState &gt; 0 &amp;&amp; (neighborSum &lt; 2 || neighborSum &gt; 3)) {
+		return 0;
+	} else {
+		return currentState;
+	}
+};
+
+const getNextGen = (thisGeneration, nextGen) =&gt; {
+	totalGenerationCount++;
+	const rows = thisGeneration.length;
+	const cols = thisGeneration[0].length;
+	if (!nextGen) nextGen = make2dArray(rows, cols);
+
+	for (let row = 0; row &lt; rows; row++) {
+		for (let col = 0; col &lt; cols; col++) {
+			nextGen[row][col] = getCellNextGen(thisGeneration, row, col);
+		}
+	}
+
+	for (let row = 0; row &lt; rows; row++) {
+		for (let col = 0; col &lt; cols; col++) {
+			thisGeneration[row][col] = nextGen[row][col];
+		}
+	}
+};
+
+const runXgenerations = (genCount, generationGrid) =&gt; {
+	if (genCount &lt;= 0)
+		throw new Error(&#39;runXgenerations: Generation count must be greater than zero.&#39;);
+	if (!generationGrid)
+		throw new Error(&#39;runXgenerations: No cell grid supplied.&#39;);
+
+	const tempGen = make2dArray(generationGrid.length, generationGrid[0].length);
+	for (let i = 1; i &lt;= genCount; i++) {
+		getNextGen(generationGrid, tempGen);
+	}
+};
+
+const rPentominoPrefab = [
+	[0, 1, 1],
+	[1, 1, 0],
+	[0, 1, 0]
+];
+const acornPrefab = [
+	[0, 1, 0, 0, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0, 0],
+	[1, 1, 0, 0, 1, 1, 1]
+];
+let totalGenerationCount = 0;
+let teams = 1;
+const centerY = (grid) =&gt; Math.trunc(grid.length / 2);
+const centerCol = (grid) =&gt; Math.trunc(grid[0].length / 2);
+
+const lifeboard = document.getElementById(&#39;lifeboard&#39;);
+
+const cols = 30;
+const rows = 16;
+
+let col;
+let row;
+const buttons = [];
+
+let buttonRow;
+for (row = 0; row &lt; rows; row++) {
+	buttons.push([]);
+	buttonRow = buttons[row];
+	for (col = 0; col &lt; cols; col++) {
+		const btn = document.createElement(&#39;button&#39;);
+		buttonRow.push(btn);
+		btn.col = col;
+		btn.row = row;
+		btn.onclick = (ev) =&gt; {
+			if (myGrid[btn.row][btn.col] === 0) {
+				setTeam(btn.row, btn.col, 1);
+				myGrid[btn.row][btn.col] = 1;
+			}
+		};
+		lifeboard.appendChild(btn);
+	}
+}
+
+const setTeam = (row, col, team) =&gt; {
+	buttons[row][col].classList.remove(&#39;green&#39;);
+	buttons[row][col].classList.remove(&#39;purple&#39;);
+	switch (team) {
+		case 1:
+			buttons[row][col].classList.add(&#39;green&#39;);
+			break;
+		case 2:
+			buttons[row][col].classList.add(&#39;purple&#39;);
+			break;
+		default:
+			break;
+	}
+	return;
+};
+
+const myGrid = make2dArrayRandom(rows, cols, 2);
+const scoreText1 = document.getElementById(&#39;score1&#39;);
+const scoreText2 = document.getElementById(&#39;score2&#39;);
+let team1score;
+let team2score;
+
+const displayVirusButtons = () =&gt; {
+	team1score = 0;
+	team2score = 0;
+	for (row = 0; row &lt; rows; row++) {
+		for (col = 0; col &lt; cols; col++) {
+			setTeam(row, col, myGrid[row][col]);
+			if (myGrid[row][col] === 1) {
+				team1score++;
+			} else if (myGrid[row][col] === 2) {
+				team2score++;
+			}
+		}
+	}
+	scoreText1.innerHTML = team1score;
+	scoreText2.innerHTML = team2score;
+};
+
+const winBtn = document.getElementById(&#39;btnWin&#39;);
+const loseBtn = document.getElementById(&#39;btnLose&#39;);
+displayVirusButtons();
+const simulator = setInterval(() =&gt; {
+	runXgenerations(1, myGrid);
+	displayVirusButtons();
+	if (team1score &lt;= 0 || team2score &lt;=0) {
+		clearInterval(simulator);
+		if (team1score &gt; 0) winBtn.style.display = &#39;inline&#39;;
+		if (team2score &gt; 0) loseBtn.style.display = &#39;inline&#39;;
+	}
+}, 2000);
+
+
 
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">

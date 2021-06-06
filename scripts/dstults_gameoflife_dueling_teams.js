@@ -38,7 +38,7 @@ const addPrefab = (generationGrid, prefab) => {
 			generationGrid[globalRow][globalCol] = prefab[row][col];
 		}
 	}
-}
+};
 
 const consoleLogGrid = (generation) => {
 	console.log('\nGeneration: ' + totalGenerationCount);
@@ -50,7 +50,7 @@ const consoleLogGrid = (generation) => {
 		}
 		console.log(row);
 	}
-}
+};
 
 const getCellNextGen = (currentGen, globalRow, globalCol) => {
 	let neighborSum = 0;
@@ -83,7 +83,7 @@ const getCellNextGen = (currentGen, globalRow, globalCol) => {
 	} else {
 		return currentState;
 	}
-}
+};
 
 const getNextGen = (thisGeneration, nextGen) => {
 	totalGenerationCount++;
@@ -103,7 +103,7 @@ const getNextGen = (thisGeneration, nextGen) => {
 			thisGeneration[row][col] = nextGen[row][col];
 		}
 	}
-}
+};
 
 const runXgenerations = (genCount, generationGrid) => {
 	if (genCount <= 0)

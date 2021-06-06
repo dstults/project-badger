@@ -61,25 +61,23 @@
 
 	let col;
 	let row;
-	let buttons = [];
+	const buttons = [];
 	let buttonRow;
 	for (row = 0; row < rows; row++) {
 		buttons.push([]);
 		buttonRow = buttons[row];
 		for (col = 0; col < cols; col++) {
-			const elem = document.createElement('button');
-			buttonRow.push(elem);
-			//elem.innerHTML = x + ' ' + y;
-			elem.col = col;
-			elem.row = row;
-			elem.onclick = (ev) => {
-				if (myGrid[elem.row][elem.col] === 0) {
-					setTeam(elem.row, elem.col, 1);
-					myGrid[elem.row][elem.col] = 1;
+			const btn = document.createElement('button');
+			buttonRow.push(btn);
+			btn.col = col;
+			btn.row = row;
+			btn.onclick = (ev) => {
+				if (myGrid[btn.row][btn.col] === 0) {
+					setTeam(btn.row, btn.col, 1);
+					myGrid[btn.row][btn.col] = 1;
 				}
 			};
-			//elem.onclick.bind(gridrow[y][x]);
-			lifeboard.appendChild(elem);
+			lifeboard.appendChild(btn);
 		}
 	}
 
@@ -94,7 +92,7 @@
 				buttons[row][col].classList.add('purple');
 				break;
 		}
-	}
+	};
 
 	const displayButtons = () => {
 		for (row = 0; row < rows; row++) {
@@ -111,11 +109,6 @@
 		displayButtons();
 	}, 2000);
 
-	// const temp = make2dArrayRandom(9, 20); // [[0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 2, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0]];
-	// consoleLogGrid(temp);
-	// getNextGen(temp);
-	// getNextGen(temp);
-	// getNextGen(temp);
 </script>
 
 </html>
