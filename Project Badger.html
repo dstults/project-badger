@@ -954,7 +954,7 @@ State.variables.uid = setup.randomUID();
 &lt;div class=&quot;centered&quot;&gt;
 [[Start a new game!|Game Restart]]
 &lt;/div&gt;
-&lt;div class=&quot;centered&quot;&gt;
+&lt;div style=&quot;display: none;&quot; class=&quot;centered&quot;&gt;
 	&lt;div class=&quot;leaderboard&quot; id=&quot;scores2&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="20" name="StoryInit" tags="" position="400,100" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
@@ -972,7 +972,7 @@ const appendScore = (i, score, arr) =&gt; {
 	} else if (i &lt;= 10) {
 		arr.push(&#96;&lt;li class=&quot;r6&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);
 	} else {
-		arr.push(&#96;&lt;li class=&quot;r7&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);
+		/*arr.push(&#96;&lt;li class=&quot;r7&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);*/
 	}
 };
 
@@ -989,11 +989,11 @@ const displayScores = () =&gt; {
 			i++;
 			appendScore(i, score, i &lt;= 10 ? arr1 : arr2);
 		});
-		scoresElem1.innerHTML = &#96;&lt;h1&gt;&lt;img class=&quot;ico-cup&quot; src=&quot;cup.svg&quot;&gt;Top Ten&lt;img class=&quot;ico-cup&quot; src=&quot;cup.svg&quot;&gt;&lt;/h1&gt;&lt;ul&gt;${arr1.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
+		scoresElem1.innerHTML = &#96;&lt;h1&gt;&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;Top Ten&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;&lt;/h1&gt;&lt;ul&gt;${arr1.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
 		if (i &lt;= 10)
 			scoresElem2.style.display = &#39;none&#39;;
-		else
-			scoresElem2.innerHTML = &#96;&lt;h1&gt;Special Mention&lt;/h1&gt;&lt;ul&gt;${arr2.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
+		/* else
+			scoresElem2.innerHTML = &#96;&lt;h1&gt;Special Mention&lt;/h1&gt;&lt;ul&gt;${arr2.join(&#39;&#39;)}&lt;/ul&gt;&#96;; */
 	}
 };
 
@@ -1079,11 +1079,11 @@ postHighScore();
 			&lt;&lt;add-tab&gt;&gt;[[Go to Part 2|transition-to-part2-1]]
 			&lt;&lt;add-tab&gt;&gt;[[Go to Part 3 (AI Win)|transition-to-part3-1]]
 			&lt;&lt;add-tab&gt;&gt;[[Go to Part 3 (Virus Win)|transition-to-part3-1][$virusWon = true]]
+			&lt;&lt;add-tab&gt;&gt;[[I hate my name, go back.|Start]]
 		&lt;&lt;/console&gt;&gt;
 		&lt;br&gt;
 		&lt;div class=&quot;centered&quot;&gt;
 		&lt;h2&gt;[[Scoreboard!|Display Scores]]&lt;/h2&gt;
-		&lt;h2&gt;[[I hate my name, go back.|Start]]&lt;/h2&gt;
 		&lt;/div&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;console false &#39;Confirm Setup&#39;&gt;&gt;
