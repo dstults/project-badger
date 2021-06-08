@@ -98,53 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Project Badger" startnode="67" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.title-logo {
-	font-family: aiFont;
-	display: inline-block;
-	position: absolute;
- 	top: 1rem;
-	left: 7rem;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 200%;
-}
-.title-logo>h2 {
-	opacity: 0.5;
-}
-.title-authors {
-	display: inline-block;
-	position: absolute;
-	right: 12rem;
-	top: 9rem;
-}
-.title-menu-options {
-	font-family: consoleFont;
-	display: inline-block;
-	position: absolute;
-	top: 20rem;
-	left: -5rem;
-	border: 5px solid white;
-	border-radius: 1rem;
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 2rem 5rem;
-	font-size: 160%;
-}
-.title-ship {
-	display: inline-block;
-	position: absolute;
-	right: 4rem;
-	bottom: -8rem;
-	animation: simpleFloat 5s infinite ease-in-out alternate;
-	z-index: -10;
-}
-.title-ship>img {
-	transform: scale(1.5);
-}
-@keyframes simpleFloat {
-	from { transform: translateY(-50px); }
-	to { transform: translateY(50px); }
-}
-
+	<tw-storydata name="Project Badger" startnode="67" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 /* -------------------------------------------------------- */
 /* start general css */
 
@@ -254,6 +208,59 @@ div#ui-bar {
 	border-top: none;
 }
 /* end uibar css */
+/* -------------------------------------------------------- */
+
+/* -------------------------------------------------------- */
+/* start title css */
+
+.title-logo {
+	font-family: aiFont;
+	display: inline-block;
+	position: absolute;
+ 	top: 1rem;
+	left: 7rem;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 200%;
+}
+.title-logo>h2 {
+	opacity: 0.5;
+}
+.title-authors {
+	display: inline-block;
+	position: absolute;
+	right: 12rem;
+	top: 9rem;
+}
+.title-menu-options {
+	font-family: consoleFont;
+	display: inline-block;
+	position: absolute;
+	top: 20rem;
+	left: -5rem;
+	border: 5px solid white;
+	border-radius: 1rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 2rem 5rem;
+	font-size: 160%;
+}
+.title-ship {
+	display: inline-block;
+	position: absolute;
+	right: -4rem;
+	bottom: -3rem;
+	animation: simpleFloat 5s infinite ease-in-out alternate;
+	z-index: -10;
+}
+.title-ship>img {
+	transform: scale(1.8);
+}
+@keyframes simpleFloat {
+	from { transform: translateY(-30px); }
+	to { transform: translateY(30px); }
+}
+
+/* end title css */
 /* -------------------------------------------------------- */
 
 /* -------------------------------------------------------- */
@@ -1241,6 +1248,9 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="" position="2100,500" size="100,100">&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
+	&lt;div class=&quot;part2-clock&quot;&gt;
+		T-:90
+	&lt;/div&gt;
 	Click to spawn &lt;span class=&quot;ai-normal&quot;&gt;friendly&lt;/span&gt; cells!&lt;br&gt;
 	&lt;div class=&quot;lifeboard-holder&quot;&gt;
 		&lt;div id=&quot;lifeboard&quot; class=&quot;lifeboard&quot;&gt;&lt;/div&gt;
