@@ -1270,7 +1270,7 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 	&lt;button style=&quot;display: none;&quot; id=&quot;btnWin&quot; onclick=&quot;setup.runPassage(&#39;AI Won&#39;);&quot;&gt;
 		THE VIRUS HAS BEEN LOCKED OUT
 	&lt;/button&gt;
-	&lt;button style=&quot;display: none;&quot; id=&quot;btnLose&quot; onclick=&quot;setup.runPasage(&#39;Virus Won&#39;);&quot;&gt;
+	&lt;button style=&quot;display: none;&quot; id=&quot;btnLose&quot; onclick=&quot;setup.runPassage(&#39;Virus Won&#39;);&quot;&gt;
 		THE VIRUS HAS TAKEN OVER
 	&lt;/button&gt;
 &lt;/div&gt;
@@ -1790,22 +1790,22 @@ const simulator = setInterval(() =&gt; {
 	if (team1score &lt;= 0 || team2score &lt;=0 || timeStopped) {
 		clearInterval(simulator);
 		clearInterval(countdownProcess);
-		if (team1score &gt; team2score || team2score == 0) winBtn.style.display = &#39;inline&#39;;
+		if (team1score &gt;= team2score) winBtn.style.display = &#39;inline&#39;;
 		if (team2score &gt; team1score) loseBtn.style.display = &#39;inline&#39;;
 	}
 }, 1000);
 
-const maxTime = 4;
+const maxTime = 40;
 const myClock = document.getElementById(&#39;clock&#39;);
 const startTime = new Date();
 const countdownProcess = setInterval(() =&gt; {
-	let timeDiff = (maxTime - ((new Date() - startTime) / 1000)).toFixed(2);
+	let timeDiff = (maxTime - ((new Date() - startTime) / 1000));
 	if (timeDiff &lt;= 0) {
 		clearInterval(countdownProcess);
 		timeStopped = true;
 		timeDiff = 0;
 	}
-	myClock.innerHTML = &#96;T-:${timeDiff}&#96;;
+	myClock.innerHTML = &#96;T-:${timeDiff.toFixed(2)}&#96;;
 }, 10);
 
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
