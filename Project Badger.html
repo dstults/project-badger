@@ -285,6 +285,10 @@ body.generator-css {
 body.blast-css {
 	background-image: url("https://dstults.net/play-badger/images/galvanized-5223587_1280__1622845140_73.225.163.6.jpg");
 }
+body.teleporting-css {
+  background-image: url("http://patricknormile.com/assets/giphy.gif");
+}
+
 
 /* end passage backgrounds */
 /* -------------------------------------------------------- */
@@ -724,7 +728,7 @@ setup.runTypewriter = () => {
 
 	setTimeout(printNextChar, 500);
 };
-</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;console&gt;&gt;
+</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Beam into the nearby abandoned
 outpost and acquire spare &lt;span&gt;hyperplugs&lt;/span&gt; and
 &lt;span&gt;six fuel rods&lt;/span&gt;.
@@ -1191,7 +1195,11 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;cacheaudio &quot;door1&quot; &quot;https://dstults.net/play-badger/audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door2&quot; &quot;https://dstults.net/play-badger/audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door3&quot; &quot;https://dstults.net/play-badger/audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="34" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;appear&quot; &quot;http://patricknormile.com/assets/Appear-KP-1137861048.wav&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;gameplay&quot; &quot;http://patricknormile.com/assets/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;http://patricknormile.com/assets/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;outro&quot; &quot;http://patricknormile.com/assets/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;sand&quot; &quot;http://patricknormile.com/assets/mixkitSand2.wav&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
 
 &lt;&lt;set $name = &quot;Avery the Astronaut&quot;&gt;&gt;
 &lt;&lt;set $shipName = &quot;Your Spaceship&quot;&gt;&gt;
@@ -1239,7 +1247,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;gameplay&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1260,14 +1268,14 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 	&lt;/button&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
 You breathe a sigh of relief.
 
 &lt;&lt;ai&gt;&gt;Thank you so much for saving me!
 
 I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Okay.|transition-to-part3-1]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
 You take a deep gulp.
 
 &lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Wa ha ha ha, fool, now it is my turn!
@@ -1322,7 +1330,7 @@ Red gales of sand lash against the side of your ship.
 You hobble over to your ship&#39;s status control console.
 
 &lt;&lt;add-tab&gt;&gt;[[View ship status|Part 1 - Making Repairs]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="ML Central Ravine" tags="" position="1525,950" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="ML Central Ravine" tags="" position="1525,950" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;sand&quot; loop play&gt;&gt;&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 Your ship is crash-landed against a ravine.
 
 You&#39;re lucky to have survived.
@@ -1346,7 +1354,7 @@ Carried Part:
 &lt;&lt;if $hasBattery&gt;&gt;&lt;span&gt;Battery&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $hasThruster&gt;&gt;&lt;span&gt;Thruster&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if !$hasThruster &amp;&amp; !$hasBattery&gt;&gt;none&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="ML Spaceship" tags="" position="1625,775" size="100,100">&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="ML Spaceship" tags="" position="1625,775" size="100,100">&lt;&lt;audio &quot;sand&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 SYSTEM STATUS:&lt;&lt;if !$thrusterAttached || !$batteryDrained&gt;&gt;
@@ -1544,7 +1552,7 @@ music,
 sounds etc.
 
 [[Score Report]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="Mission Complete" tags="" position="2300,1600" size="100,100">&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="Mission Complete" tags="" position="2300,1600" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -1565,10 +1573,10 @@ Your total score is... $score! Great job!
 &lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Register Score]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="" position="2700,700" size="100,100">&lt;div class=&quot;centered&quot;&gt;
-Beeeee-oooooo-ooop!
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+
 &lt;/div&gt;
-&lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 /* Darren Stults -- Dueling life */
 
 const make2dArray = (rows, cols, setTeams = 1) =&gt; {
@@ -1794,7 +1802,7 @@ const countdownProcess = setInterval(() =&gt; {
 	myClock.innerHTML = &#96;T-:${timeDiff.toFixed(2)}&#96;;
 }, 10);
 
-&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;title-logo&quot;&gt;
 	&lt;h1&gt;Fix My Spaceship&lt;/h1&gt;
 	&lt;h2&gt;Badger Edition&lt;/h2&gt;
