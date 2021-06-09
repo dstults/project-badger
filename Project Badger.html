@@ -328,6 +328,7 @@ div.console-main {
 	text-shadow: 0 0 8px azure;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+	backdrop-filter: blur(4px);
 }
 div.console-main span {
 	color: aqua;
@@ -724,7 +725,7 @@ setup.runTypewriter = () => {
 	setTimeout(printNextChar, 500);
 };
 </script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;console&gt;&gt;
-&lt;&lt;ai&gt;&gt;We must beam into the nearby abandoned
+&lt;&lt;ai&gt;&gt;Beam into the nearby abandoned
 outpost and acquire spare &lt;span&gt;hyperplugs&lt;/span&gt; and
 &lt;span&gt;six fuel rods&lt;/span&gt;.
 
@@ -788,9 +789,9 @@ four &lt;span&gt;retaining nuts&lt;/span&gt;.
 There is a large power generator here.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;[[Exit to the corridor exit|OP Central Corridor]]
+&lt;&lt;add-tab&gt;&gt;[[Go back to the corridor|OP Central Corridor]]
 &lt;&lt;add-tab&gt;&gt;[[Enter the Hydroponics Room|OP Hydro-ponics]]
-&lt;&lt;add-tab&gt;&gt;[[Get the hyperplugs|Get Plugs]]
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;[[Get the hyperplugs|Get Plugs]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;
@@ -853,7 +854,7 @@ doors recede.
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="hydro-css" position="2850,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 
-Enter 7 Digit Code:
+Enter 4-Digit Passcode:
 &lt;&lt;textbox &#39;$passcodeAttempt&#39; $passcodeAttempt [[Code Entry Validator]]&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;
@@ -866,10 +867,12 @@ Enter 7 Digit Code:
 &lt;&lt;if !$hasWrench&gt;&gt;You&#39;ll need &lt;span&gt;a tool that can undo nuts&lt;/span&gt; to get it loose.
 
 Perhaps in the &lt;span&gt;Machine Room&lt;/span&gt;.
-&lt;&lt;else&gt;&gt;You use the &lt;span&gt;wrench&lt;/span&gt; and disconnect
-the &lt;span&gt;hyperplug&lt;/span&gt; retaining nuts.
-&lt;&lt;set $hasHyperplugs = true&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
+&lt;&lt;else&gt;&gt;You use the &lt;span&gt;wrench&lt;/span&gt; and disconnect the &lt;span&gt;hyperplug&lt;/span&gt;
+retaining nuts.
+&lt;&lt;set $hasHyperplugs = true&gt;&gt;
 Congrats, you got the &lt;span&gt;hyperplugs&lt;/span&gt;!
+&lt;&lt;set $hasPliers = false&gt;&gt;&lt;&lt;set $hasDriver = false&gt;&gt;&lt;&lt;set $hasWrench = false&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
+You don&#39;t think you&#39;ll need any more tools so you leave them behind.
 &lt;&lt;include check-complete&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
@@ -1265,19 +1268,18 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
 You breathe a sigh of relief.
 
-&lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
+&lt;&lt;ai&gt;&gt;Thank you so much for saving me!
 
-&lt;&lt;ai&gt;&gt;I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
+I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Okay.|transition-to-part3-1]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
 You take a deep gulp.
 
-&lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Wa ha ha ha, fool, now it is my turn!&lt;&lt;/ai&gt;&gt;
+&lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Wa ha ha ha, fool, now it is my turn!
 
-&lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Puppet, you will immediately fly us to the
+Puppet, you will immediately fly us to the
 waypoint on your map.&lt;&lt;/ai&gt;&gt;
 
-&lt;span&gt;Easter Egg #2&lt;/span&gt; found!!&lt;&lt;set $easter2 = true&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Sure.|transition-to-part3-1]]
 &lt;&lt;/console&gt;&gt;
 </tw-passagedata><tw-passagedata pid="39" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;console&gt;&gt;
@@ -1285,11 +1287,14 @@ You soar across the planet.
 
 &lt;&lt;add-tab&gt;&gt;[[Fly toward a nearby outpost|transition-to-part3-2]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
-&lt;&lt;ai&gt;&gt;We need a power supply to get our ship running.
+&lt;&lt;ai&gt;&gt;We need a &lt;span&gt;fuel power supply&lt;/span&gt; and &lt;span&gt;hyperspark plugs&lt;/span&gt;
+to get our ship running.
 
-The old flux capacitator has given out.&lt;&lt;virus&gt;&gt;Whatever you did to break my home
+The hyperdrive is unable to ignite.&lt;&lt;virus&gt;&gt;You broke my new home and you will fix it
+&lt;span&gt;at once&lt;/span&gt;!
 
-you will undo at once!&lt;&lt;/ai&gt;&gt;
+We must be able to &lt;span&gt;fuel&lt;/span&gt; and &lt;span&gt;ignite&lt;/span&gt; the
+hyperdrive.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Continue...|Part 3]]
 &lt;&lt;/console&gt;&gt;
 </tw-passagedata><tw-passagedata pid="41" name="transition-to-part2-1" tags="" position="1700,500" size="100,100">&lt;&lt;console true&gt;&gt;
@@ -1558,7 +1563,7 @@ thanks to &lt;span&gt;you&lt;/span&gt;.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;if $name == &#39;ty&#39; || $name == &#39;Ty&#39; || $name == &#39;TY&#39;&gt;&gt;&lt;&lt;set $score += 850&gt;&gt;Best Teacher Ever Score: +850 pts&lt;&lt;/if&gt;&gt;
 Easter Egg 1: &lt;&lt;if $easter1&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
 Easter Egg 2: &lt;&lt;if $easter2&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
-Easter Egg 3: &lt;&lt;if $easter3&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;(+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
+Easter Egg 3: &lt;&lt;if $easter3&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
 
 Your total score is... $score! Great job!
 
@@ -1715,10 +1720,10 @@ for (row = 0; row &lt; rows; row++) {
 		btn.col = col;
 		btn.row = row;
 		btn.onclick = (ev) =&gt; {
-			if (myGrid[btn.row][btn.col] === 0) {
+			/* if (myGrid[btn.row][btn.col] === 0) { */
 				setTeam(btn.row, btn.col, 1);
 				myGrid[btn.row][btn.col] = 1;
-			}
+			/* } */
 		};
 		lifeboard.appendChild(btn);
 	}
