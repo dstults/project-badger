@@ -795,32 +795,27 @@ There is a large power generator here.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;
-&lt;&lt;if !$hasFuelRods&gt;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
 You see &lt;span&gt;6 fuel rods&lt;/span&gt; locked behind a
 digital deterrence device.
 
 It looks like you&#39;ll need a 4-digit passcode.
-&lt;&lt;else&gt;&gt;
-There are six emply fuel rod slots.
+&lt;&lt;else&gt;&gt;There are six emply fuel rod slots.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;[[Enter Code]]
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Return to the Generator Room|OP Power Generator]]
 &lt;&lt;add-tab&gt;&gt;[[Enter the control room|OP Control Room]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;
 </tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Wow, what an impressive control room.&lt;&lt;virus&gt;&gt;What kind of hackneyed attempt at control is this?&lt;&lt;/ai&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;Computer terminals and blinking lights illuminate the area.
 
-&lt;&lt;ai&gt;&gt;Wow, what an impressive control room.&lt;&lt;virus&gt;&gt;What kind of hackneyed attempt at control is this?&lt;&lt;/ai&gt;&gt;
-
-Computer terminals and blinking lights illuminate the area.
-
-&lt;&lt;ai&gt;&gt;Ah, what&#39;s this? A code fragment in a biometric buffer.&lt;&lt;virus&gt;&gt;There, a code fragment. Well what are you waiting for?&lt;&lt;/ai&gt;&gt;
+&lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Ah, what&#39;s this? A code fragment in a biometric buffer.&lt;&lt;virus&gt;&gt;There, a code fragment. Well what are you waiting for?&lt;&lt;/ai&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Return to the Hydroponics Room|OP Hydro-ponics]]
-&lt;&lt;add-tab&gt;&gt;[[Read the code fragment|Code Fragment]]
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Read the code fragment|Code Fragment]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
@@ -872,7 +867,7 @@ retaining nuts.
 &lt;&lt;set $hasHyperplugs = true&gt;&gt;
 Congrats, you got the &lt;span&gt;hyperplugs&lt;/span&gt;!
 &lt;&lt;set $hasPliers = false&gt;&gt;&lt;&lt;set $hasDriver = false&gt;&gt;&lt;&lt;set $hasWrench = false&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
-You don&#39;t think you&#39;ll need any more tools so you leave them behind.
+You leave the wrench behind.
 &lt;&lt;include check-complete&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
@@ -986,7 +981,7 @@ The turbo-encabulator has now reached a high level of development, and it’s be
 
 &lt;&lt;/console&gt;&gt;
 </tw-passagedata><tw-passagedata pid="15" name="Closet" tags="" position="3000,100" size="100,100">Patrick, it&#39;s time to come out.</tw-passagedata><tw-passagedata pid="16" name="to-do" tags="" position="3100,100" size="100,100">FIX transition into outpost. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="17" name="Start" tags="" position="900,300" size="100,100">&lt;&lt;console false &#39;WELCOME&#39;&gt;&gt;
-&lt;div class=&quot;centered&quot;&gt;&lt;&lt;if $errorMessage&gt;&gt;&lt;span class=&quot;error&quot;&gt;$errorMessage&lt;/span&gt;&lt;&lt;else&gt;&gt;Please input your name and ship name!&lt;&lt;/if&gt;&gt;
+&lt;div class=&quot;centered&quot;&gt;&lt;&lt;if $errorMessage&gt;&gt;&lt;span class=&quot;error&quot;&gt;$errorMessage&lt;/span&gt;&lt;&lt;else&gt;&gt;Please input and &lt;span&gt;press ENTER&lt;/span&gt; when done!&lt;&lt;/if&gt;&gt;
 
 Enter your name:
 &lt;&lt;textbox &#39;$name&#39; $name [[Validator]]&gt;&gt;
@@ -1287,8 +1282,8 @@ You soar across the planet.
 
 &lt;&lt;add-tab&gt;&gt;[[Fly toward a nearby outpost|transition-to-part3-2]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
-&lt;&lt;ai&gt;&gt;We need a &lt;span&gt;fuel power supply&lt;/span&gt; and &lt;span&gt;hyperspark plugs&lt;/span&gt;
-to get our ship running.
+&lt;&lt;ai&gt;&gt;We need a &lt;span&gt;fuel power supply&lt;/span&gt; and
+&lt;span&gt;hyperspark plugs&lt;/span&gt; to get our ship running.
 
 The hyperdrive is unable to ignite.&lt;&lt;virus&gt;&gt;You broke my new home and you will fix it
 &lt;span&gt;at once&lt;/span&gt;!
@@ -1529,7 +1524,7 @@ Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set 
 Brrrttt!! Incorrect Code!
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter Code]]&lt;&lt;else&gt;&gt;[[Mission Complete]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;[[Mission Complete]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Return to the Generator Room|OP Power Generator]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
