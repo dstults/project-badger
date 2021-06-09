@@ -526,7 +526,7 @@ body.leaderboard-css {
 
 /* end leaderboard css */
 /* -------------------------------------------------------- */
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = true;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = false;
 State.variables.debugMode = debugMode;
 
 if (!debugMode) {
@@ -1192,9 +1192,9 @@ You examine the console.
 - A retro-thruster snapped off.
 - There is not enough power to attempt an emergency restart.
 
-They are most likely somewhere on the planet nearby.
+Try searching somewhere on the planet nearby.
 
-Thank goodness your space suit is ruggedized for EVAs.
+Thank goodness you have your spacesuit on.
 
 &lt;&lt;add-tab&gt;&gt;[[Step outside|ML Central Ravine]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="demo-iframe" tags="" position="100,1150" size="100,100">&lt;iframe src=&quot;https://dstults.net&quot;&gt;
@@ -1257,7 +1257,7 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
-		T-:90
+		T-:40.00
 	&lt;/div&gt;
 	Click to spawn &lt;span class=&quot;ai-normal&quot;&gt;friendly&lt;/span&gt; cells!&lt;br&gt;
 	&lt;div class=&quot;lifeboard-holder&quot;&gt;
@@ -1399,8 +1399,8 @@ after the crash landing.
 You see all the boulders that you displaced earlier.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;[[ML Central Ravine]]
-&lt;&lt;add-tab&gt;&gt;[[ML Sprawling Desert]]
+&lt;&lt;add-tab&gt;&gt;[[Return to spaceship|ML Central Ravine]]
+&lt;&lt;add-tab&gt;&gt;[[Walk toward the desert|ML Sprawling Desert]]
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasThruster&gt;&gt;&lt;&lt;if $batteryBoulders &gt; 0&gt;&gt;[[Remove a boulder...|ML Ravine East][$batteryBoulders--]]&lt;&lt;elseif !$hasBattery &amp;&amp; !$batteryDrained&gt;&gt;[[Pick up the battery!|ML Ravine East][$hasBattery = true]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
