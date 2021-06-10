@@ -15,6 +15,20 @@
 			overflow: hidden;
 			box-shadow: 0 0 8px black, 0 0 4px aqua;
 			background-color: rgba(0, 0, 0, 0.5);
+			white-space: nowrap;
+		}
+		.map-title {
+			position: absolute;
+			top: 2rem;
+			left: -2rem;
+			color: azure;
+			text-shadow: 4px 4px teal;
+			font-family: Impact, monospace;
+			z-index: -5;
+			margin: 0;
+			font-size: 500%;
+			transform: rotate(-15deg);
+			opacity: 0.5;
 		}
 		.map-marslike {
 			left: 5rem;
@@ -85,6 +99,7 @@
 
 <body>
 	<div class="map map-marslike">
+		<h1 class="map-title">The Ravine</h1>
 		<div id="location-ml-ship" class="map-site map-ml-ship at-site"><small>Ship</small></div>
 		<div id="location-ml-eravine" class="map-site map-ml-eravine"><small>East<br>Ravine</small></div>
 		<div id="location-ml-cravine" class="map-site map-ml-cravine"><small>Central<br>Ravine</small></div>
