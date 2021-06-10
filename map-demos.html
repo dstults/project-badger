@@ -3,13 +3,17 @@
 
 <head>
 	<style>
+		body {
+			background-color: #111;
+			background: url('images/pexels-lucas-pezeta-3772378Small.jpg');
+		}
 		.map {
-			border: 3px solid teal;
+			border: 3px solid aqua;
 			border-radius: 8px;
 			display: block;
 			position: absolute;
 			overflow: hidden;
-			box-shadow: 0 0 8px black;
+			box-shadow: 0 0 8px black, 0 0 4px aqua;
 			background-color: rgba(0, 0, 0, 0.5);
 		}
 		.map-marslike {
@@ -29,13 +33,16 @@
 			position: absolute;
 			align-items: center;
 			justify-content: center;
+			font-size: 80%;
 			width: 3rem;
 			height: 3rem;
 			border-radius: 1.5rem;
-			background: radial-gradient(#FFF 50%, #000);
+			background: radial-gradient(rgb(192, 255, 255) 50%, #000);
+			color: rgb(0, 128, 128);
 			border: solid 1px black;
 			text-align: center;
 			font-family: monospace;
+			opacity: 0.7;
 		}
 		.map-ml-wravine {
 			top: 50%;
@@ -66,6 +73,9 @@
 		}
 		.at-site {
 			background: radial-gradient(#FF8 52%, #000);
+			box-shadow: 0 0 5px yellow, 0 0 8px yellow;
+			color: rgb(128, 128, 0);
+			opacity: 1;
 		}
 	</style>
 
@@ -85,7 +95,7 @@
 		<div id="location-op-machineroom" class="map-site map-op-machineroom"><small>Machine<br>Room</small></div>
 		<div id="location-op-corridor-2" class="map-site map-op-corridor-2"><small>Corridor</small></div>
 		<div id="location-op-powergen" class="map-site map-op-powergen"><small>Power<br>Generator</small></div>
-		<div id="location-op-hydroponics" class="map-site map-op-hydroponics"><small>Hydroponics</small></div>
+		<div id="location-op-hydroponics" class="map-site map-op-hydroponics"><small>Hydro-<br>ponics</small></div>
 		<div id="location-op-controlroom" class="map-site map-op-controlroom"><small>Control<br>Room</small></div>
 	</div>
 </body>
