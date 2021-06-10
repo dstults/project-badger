@@ -2,154 +2,227 @@
 <html lang="en">
 
 <head>
-	<style>
-		body {
-			background-color: #111;
-			background: url('images/pexels-lucas-pezeta-3772378Small.jpg');
-		}
-		.map {
-			border: 3px solid aqua;
-			border-radius: 8px;
-			display: block;
-			position: absolute;
-			overflow: hidden;
-			box-shadow: 0 0 8px black, 0 0 4px aqua;
-			background-color: rgba(0, 0, 0, 0.5);
-			white-space: nowrap;
-		}
-		.map-title {
-			position: absolute;
-			color: azure;
-			text-shadow: 4px 4px teal;
-			font-family: Impact, monospace;
-			z-index: -5;
-			margin: 0;
-			opacity: 0.5;
-		}
-		.ravine-title {
-			font-size: 500%;
-			top: 2rem;
-			left: -2rem;
-			transform: rotate(-15deg);
-		}
-		.outpost-title {
-			font-size: 600%;
-			top: 6.4rem;
-			left: -2rem;
-			transform: rotate(55deg);
-		}
-		.map-marslike {
-			left: 5rem;
-			bottom: 5rem;
-			width: 20rem;
-			height: 10rem;
-		}
-		.map-outpost {
-			right: 5rem;
-			bottom: 5rem;
-			width: 15rem;
-			height: 20rem;
-		}
-		.map-site {
-			display: flex;
-			position: absolute;
-			align-items: center;
-			justify-content: center;
-			font-size: 80%;
-			width: 3rem;
-			height: 3rem;
-			border-radius: 1.5rem;
-			background: radial-gradient(rgb(192, 255, 255) 50%, #000);
-			color: rgb(0, 128, 128);
-			border: solid 1px black;
-			text-align: center;
-			font-family: monospace;
-			opacity: 0.7;
-		}
-		.map-ml-wravine {
-			top: 50%;
-			left: 8%;
-		}
-		.map-ml-cravine {
-			top: 32%;
-			left: 34%;
-		}
-		.map-ml-ship {
-			top: 4%;
-			left: 41%;
-			width: 4rem;
-			height: 2rem;
-			border-radius: 1rem;
-			background: radial-gradient(rgb(255, 224, 224) 50%, #000);
-			color: rgb(192, 64, 64);
-		}
-		.map-ml-eravine {
-			top: 38%;
-			left: 61%;
-		}
-		.map-ml-desert {
-			top: 58%;
-			left: 79%;
-			border-radius: 0;
-			width: 5rem;
-			height: 5rem;
-			border-top-left-radius: 2.5rem;
-		}
-		.at-site {
-			background: radial-gradient(#FF8 52%, #000);
-			box-shadow: 0 0 5px yellow, 0 0 8px yellow;
-			color: rgb(128, 128, 0);
-			opacity: 1;
-		}
-	</style>
+<style>
+	body {
+		background-color: #111;
+		background: url('images/pexels-lucas-pezeta-3772378Small.jpg');
+	}
+	.map {
+		border: 3px solid aqua;
+		border-radius: 8px;
+		display: block;
+		position: absolute;
+		overflow: hidden;
+		box-shadow: 0 0 8px black, 0 0 4px aqua;
+		background-color: rgba(0, 0, 0, 0.5);
+		white-space: nowrap;
+	}
+	.map-title {
+		position: absolute;
+		color: azure;
+		text-shadow: 4px 4px teal;
+		font-family: Impact, monospace;
+		z-index: -5;
+		margin: 0;
+		opacity: 0.5;
+	}
+	.ravine-title {
+		font-size: 500%;
+		top: 2rem;
+		left: -2rem;
+		transform: rotate(-15deg);
+	}
+	.outpost-title {
+		font-size: 600%;
+		top: 5.4rem;
+		left: -3.5rem;
+		transform: rotate(55deg);
+	}
+	.map-marslike {
+		left: 5rem;
+		bottom: 5rem;
+		width: 20rem;
+		height: 10rem;
+	}
+	.map-outpost {
+		right: 5rem;
+		bottom: 5rem;
+		width: 13rem;
+		height: 18rem;
+	}
+	.map-site {
+		display: flex;
+		position: absolute;
+		align-items: center;
+		justify-content: center;
+		font-size: 80%;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 1.5rem;
+		background: radial-gradient(rgb(192, 255, 255) 50%, #000);
+		color: rgb(0, 128, 128);
+		border: solid 1px black;
+		text-align: center;
+		font-family: monospace;
+		opacity: 0.85;
+	}
+	.map-ml-wravine {
+		top: 50%;
+		left: 8%;
+		background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+		color: rgb(64, 114, 68);
+		width: 3rem;
+	}
+	.map-ml-cravine {
+		top: 32%;
+		left: 27%;
+		width: 5rem;
+	}
+	.map-ml-ship {
+		top: 4%;
+		left: 41%;
+		width: 4rem;
+		height: 2rem;
+		border-radius: 1rem;
+		background: radial-gradient(rgb(255, 224, 224) 50%, #000);
+		color: rgb(192, 64, 64);
+	}
+	.map-ml-eravine {
+		top: 36%;
+		left: 57%;
+		background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+		color: rgb(64, 114, 68);
+		width: 4rem;
+		height: 4rem;
+	}
+	.map-ml-desert {
+		top: 58%;
+		left: 79%;
+		border-radius: 0;
+		width: 5rem;
+		height: 5rem;
+		border-top-left-radius: 2.5rem;
+	}
 
+	.map-op-breakroom, .map-op-machineroom {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 0.3rem;
+	}
+	.map-op-breakroom {
+		top: 14%;
+		left: 16%;
+	}
+	.map-op-corridor3 {
+		top: 12%;
+		left: 37%;
+	}
+	.map-op-machineroom {
+		top: 14%;
+		left: 62%;
+		background: radial-gradient(rgb(255, 224, 224) 50%, #000);
+		color: rgb(192, 64, 64);
+	}
+	.map-op-corridor2 {
+		top: 30%;
+		left: 37%;
+	}
+	.map-op-powergen {
+		top: 48%;
+		left: 18%;
+		width: 5rem;
+		background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+		color: rgb(64, 114, 68);
+	}
+	.map-op-hydroponics {
+		top: 63%;
+		left: 51%;
+		width: 3.5rem;
+		height: 3.5rem;
+		background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+		color: rgb(64, 114, 68);
+	}
+	.map-op-controlroom {
+		top: 70%;
+		left: 30%;
+		width: 2.5rem;
+	}
+	.at-site {
+		background: radial-gradient(#FF8 52%, #000);
+		box-shadow: 0 0 5px yellow, 0 0 8px yellow;
+		color: rgb(128, 128, 0);
+		opacity: 1;
+		z-index: 15;
+	}
+
+</style>
 </head>
 
 <body>
-	<div class="map map-marslike">
-		<h1 class="map-title ravine-title">The Ravine</h1>
-		<div id="location-ml-ship" class="map-site map-ml-ship at-site"><small>Ship</small></div>
-		<div id="location-ml-eravine" class="map-site map-ml-eravine"><small>East<br>Ravine</small></div>
-		<div id="location-ml-cravine" class="map-site map-ml-cravine"><small>Central<br>Ravine</small></div>
-		<div id="location-ml-wravine" class="map-site map-ml-wravine"><small>West<br>Ravine</small></div>
-		<div id="location-ml-desert" class="map-site map-ml-desert"><small>Desert</small></div>
-	</div>
-	<div class="map map-outpost">
-		<h1 class="map-title outpost-title">Outpost</h1>
-		<div id="location-op-breakroom" class="map-site map-op-breakroom"><small>Break<br>Room</small></div>
-		<div id="location-op-corridor-3" class="map-site map-op-corridor-3"><small>Corridor</small></div>
-		<div id="location-op-machineroom" class="map-site map-op-machineroom"><small>Machine<br>Room</small></div>
-		<div id="location-op-corridor-2" class="map-site map-op-corridor-2"><small>Corridor</small></div>
-		<div id="location-op-powergen" class="map-site map-op-powergen"><small>Power<br>Generator</small></div>
-		<div id="location-op-hydroponics" class="map-site map-op-hydroponics"><small>Hydro-<br>ponics</small></div>
-		<div id="location-op-controlroom" class="map-site map-op-controlroom"><small>Control<br>Room</small></div>
-	</div>
+<div class="map map-marslike">
+	<h1 class="map-title ravine-title">The Ravine</h1>
+	<div id="location-ml-ship" class="map-site map-ml-ship at-site"><small>Ship</small></div>
+	<div id="location-ml-eravine" class="map-site map-ml-eravine"><small>East<br>Ravine</small></div>
+	<div id="location-ml-cravine" class="map-site map-ml-cravine"><small>Central<br>Ravine</small></div>
+	<div id="location-ml-wravine" class="map-site map-ml-wravine"><small>West<br>Ravine</small></div>
+	<div id="location-ml-desert" class="map-site map-ml-desert"><small>Desert</small></div>
+</div>
+<div class="map map-outpost">
+	<h1 class="map-title outpost-title">Outpost</h1>
+	<div id="location-op-breakroom" class="map-site map-op-breakroom"><small>Break<br>Room</small></div>
+	<div id="location-op-corridor3" class="map-site map-op-corridor3 at-site"><small>Corridor</small></div>
+	<div id="location-op-machineroom" class="map-site map-op-machineroom"><small>Machine<br>Room</small></div>
+	<div id="location-op-corridor2" class="map-site map-op-corridor2"><small>Corridor</small></div>
+	<div id="location-op-powergen" class="map-site map-op-powergen"><small>Power<br>Generator</small></div>
+	<div id="location-op-hydroponics" class="map-site map-op-hydroponics"><small>Hydro-<br>ponics</small></div>
+	<div id="location-op-controlroom" class="map-site map-op-controlroom"><small>Control<br>Room</small></div>
+</div>
 </body>
 
 <script>
-	const locMLShip = document.getElementById('location-ml-ship');
-	const locMLwRavine = document.getElementById('location-ml-wravine');
-	const locMLcRavine = document.getElementById('location-ml-cravine');
-	const locMLeRavine = document.getElementById('location-ml-eravine');
-	const locMLDesert = document.getElementById('location-ml-desert');
-	const mlSites = [locMLShip, locMLcRavine, locMLwRavine, locMLcRavine, locMLShip, locMLcRavine, locMLeRavine, locMLDesert, null, locMLcRavine];
+const locMLShip = document.getElementById('location-ml-ship');
+const locMLwRavine = document.getElementById('location-ml-wravine');
+const locMLcRavine = document.getElementById('location-ml-cravine');
+const locMLeRavine = document.getElementById('location-ml-eravine');
+const locMLDesert = document.getElementById('location-ml-desert');
+const allMLSites = [locMLShip, locMLwRavine, locMLcRavine, locMLeRavine, locMLDesert];
 
-	const locOPBreakroom = document.getElementById('location-op-breakroom');
+const locOPBreakroom = document.getElementById('location-op-breakroom');
+const locOPCorridor3 = document.getElementById('location-op-corridor3');
+const locOPMachineRoom = document.getElementById('location-op-machineroom');
+const locOPCorridor2 = document.getElementById('location-op-corridor2');
+const locOPPowerGen = document.getElementById('location-op-powergen');
+const locOPHydroponics = document.getElementById('location-op-hydroponics');
+const locOPControlRoom = document.getElementById('location-op-controlroom');
+const allOPSites = [locOPBreakroom, locOPCorridor3, locOPMachineRoom, locOPCorridor2, locOPPowerGen, locOPHydroponics, locOPControlRoom];
 
-	const toggleLocation = (oldSite, newSite) => {
-		if (oldSite) oldSite.classList.remove('at-site');
-		if (newSite) newSite.classList.add('at-site');
+const toggleLocation = (siteList, newSite) => {
+	for(let site of siteList) {
+		if (site) site.classList.remove('at-site');
 	}
+	if (newSite) newSite.classList.add('at-site');
+}
 
-	let mlIndex = 0;
-	setInterval(() => {
-		const lastLoc = mlSites[mlIndex];
-		mlIndex++;
-		if (mlIndex >= mlSites.length) mlIndex = 0;
-		const nextLoc = mlSites[mlIndex];
-		toggleLocation(lastLoc, nextLoc);
-	}, 800);
+const mlDemoSites = [locMLShip, locMLcRavine, locMLwRavine, locMLcRavine, locMLShip, locMLcRavine, locMLeRavine, locMLDesert, null, locMLcRavine];
+let mlIndex = 0;
+const opDemoSites = [locOPCorridor3, locOPBreakroom, locOPCorridor3, locOPMachineRoom, locOPCorridor3, locOPCorridor2, locOPPowerGen, locOPHydroponics, locOPControlRoom, locOPHydroponics];
+let opIndex = 0;
 
+setInterval(() => {
+	const lastLoc = mlDemoSites[mlIndex];
+	mlIndex++;
+	if (mlIndex >= mlDemoSites.length) mlIndex = 0;
+	const nextLoc = mlDemoSites[mlIndex];
+	toggleLocation(allMLSites, nextLoc);
+}, 800);
+
+setInterval(() => {
+	const lastLoc = opDemoSites[opIndex];
+	opIndex++;
+	if (opIndex >= opDemoSites.length) opIndex = 0;
+	const nextLoc = opDemoSites[opIndex];
+	toggleLocation(allOPSites, nextLoc);
+}, 800);
 
 </script>
 

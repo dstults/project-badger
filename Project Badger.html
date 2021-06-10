@@ -1196,7 +1196,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;cacheaudio &quot;door2&quot; &quot;https://dstults.net/play-badger/audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door3&quot; &quot;https://dstults.net/play-badger/audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;appear&quot; &quot;https://dstults.net/play-badger/audio/Appear-KP-1137861048.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;gameplay&quot; &quot;https://dstults.net/play-badger/audio/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;duelinglife-bgm&quot; &quot;https://dstults.net/play-badger/audio/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;https://dstults.net/play-badger/audio/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;outro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;sand&quot; &quot;https://dstults.net/play-badger/audio/mixkitSand2.mp3&quot;&gt;&gt;
@@ -1248,7 +1248,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;gameplay&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1269,14 +1269,14 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 	&lt;/button&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;console&gt;&gt;
 You breathe a sigh of relief.
 
 &lt;&lt;ai&gt;&gt;Thank you so much for saving me!
 
 I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Okay.|transition-to-part3-1]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;virusambient&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;audio &quot;virusambient&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
 You take a deep gulp.
 
 &lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Wa ha ha ha, fool, now it is my turn!
