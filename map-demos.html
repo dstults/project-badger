@@ -4,26 +4,26 @@
 <head>
 	<style>
 		.map {
-			border: 1px solid black;
+			border: 3px solid teal;
+			border-radius: 8px;
 			display: block;
 			position: absolute;
 			overflow: hidden;
+			box-shadow: 0 0 8px black;
+			background-color: rgba(0, 0, 0, 0.5);
 		}
-
 		.map-marslike {
 			left: 5rem;
 			bottom: 5rem;
 			width: 20rem;
 			height: 10rem;
 		}
-
 		.map-outpost {
 			right: 5rem;
 			bottom: 5rem;
 			width: 20rem;
 			height: 30rem;
 		}
-
 		.map-site {
 			display: flex;
 			position: absolute;
@@ -32,7 +32,7 @@
 			width: 3rem;
 			height: 3rem;
 			border-radius: 1.5rem;
-			background: radial-gradient(#FFF 40%, #000);
+			background: radial-gradient(#FFF 50%, #000);
 			border: solid 1px black;
 			text-align: center;
 			font-family: monospace;
@@ -64,17 +64,20 @@
 			height: 5rem;
 			border-top-left-radius: 2.5rem;
 		}
+		.at-site {
+			background: radial-gradient(#FF8 52%, #000);
+		}
 	</style>
 
 </head>
 
 <body>
 	<div class="map map-marslike">
-		<div id="location-ml-ship" class="map-site map-ml-ship"><small>Ship</small></div>
-		<div id="location-ml-ship" class="map-site map-ml-eravine"><small>East<br>Ravine</small></div>
-		<div id="location-ml-ship" class="map-site map-ml-cravine"><small>Central<br>Ravine</small></div>
-		<div id="location-ml-ship" class="map-site map-ml-wravine"><small>West<br>Ravine</small></div>
-		<div id="location-ml-ship" class="map-site map-ml-desert"><small>Desert</small></div>
+		<div id="location-ml-ship" class="map-site map-ml-ship at-site"><small>Ship</small></div>
+		<div id="location-ml-eravine" class="map-site map-ml-eravine"><small>East<br>Ravine</small></div>
+		<div id="location-ml-cravine" class="map-site map-ml-cravine"><small>Central<br>Ravine</small></div>
+		<div id="location-ml-wravine" class="map-site map-ml-wravine"><small>West<br>Ravine</small></div>
+		<div id="location-ml-desert" class="map-site map-ml-desert"><small>Desert</small></div>
 	</div>
 	<div class="map map-outpost">
 		<div id="location-op-breakroom" class="map-site map-op-breakroom"><small>Break<br>Room</small></div>
@@ -88,7 +91,30 @@
 </body>
 
 <script>
-	
+	const locMLShip = document.getElementById('location-ml-ship');
+	const locMLwRavine = document.getElementById('location-ml-wravine');
+	const locMLcRavine = document.getElementById('location-ml-cravine');
+	const locMLeRavine = document.getElementById('location-ml-eravine');
+	const locMLDesert = document.getElementById('location-ml-desert');
+	const mlSites = [locMLShip, locMLcRavine, locMLwRavine, locMLcRavine, locMLShip, locMLcRavine, locMLeRavine, locMLDesert, null, locMLcRavine];
+
+	const locOPBreakroom = document.getElementById('location-op-breakroom');
+
+	const toggleLocation = (oldSite, newSite) => {
+		if (oldSite) oldSite.classList.remove('at-site');
+		if (newSite) newSite.classList.add('at-site');
+	}
+
+	let mlIndex = 0;
+	setInterval(() => {
+		const lastLoc = mlSites[mlIndex];
+		mlIndex++;
+		if (mlIndex >= mlSites.length) mlIndex = 0;
+		const nextLoc = mlSites[mlIndex];
+		toggleLocation(lastLoc, nextLoc);
+	}, 800);
+
+
 </script>
 
 </html>
