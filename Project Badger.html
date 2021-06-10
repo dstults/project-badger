@@ -286,7 +286,7 @@ body.blast-css {
 	background-image: url("https://dstults.net/play-badger/images/galvanized-5223587_1280__1622845140_73.225.163.6.jpg");
 }
 body.teleporting-css {
-  background-image: url("http://patricknormile.com/assets/giphy.gif");
+  background-image: url("https://dstults.net/play-badger/images/giphy.gif");
 }
 
 
@@ -1195,11 +1195,12 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;cacheaudio &quot;door1&quot; &quot;https://dstults.net/play-badger/audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door2&quot; &quot;https://dstults.net/play-badger/audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door3&quot; &quot;https://dstults.net/play-badger/audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;appear&quot; &quot;http://patricknormile.com/assets/Appear-KP-1137861048.wav&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;gameplay&quot; &quot;http://patricknormile.com/assets/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;http://patricknormile.com/assets/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;outro&quot; &quot;http://patricknormile.com/assets/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;sand&quot; &quot;http://patricknormile.com/assets/mixkitSand2.wav&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;appear&quot; &quot;https://dstults.net/play-badger/audio/Appear-KP-1137861048.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;gameplay&quot; &quot;https://dstults.net/play-badger/audio/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;https://dstults.net/play-badger/audio/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;outro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;sand&quot; &quot;https://dstults.net/play-badger/audio/mixkitSand2.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;virusambient&quot; &quot;https://dstults.net/play-badger/audio/Advent.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
 
 &lt;&lt;set $name = &quot;Avery the Astronaut&quot;&gt;&gt;
 &lt;&lt;set $shipName = &quot;Your Spaceship&quot;&gt;&gt;
@@ -1275,7 +1276,7 @@ You breathe a sigh of relief.
 
 I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Okay.|transition-to-part3-1]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;ambientPN&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;gameplay&quot; stop&gt;&gt;&lt;&lt;audio &quot;virusambient&quot; loop play&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;console&gt;&gt;
 You take a deep gulp.
 
 &lt;&lt;ai&gt;&gt;&lt;&lt;virus&gt;&gt;Wa ha ha ha, fool, now it is my turn!
@@ -1573,7 +1574,7 @@ Your total score is... $score! Great job!
 &lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Register Score]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;virusambient&quot; stop&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
 
 &lt;/div&gt;
 &lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
