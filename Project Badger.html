@@ -536,6 +536,159 @@ body.leaderboard-css {
 
 /* end leaderboard css */
 /* -------------------------------------------------------- */
+
+/* -------------------------------------------------------- */
+/* start map css */
+
+.map {
+	border: 3px solid aqua;
+	border-radius: 8px;
+	display: block;
+	position: fixed;
+	right: 8rem;
+	top: 5rem;
+	overflow: hidden;
+	box-shadow: 0 0 8px black, 0 0 4px aqua;
+	background-color: rgba(0, 0, 0, 0.5);
+	white-space: nowrap;
+	transform: scale(1.5);
+}
+.map-title {
+	position: absolute;
+	color: azure;
+	text-shadow: 4px 4px teal;
+	font-family: Impact, monospace;
+	z-index: -5;
+	margin: 0;
+	opacity: 0.5;
+}
+.ravine-title {
+	font-size: 500%;
+	top: 2rem;
+	left: -2rem;
+	transform: rotate(-15deg);
+}
+.outpost-title {
+	font-size: 600%;
+	top: 5.4rem;
+	left: -3.5rem;
+	transform: rotate(55deg);
+}
+.map-marslike {
+	width: 20rem;
+	height: 10rem;
+}
+.map-outpost {
+	width: 13rem;
+	height: 18rem;
+}
+.map-site {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	font-size: 80%;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	background: radial-gradient(rgb(192, 255, 255) 50%, #000);
+	color: rgb(0, 128, 128);
+	border: solid 1px black;
+	text-align: center;
+	font-family: monospace;
+	opacity: 0.85;
+}
+.map-ml-wravine {
+	top: 50%;
+	left: 8%;
+	background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+	color: rgb(64, 114, 68);
+	width: 3rem;
+}
+.map-ml-cravine {
+	top: 32%;
+	left: 27%;
+	width: 5rem;
+}
+.map-ml-ship {
+	top: 4%;
+	left: 41%;
+	width: 4rem;
+	height: 2rem;
+	border-radius: 1rem;
+	background: radial-gradient(rgb(255, 224, 224) 50%, #000);
+	color: rgb(192, 64, 64);
+}
+.map-ml-eravine {
+	top: 36%;
+	left: 57%;
+	background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+	color: rgb(64, 114, 68);
+	width: 4rem;
+	height: 4rem;
+}
+.map-ml-desert {
+	top: 58%;
+	left: 79%;
+	border-radius: 0;
+	width: 5rem;
+	height: 5rem;
+	border-top-left-radius: 2.5rem;
+}
+
+.map-op-breakroom, .map-op-machineroom {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 0.3rem;
+}
+.map-op-breakroom {
+	top: 14%;
+	left: 16%;
+}
+.map-op-corridor3 {
+	top: 12%;
+	left: 37%;
+}
+.map-op-machineroom {
+	top: 14%;
+	left: 62%;
+	background: radial-gradient(rgb(255, 224, 224) 50%, #000);
+	color: rgb(192, 64, 64);
+}
+.map-op-corridor2 {
+	top: 30%;
+	left: 37%;
+}
+.map-op-powergen {
+	top: 48%;
+	left: 18%;
+	width: 5rem;
+	background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+	color: rgb(64, 114, 68);
+}
+.map-op-hydroponics {
+	top: 63%;
+	left: 51%;
+	width: 3.5rem;
+	height: 3.5rem;
+	background: radial-gradient(rgb(198, 243, 198) 50%, #000);
+	color: rgb(64, 114, 68);
+}
+.map-op-controlroom {
+	top: 70%;
+	left: 30%;
+	width: 2.5rem;
+}
+.at-site {
+	background: radial-gradient(#FF8 52%, #000);
+	box-shadow: 0 0 5px yellow, 0 0 8px yellow;
+	color: rgb(128, 128, 0);
+	opacity: 1;
+	z-index: 15;
+}
+
+/* end map css */
+/* -------------------------------------------------------- */
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = true;
 State.variables.debugMode = debugMode;
 
@@ -594,9 +747,9 @@ Macro.add('bgm', {
 		if (volume > 1) volume = 1;
 		if (volume <= 0) volume = 0;
 		if (volume > 0) {
-			$(this.output).wiki(`<<audio "${audioName}" volume ${volume} loop play>>`);
+			$(this.output).wiki(`<<audio "intro" stop>><<audio "${audioName}" volume ${volume} loop play>>`);
 		} else {
-			$(this.output).wiki(`<<audio "${audioName}" stop>>`);
+			$(this.output).wiki(`<<audio "intro" stop>><<audio "${audioName}" stop>>`);
 		}
 	}
 });
@@ -768,7 +921,7 @@ that we can use to engage the hyperdrive.
 Failure will not be tolerated.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Beam to outpost|Teleporting]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="hall-css" position="2700,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;set $location = &quot;Northern Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="hall-css" position="2700,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;Northern Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 You are in a T-shaped corridor.
 
@@ -778,7 +931,7 @@ The west door is unlabeled.
 
 The east door is labeled &lt;span&gt;Machine Room&lt;/span&gt;.
 
-&lt;&lt;add-tab&gt;&gt;[[Enter unlabeled door|OP Locked Door]]
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if $openAttempts &gt;= 2&gt;&gt;[[Enter unlabeled door|OP Break Room]]&lt;&lt;else&gt;&gt;[[Enter unlabeled door|OP Locked Door]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Enter the Machine Room|OP Machine Room]]
 &lt;&lt;add-tab&gt;&gt;[[Walk down the passageway|OP Central Corridor]]
 &lt;&lt;add-tab&gt;&gt;
@@ -844,7 +997,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Ah, what&#39;s this? A code fragment in a biometric buffer.&lt;&lt;virus&gt;&gt;There, a code fragment. Well what are you waiting for?&lt;&lt;/ai&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Return to the Hydroponics Room|OP Hydro-ponics]]
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Read the code fragment|Code Fragment]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;&lt;span&gt;[[Read the code fragment|Code Fragment]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
@@ -900,7 +1053,7 @@ You leave the wrench behind.
 &lt;&lt;include check-complete&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Return to the corridor|OP Central Corridor]]&lt;&lt;else&gt;&gt;[[Mission Complete]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Return to the corridor|OP Central Corridor]]&lt;&lt;else&gt;&gt;&lt;span&gt;[[Mission Complete]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the Hydroponics Room|OP Hydro-ponics]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
@@ -1251,6 +1404,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;set $virusWon = false&gt;&gt;
 
 &lt;!-- Part 3 --&gt;
+&lt;&lt;set $openAttempts = 0&gt;&gt;
 &lt;&lt;set $hasPliers = false&gt;&gt;
 &lt;&lt;set $hasDriver = false&gt;&gt;
 &lt;&lt;set $hasWrench = false&gt;&gt;
@@ -1268,7 +1422,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;set $easter3 = false&gt;&gt;
 
 &lt;&lt;set $showEnding = false&gt;&gt;
-</tw-passagedata><tw-passagedata pid="35" name="transition-to-part2-2" tags="" position="1900,500" size="100,100">&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
+</tw-passagedata><tw-passagedata pid="35" name="transition-to-part2-2" tags="" position="1900,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
 
 &lt;&lt;ai&gt;&gt;INSUFFICIENT MEMORY, &lt;span&gt;VIRUS DETECTED&lt;/span&gt;.
 
@@ -1277,7 +1431,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1299,12 +1453,12 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
+
 You breathe a sigh of relief.
 
-&lt;&lt;ai&gt;&gt;Thank you so much for saving me!
-
-I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;[[Okay.|transition-to-part3-1]]
+&lt;&lt;ai&gt;&gt;I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;[[Fly toward the nearby outpost...|transition-to-part3-1]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Wa ha ha ha, fool, now it is my turn!&lt;&lt;/ai&gt;&gt;
 
@@ -1313,12 +1467,14 @@ You take a deep gulp.
 &lt;&lt;ai&gt;&gt;You will immediately fly us to the waypoint
 on your map.&lt;&lt;/ai&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;[[Sure.|transition-to-part3-1]]
+&lt;&lt;add-tab&gt;&gt;[[Fly toward the waypoint...|transition-to-part3-1]]
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="39" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;console&gt;&gt;
+</tw-passagedata><tw-passagedata pid="39" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
 You soar across the planet.
 
-&lt;&lt;add-tab&gt;&gt;[[Fly toward a nearby outpost|transition-to-part3-2]]
+You&#39;re able to spot an outpost.
+
+&lt;&lt;add-tab&gt;&gt;[[Approach outpost...|transition-to-part3-2]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;We need a &lt;span&gt;fuel power supply&lt;/span&gt; and
 &lt;span&gt;hyperspark plugs&lt;/span&gt; to get our ship running.
@@ -1330,7 +1486,7 @@ We must be able to &lt;span&gt;fuel&lt;/span&gt; and &lt;span&gt;ignite&lt;/span
 hyperdrive.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Continue...|Part 3]]
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="41" name="transition-to-part2-1" tags="" position="1700,500" size="100,100">&lt;&lt;console true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="41" name="transition-to-part2-1" tags="" position="1700,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console true&gt;&gt;
 You attempt to start the engines.
 
 They hum and whiz.
@@ -1342,7 +1498,7 @@ Something doesn&#39;t seem right...
 You approach the door and wait for it to open...
 
 It doesn&#39;t open.
-
+&lt;&lt;set $openAttempts++&gt;&gt;
 It must be locked.
 
 &lt;&lt;add-tab&gt;&gt;[[Go back|OP Northern Corridor]]
@@ -1360,7 +1516,7 @@ Red gales of sand lash against the side of your ship.
 You hobble over to your ship&#39;s status control console.
 
 &lt;&lt;add-tab&gt;&gt;[[View ship status|Part 1 - Making Repairs]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="ML Central Ravine" tags="" position="1525,950" size="100,100">&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;include show-map-ml&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="ML Central Ravine" tags="" position="1525,950" size="100,100">&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You&#39;re standing in a ravine outside your spaceship.
 
 The ravine runs east and west.
@@ -1377,7 +1533,7 @@ Your only hope would be to transfer power back into the ship.&lt;/span&gt;
 &lt;&lt;add-tab&gt;&gt;[[Go West|ML Ravine West]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="carried-part" tags="" position="1450,750" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="carried-part" tags="" position="1450,750" size="100,100">&lt;&lt;nobr&gt;&gt;
 Carried Part: 
 &lt;&lt;if $hasBattery&gt;&gt;&lt;span&gt;Battery&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $hasThruster&gt;&gt;&lt;span&gt;Thruster&lt;/span&gt;&lt;&lt;/if&gt;&gt;
@@ -1400,7 +1556,7 @@ Press [&lt;span&gt;Reset&lt;/span&gt;] to bring computer systems back online.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="ML Ravine East" tags="" position="1775,925" size="100,100">&lt;&lt;set $location = &quot;East Ravine&quot;&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="ML Ravine East" tags="" position="1775,925" size="100,100">&lt;&lt;set $location = &quot;East Ravine&quot;&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
 You are at the mouth of the ravine. Beyond it is a red desert.
 &lt;&lt;if $batteryBoulders &gt; 1&gt;&gt;
 There are &lt;span&gt;$batteryBoulders suspicious boulders&lt;/span&gt;.
@@ -1421,13 +1577,12 @@ You found a &lt;span&gt;large ship battery&lt;/span&gt;! What fortune!
 You see all the boulders that you displaced earlier.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;[[Go back into the ravine|ML Central Ravine]]
+&lt;&lt;add-tab&gt;&gt;[[Head west into the ravine|ML Central Ravine]]
 &lt;&lt;add-tab&gt;&gt;[[Walk toward the desert|ML Sprawling Desert]]
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasThruster&gt;&gt;&lt;&lt;if $batteryBoulders &gt; 0&gt;&gt;[[Remove a boulder...|ML Ravine East][$batteryBoulders--]]&lt;&lt;elseif !$hasBattery &amp;&amp; !$batteryDrained&gt;&gt;[[Pick up the battery!|ML Ravine East][$hasBattery = true]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasThruster&gt;&gt;&lt;&lt;if $batteryBoulders &gt; 0&gt;&gt;&lt;span&gt;[[Remove a boulder...|ML Ravine East][$batteryBoulders--]]&lt;/span&gt;&lt;&lt;elseif !$hasBattery &amp;&amp; !$batteryDrained&gt;&gt;&lt;span&gt;[[Pick up the battery!|ML Ravine East][$hasBattery = true]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="48" name="ML Ravine West" tags="" position="1325,1075" size="100,100">&lt;&lt;set $location = &quot;West Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="ML Ravine West" tags="" position="1325,1075" size="100,100">&lt;&lt;set $location = &quot;West Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 The ravine comes to a dead end.
 
 You look up.
@@ -1439,12 +1594,12 @@ Your thruster is embedded in the steep cliff nearby.
 &lt;&lt;else&gt;&gt;
 You see nothing but red sand crashing against the cliff.
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;[[Return to the spaceship|ML Central Ravine]]
+&lt;&lt;add-tab&gt;&gt;[[Head east toward the spaceship|ML Central Ravine]]
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasThruster &amp;&amp; !$thrusterAttached &amp;&amp; !$hasBattery&gt;&gt;[[Climb the cliff|ML Ravine West Up]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="ML Ravine West Up" tags="" position="1325,875" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="ML Ravine West Up" tags="" position="1325,875" size="100,100">&lt;&lt;console&gt;&gt;
 Thankfully the gravity is weak on this planet.
 
 Despite your spacesuit, you are able to clasp the juts of the cliff.
@@ -1458,7 +1613,7 @@ Eventually you climb up to the thruster.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Get Thruster" tags="" position="1175,975" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Get Thruster" tags="" position="1175,975" size="100,100">&lt;&lt;console&gt;&gt;
 You grab hold of the thruster.
 
 You try to climb up it but gravity takes its course!!!
@@ -1472,7 +1627,7 @@ the sand below you.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Attach Thruster" tags="" position="1650,1125" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Attach Thruster" tags="" position="1650,1125" size="100,100">&lt;&lt;console&gt;&gt;
 You manage to lug the thruster atop your spaceship.
 &lt;&lt;set $hasThruster = false&gt;&gt;&lt;&lt;set $thrusterAttached = true&gt;&gt;
 The magneto-thermosprites immediately readhere. You rotate
@@ -1509,7 +1664,7 @@ It would be best to go no further.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Lost In Sand" tags="" position="1825,1275" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Lost In Sand" tags="" position="1825,1275" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;? ? Crater ? ?&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You travel in the sandy desert for half an hour.
 
 You&#39;re not sure which way you&#39;re going.
@@ -1521,7 +1676,7 @@ You think you see a crater...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Easter Egg" tags="" position="1600,1275" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Easter Egg" tags="" position="1600,1275" size="100,100">&lt;&lt;console&gt;&gt;
 As you approach the cusp of the crater, you look down.
 
 You think you see a structure below...
@@ -1534,7 +1689,7 @@ You&#39;re saved!
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
 You tumble down a steep ravine.
 
 You sit up and get your bearings.
@@ -1548,7 +1703,7 @@ Oh hey, it&#39;s your spaceship! You went in a big circle...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Code Entry Validator" tags="hydro-css" position="3000,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Code Entry Validator" tags="hydro-css" position="3000,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if $passcodeAttempt == $passcode&gt;&gt;The digital deterrence device turns off.
 	
 Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set $hasFuelRods = true&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
@@ -1558,13 +1713,13 @@ Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set 
 Brrrttt!! Incorrect Code!
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;[[Mission Complete]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;&lt;span&gt;[[Mission Complete]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Return to the Generator Room|OP Power Generator]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="58" name="check-complete" tags="" position="3150,1500" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Credits" tags="" position="1100,1600" size="100,100">&lt;div class=&quot;centered&quot;&gt;
+</tw-passagedata><tw-passagedata pid="58" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Credits" tags="" position="1100,1600" size="100,100">&lt;div class=&quot;centered&quot;&gt;
 &lt;h1&gt;Credits&lt;/h1&gt;
 
 Patrick Normile
@@ -1599,7 +1754,7 @@ Your total score is... $score! Great job!
 &lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Register Score]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;audio &quot;ambientPN&quot; stop&gt;&gt;&lt;&lt;audio &quot;virusambient&quot; stop&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
 
 &lt;/div&gt;
 &lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
@@ -1857,11 +2012,19 @@ const countdownProcess = setInterval(() =&gt; {
 &lt;div style=&quot;display: none;&quot; class=&quot;centered&quot;&gt;
 	&lt;div class=&quot;leaderboard&quot; id=&quot;scores2&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="67" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
-You find delicious bacon sandwiches so you eat one.
+</tw-passagedata><tw-passagedata pid="67" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $openAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
 
+This time the door opens!
+
+You are inside what looks to be a break room.
+
+There is a fridge with delicious sandwiches, so you eat one.
+&lt;&lt;set $openAttempts++&gt;&gt;
 &lt;span&gt;Easter Egg #3&lt;/span&gt; found!!&lt;&lt;set $easter3 = true&gt;&gt;
+&lt;&lt;else&gt;&gt;You are in the break room.
 
+Not much to see here.
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Go back|OP Northern Corridor]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
@@ -1875,10 +2038,34 @@ You find delicious bacon sandwiches so you eat one.
 &lt;&lt;audio &quot;sand1&quot; stop&gt;&gt;
 &lt;&lt;audio &quot;sand2&quot; stop&gt;&gt;
 &lt;&lt;audio &quot;sand3&quot; stop&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="show-map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
-
-
-
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;div class=&quot;map map-marslike&quot;&gt;
+	&lt;h1 class=&quot;map-title ravine-title&quot;&gt;The Ravine&lt;/h1&gt;
+	&lt;div id=&quot;location-ml-ship&quot; class=&quot;map-site map-ml-ship&quot;&gt;&lt;small&gt;Ship&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-ml-eravine&quot; class=&quot;map-site map-ml-eravine&quot;&gt;&lt;small&gt;East&lt;br&gt;Ravine&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-ml-cravine&quot; class=&quot;map-site map-ml-cravine&quot;&gt;&lt;small&gt;Central&lt;br&gt;Ravine&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-ml-wravine&quot; class=&quot;map-site map-ml-wravine&quot;&gt;&lt;small&gt;West&lt;br&gt;Ravine&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-ml-desert&quot; class=&quot;map-site map-ml-desert&quot;&gt;&lt;small&gt;Desert&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;&lt;timed 0.001s&gt;&gt;&lt;&lt;script&gt;&gt;
+switch(State.variables.location) {
+	case &#39;Central Ravine&#39;:
+		document.getElementById(&#39;location-ml-cravine&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case State.variables.shipName:
+		document.getElementById(&#39;location-ml-ship&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;West Ravine&#39;:
+		document.getElementById(&#39;location-ml-wravine&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;East Ravine&#39;:
+		document.getElementById(&#39;location-ml-eravine&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Sprawling Desert&#39;:
+		document.getElementById(&#39;location-ml-desert&#39;).classList.add(&#39;at-site&#39;);
+		break;
+}
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="show-map-op" tags="" position="2550,725" size="100,100">&lt;&lt;nobr&gt;&gt;
 
 
