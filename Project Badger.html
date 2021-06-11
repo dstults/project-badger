@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Project Badger" startnode="64" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+	<tw-storydata name="Project Badger" startnode="63" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 /* -------------------------------------------------------- */
 /* start general css */
 
@@ -456,7 +456,7 @@ body.leaderboard-css {
 	transition: none;
 }
 .leaderboard {
-	width: 300px;
+	width: 420px;
 	background: linear-gradient(160deg, #3a404d, #181c26);
 	border-radius: 10px;
 	box-shadow: 0 6px 20px rgb(0, 0, 0);
@@ -469,7 +469,7 @@ body.leaderboard-css {
 	text-align: center;
 	margin: 0.4rem auto 0.8rem auto;
 }
-.leaderboard svg, .leaderboard img {
+.leaderboard h1>svg, .leaderboard h1>img {
 	width: 25px;
 	height: 26px;
 	vertical-align: middle;
@@ -487,19 +487,22 @@ body.leaderboard-css {
 	position: relative;
 	cursor: pointer;
 	display: grid;
-	grid-template-columns: 10% auto 20%;
+	grid-template-columns: 32px auto 52px 72px 52px;
 	gap: 10px;
 	font-size: 14px;
 	padding: 11px 10px;
 }
 .leaderboard li.r1 {
 	background-color: rgba(0, 0, 0, 0%);
+	text-shadow: 1px 1px black;
 }
 .leaderboard li.r2 {
 	background-color: rgba(0, 0, 0, 10%);
+	text-shadow: 1px 1px black;
 }
 .leaderboard li.r3 {
 	background-color: rgba(0, 0, 0, 20%);
+	text-shadow: 1px 1px black;
 }
 .leaderboard li.r4 {
 	background-color: rgba(0, 0, 0, 30%);
@@ -525,10 +528,16 @@ body.leaderboard-css {
 }
 .leaderboard .name {
 	line-height: 20px;
-	padding-left: 20px;
-	background: none;
 }
 .leaderboard .score {
+	line-height: 20px;
+	text-align: right;
+}
+.leaderboard .eggs {
+	line-height: 20px;
+	text-align: center;
+}
+.leaderboard .time {
 	line-height: 20px;
 	padding-right: 10px;
 	text-align: right;
@@ -911,7 +920,7 @@ setup.runTypewriter = () => {
 
 	setTimeout(printNextChar, 500);
 };
-</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;set $gameProgress = 3&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Beam into the nearby abandoned
 outpost and acquire spare &lt;span&gt;hyperplugs&lt;/span&gt; and
 &lt;span&gt;six fuel rods&lt;/span&gt;.
@@ -1185,7 +1194,7 @@ Your Unique Identifier: [ &lt;span&gt;$uid&lt;/span&gt; ]
 </tw-passagedata><tw-passagedata pid="18" name="init-run-scripts" tags="" position="300,400" size="100,100">&lt;&lt;script&gt;&gt;
 State.variables.uid = setup.randomUID();
 &lt;&lt;/script&gt;&gt;
-</tw-passagedata><tw-passagedata pid="19" name="Display Scores" tags="leaderboard-css" position="725,450" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
+</tw-passagedata><tw-passagedata pid="19" name="Display Scores" tags="leaderboard-css" position="775,1225" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 [[The End|Title]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="StoryInit" tags="" position="300,100" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
@@ -1198,16 +1207,19 @@ State.variables.uid = setup.randomUID();
 &lt;&lt;timed 0.0001s&gt;&gt;
 &lt;&lt;script&gt;&gt;
 const scoresElem1 = document.getElementById(&#39;scores1&#39;);
-const scoresElem2 = document.getElementById(&#39;scores2&#39;);
 
 const appendScore = (i, score, arr) =&gt; {
+	let rankClass;
 	if (i &lt;= 5) {
-		arr.push(&#96;&lt;li class=&quot;r${i}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);
+		rankClass = &#39;r&#39; + i;
 	} else if (i &lt;= 10) {
-		arr.push(&#96;&lt;li class=&quot;r6&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);
-	} else {
-		/*arr.push(&#96;&lt;li class=&quot;r7&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;/li&gt;&#96;);*/
+		rankClass = &#39;r6&#39;;
 	}
+	let eggs = &#39;&#39;;
+	if (score.egg1) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg1.png&quot;&gt;&#39;;
+	if (score.egg2) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg2.png&quot;&gt;&#39;;
+	if (score.egg3) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg3.png&quot;&gt;&#39;;
+	arr.push(&#96;&lt;li class=&quot;${rankClass}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;div class=&quot;eggs&quot;&gt;${eggs}&lt;/div&gt;&lt;div class=&quot;time&quot;&gt;${score.time}&lt;/div&gt;&lt;/li&gt;&#96;);
 };
 
 const displayScores = () =&gt; {
@@ -1224,17 +1236,13 @@ const displayScores = () =&gt; {
 			appendScore(i, score, i &lt;= 10 ? arr1 : arr2);
 		});
 		scoresElem1.innerHTML = &#96;&lt;h1&gt;&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;Top Ten&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;&lt;/h1&gt;&lt;ul&gt;${arr1.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
-		if (i &lt;= 10)
-			scoresElem2.style.display = &#39;none&#39;;
-		/* else
-			scoresElem2.innerHTML = &#96;&lt;h1&gt;Special Mention&lt;/h1&gt;&lt;ul&gt;${arr2.join(&#39;&#39;)}&lt;/ul&gt;&#96;; */
 	}
 };
 
 const getHighScores = () =&gt; {
 	const xhr = new XMLHttpRequest();
 	window.xhr = xhr;
-	const link = &#39;https://scores.dstults.net/all?list=test1&#39;;
+	const link = &#39;https://scores.dstults.net/top-ten?list=badger&#39;;
 	xhr.open(&#39;GET&#39;, link);
 	xhr.onload = () =&gt; {
 		try {
@@ -1243,7 +1251,6 @@ const getHighScores = () =&gt; {
 		} catch {
 			State.variables.highScores = [];
 			scoresElem1.innerHTML = &#96;&lt;h1&gt;Error&lt;/h1&gt;Couldn&#39;t parse server data:&lt;br&gt;&quot;${xhr.response}&quot;&lt;br&gt;&lt;br&gt;&#96;;
-			scoresElem2.style.display = &#39;none&#39;
 		}
 	};
 	xhr.send(null);
@@ -1255,15 +1262,18 @@ getHighScores();
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="print-demo" tags="" position="100,900" size="100,100">Sample print statement:
 &lt;&lt;print setup.randomUID()&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="double-variable-setter-link" tags="" position="100,1025" size="100,100">[[Eat an MRE.|Listening Post][$action=&quot;MRE&quot;;$time+=4]]</tw-passagedata><tw-passagedata pid="24" name="post-score" tags="" position="550,550" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 
+const uid = State.variables.uid;
+const name = State.variables.name;
 const timeDiff = ((new Date() - State.variables.startTime) / 1000).toFixed(3);
 const egg1 = State.variables.easter1 ? 1 : 0;
 const egg2 = State.variables.easter2 ? 1 : 0;
 const egg3 = State.variables.easter3 ? 1 : 0;
+const progress = State.variables.gameProgress;
 
 const postHighScore = () =&gt; {
 	const xhr = new XMLHttpRequest();
 	window.xhr = xhr;
-	const link = &#96;https://scores.dstults.net/update?list=badger&amp;uid=${State.variables.uid}&amp;name=${State.variables.name}&amp;timeDiff=${timeDiff}&amp;egg1=${egg1}&amp;egg2=${egg2}&amp;egg3=${egg3}&#96;;
+	const link = &#96;https://scores.dstults.net/update?list=badger&amp;uid=${uid}&amp;name=${name}&amp;timeDiff=${timeDiff}&amp;egg1=${egg1}&amp;egg2=${egg2}&amp;egg3=${egg3}&amp;progress=${progress}&#96;;
 	xhr.open(&#39;GET&#39;, link);
 	xhr.onload = () =&gt; {
 		try {
@@ -1330,7 +1340,7 @@ The air is barely breathable.
 You gasp in pain.
 
 &lt;&lt;add-tab&gt;&gt;[[Don Oxygen Mask|Intro (3)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="" position="1500,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="" position="1500,500" size="100,100">&lt;&lt;set $gameProgress = 1&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 - A retro-thruster snapped off.
@@ -1364,6 +1374,7 @@ It is scary here. You poop your pants. The end.
 
 &lt;&lt;set $name = &quot;Avery the Astronaut&quot;&gt;&gt;
 &lt;&lt;set $shipName = &quot;Your Spaceship&quot;&gt;&gt;
+&lt;&lt;set $gameProgress = 0&gt;&gt;
 &lt;&lt;set $location = &quot;Deep Space&quot;&gt;&gt;
 &lt;&lt;set $score = 0&gt;&gt;
 &lt;&lt;set $uid = &quot;ABCDEFGHIJ1234567890&quot;&gt;&gt;
@@ -1410,7 +1421,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;set $gameProgress = 2&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1699,21 +1710,19 @@ Brrrttt!! Incorrect Code!
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Credits" tags="" position="2150,1700" size="100,100">&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Credits" tags="" position="1275,1675" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;h1&gt;Credits&lt;/h1&gt;
-
 Patrick Normile
 Ahmed Elmi
 Darren Stults
 
 Special thanks to:
-
 images,
 music,
 sounds etc.
 
-[[Score Report]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;[[Score Report|Display Scores]]
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -1722,22 +1731,12 @@ Let&#39;s get out of here!&lt;&lt;virus&gt;&gt;My sweet pawn, you have done well
 At last my diabolic plans can come to fruition, and it&#39;s all
 thanks to &lt;span&gt;you&lt;/span&gt;.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Roll Outro|Credits]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Score Report" tags="" position="2000,1700" size="100,100">&lt;&lt;console&gt;&gt;
-&lt;&lt;set $score = 500&gt;&gt;Victory Score: +500 pts
-&lt;&lt;if $name == &#39;ty&#39; || $name == &#39;Ty&#39; || $name == &#39;TY&#39;&gt;&gt;&lt;&lt;set $score += 850&gt;&gt;Best Teacher Ever Score: +850 pts&lt;&lt;/if&gt;&gt;
-Easter Egg 1: &lt;&lt;if $easter1&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
-Easter Egg 2: &lt;&lt;if $easter2&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
-Easter Egg 3: &lt;&lt;if $easter3&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
-
-Your total score is... $score! Great job!
-
-&lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Display Scores]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
 
 &lt;/div&gt;
-&lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 /* Darren Stults -- Dueling life */
 
 const make2dArray = (rows, cols, setTeams = 1) =&gt; {
@@ -1973,7 +1972,7 @@ const countdownProcess = setInterval(() =&gt; {
 	myClock.innerHTML = &#96;T-:${timeDiff.toFixed(2)}&#96;;
 }, 10);
 
-&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio &quot;intro&quot; loop play&gt;&gt;
 &lt;div class=&quot;title-logo&quot;&gt;
 	&lt;h1&gt;Fix My Spaceship&lt;/h1&gt;
@@ -1992,11 +1991,11 @@ const countdownProcess = setInterval(() =&gt; {
 &lt;div class=&quot;title-ship&quot;&gt;
 	&lt;img src=&quot;https://dstults.net/play-badger/images/spaceship.png&quot;&gt;
 &lt;/div&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="High Scores" tags="leaderboard-css" position="600,275" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="High Scores" tags="leaderboard-css" position="600,275" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 [[Back|Title]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="66" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;door2&quot; play&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
+</tw-passagedata><tw-passagedata pid="65" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;door2&quot; play&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
 
 This time the door opens!
 
@@ -2014,7 +2013,7 @@ Not much to see here.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;map map-marslike&quot;&gt;
 	&lt;h1 class=&quot;map-title ravine-title&quot;&gt;The Ravine&lt;/h1&gt;
 	&lt;div id=&quot;location-ml-ship&quot; class=&quot;map-site map-ml-ship&quot;&gt;&lt;small&gt;Ship&lt;/small&gt;&lt;/div&gt;
@@ -2043,11 +2042,11 @@ switch(State.variables.location) {
 		break;
 }
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="show-map-op" tags="" position="2550,725" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="show-map-op" tags="" position="2550,725" size="100,100">&lt;&lt;nobr&gt;&gt;
 
 
 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;map map-outpost&quot;&gt;
 	&lt;h1 class=&quot;map-title outpost-title&quot;&gt;Outpost&lt;/h1&gt;
 	&lt;div id=&quot;location-op-breakroom&quot; class=&quot;map-site map-op-breakroom&quot;&gt;&lt;small&gt;&lt;&lt;if $breakRoomAttempts &gt;= 3&gt;&gt;Break&lt;br&gt;Room&lt;&lt;else&gt;&gt;? ? ?&lt;&lt;/if&gt;&gt;&lt;/small&gt;&lt;/div&gt;
@@ -2084,7 +2083,7 @@ switch(State.variables.location) {
 		break;
 }
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Roll Outro" tags="" position="2300,1850" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="71" name="mark-start-time" tags="" position="1100,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="Roll Outro" tags="" position="2300,1850" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="70" name="mark-start-time" tags="" position="1100,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 
 State.variables.startTime = new Date();
 
