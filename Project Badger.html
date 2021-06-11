@@ -1406,7 +1406,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;set $virusWon = false&gt;&gt;
 
 &lt;!-- Part 3 --&gt;
-&lt;&lt;set $openAttempts = 0&gt;&gt;
+&lt;&lt;set $breakRoomAttempts = 0&gt;&gt;
 &lt;&lt;set $hasPliers = false&gt;&gt;
 &lt;&lt;set $hasDriver = false&gt;&gt;
 &lt;&lt;set $hasWrench = false&gt;&gt;
@@ -1500,7 +1500,7 @@ Something doesn&#39;t seem right...
 You approach the door and wait for it to open...
 
 It doesn&#39;t open.
-&lt;&lt;set $openAttempts++&gt;&gt;
+&lt;&lt;set $breakRoomAttempts++&gt;&gt;
 It must be locked.
 
 &lt;&lt;add-tab&gt;&gt;[[Go back|OP Northern Corridor]]
@@ -2075,7 +2075,7 @@ switch(State.variables.location) {
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;map map-outpost&quot;&gt;
 	&lt;h1 class=&quot;map-title outpost-title&quot;&gt;Outpost&lt;/h1&gt;
-	&lt;div id=&quot;location-op-breakroom&quot; class=&quot;map-site map-op-breakroom&quot;&gt;&lt;small&gt;Break&lt;br&gt;Room&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-breakroom&quot; class=&quot;map-site map-op-breakroom&quot;&gt;&lt;small&gt;&lt;&lt;if $breakRoomAttempts &gt;= 3&gt;&gt;Break&lt;br&gt;Room&lt;&lt;else&gt;&gt;? ? ?&lt;&lt;/if&gt;&gt;&lt;/small&gt;&lt;/div&gt;
 	&lt;div id=&quot;location-op-corridor3&quot; class=&quot;map-site map-op-corridor3&quot;&gt;&lt;small&gt;Corridor&lt;/small&gt;&lt;/div&gt;
 	&lt;div id=&quot;location-op-machineroom&quot; class=&quot;map-site map-op-machineroom&quot;&gt;&lt;small&gt;Machine&lt;br&gt;Room&lt;/small&gt;&lt;/div&gt;
 	&lt;div id=&quot;location-op-corridor2&quot; class=&quot;map-site map-op-corridor2&quot;&gt;&lt;small&gt;Corridor&lt;/small&gt;&lt;/div&gt;
