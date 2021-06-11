@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Project Badger" startnode="65" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+	<tw-storydata name="Project Badger" startnode="64" creator="Twine" creator-version="2.3.14" ifid="E68318F5-C35B-4D41-B49F-E2A185602C4D" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 /* -------------------------------------------------------- */
 /* start general css */
 
@@ -540,14 +540,14 @@ body.leaderboard-css {
 /* -------------------------------------------------------- */
 /* start map css */
 .scoot-left{
-	transform: translateX(-6rem);
+	transform: translateX(-16rem);
 }
 .map {
 	border: 4px solid rgb(159 128 204);
 	border-radius: 8px;
 	display: block;
 	position: absolute;
-	left: 60rem;
+	left: 50rem;
     top: 8.5rem;
 	overflow: hidden;
 	box-shadow: 0 0 6px black,  0 0 3px black;
@@ -911,7 +911,7 @@ setup.runTypewriter = () => {
 
 	setTimeout(printNextChar, 500);
 };
-</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;console&gt;&gt;
+</script><tw-tag name="leaderboard-css" color="yellow"></tw-tag>,<tw-tag name="lifeboard-css" color="green"></tw-tag>,<tw-tag name="title-css" color="blue"></tw-tag><tw-passagedata pid="1" name="Part 3" tags="" position="2700,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Beam into the nearby abandoned
 outpost and acquire spare &lt;span&gt;hyperplugs&lt;/span&gt; and
 &lt;span&gt;six fuel rods&lt;/span&gt;.
@@ -957,7 +957,7 @@ Behind is the outpost landing spot.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="machine-css" position="2900,900" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &#39;drone&#39; volume 0.1&gt;&gt;&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="machine-css" position="2900,900" size="100,100">&lt;&lt;audio &quot;door1&quot; play&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &#39;drone&#39; volume 0.1&gt;&gt;&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 This is a pretty small machine room. More like a closet. 
 &lt;&lt;if !$hasHyperplugs&gt;&gt;
@@ -970,7 +970,7 @@ You don&#39;t need anything from here.
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;&lt;if !$hasDriver &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up screwdriver|OP Machine Room][$hasDriver = true]]&lt;&lt;elseif $hasDriver&gt;&gt;[[Put screwdriver back|OP Machine Room][$hasDriver = false]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;&lt;if !$hasWrench &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up wrench|OP Machine Room][$hasWrench = true]]&lt;&lt;elseif $hasWrench&gt;&gt;[[Put wrench back|OP Machine Room][$hasWrench = false]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="generator-css" position="2700,1300" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 1&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="generator-css" position="2700,1300" size="100,100">&lt;&lt;audio &quot;door3&quot; play&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 1&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You see a door labeled &lt;span&gt;hydroponics&lt;/span&gt;.
 &lt;&lt;if !$hasHyperplugs&gt;&gt;
 You see a &lt;span&gt;coil of hyperplugs&lt;/span&gt; locked in place by
@@ -984,7 +984,7 @@ There is a large power generator here.
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;[[Get the hyperplugs|Get Plugs]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;audio &quot;door3&quot; play&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
 You see &lt;span&gt;6 fuel rods&lt;/span&gt; locked behind a
 digital deterrence device.
 
@@ -997,7 +997,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;add-tab&gt;&gt;[[Enter the control room|OP Control Room]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;audio &quot;door2&quot; play&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Wow, what an impressive control room.&lt;&lt;virus&gt;&gt;What kind of hackneyed attempt at control is this?&lt;&lt;/ai&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;Computer terminals and blinking lights illuminate the area.
 
 &lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Ah, what&#39;s this? A code fragment in a biometric buffer.&lt;&lt;virus&gt;&gt;There, a code fragment. Well what are you waiting for?&lt;&lt;/ai&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1164,7 +1164,7 @@ The main winding was of the normal lotus-o-delta type placed in panendermic semi
 The turbo-encabulator has now reached a high level of development, and it’s being successfully used in the operation of novertrunnions. Moreover, whenever a forescent skor motion is required, it may also be employed in conjunction with a drawn reciprocation dingle arm, to reduce sinusoidal repleneration.”
 
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="15" name="Closet" tags="" position="3000,100" size="100,100">Patrick, it&#39;s time to come out.</tw-passagedata><tw-passagedata pid="16" name="to-do" tags="" position="3100,100" size="100,100">FIX transition into outpost. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="17" name="Start" tags="" position="900,300" size="100,100">&lt;&lt;console false &#39;WELCOME&#39;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="15" name="Closet" tags="" position="3000,100" size="100,100">Patrick, it&#39;s time to come out.</tw-passagedata><tw-passagedata pid="16" name="to-do" tags="" position="3100,100" size="100,100">FIX transition into outpost. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="17" name="Start" tags="" position="900,300" size="100,100">&lt;&lt;include mark-start-time&gt;&gt;&lt;&lt;console false &#39;WELCOME&#39;&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;&lt;&lt;if $errorMessage&gt;&gt;&lt;span class=&quot;error&quot;&gt;$errorMessage&lt;/span&gt;&lt;&lt;else&gt;&gt;Please input and &lt;span&gt;press ENTER&lt;/span&gt; when done!&lt;&lt;/if&gt;&gt;
 
 Enter your name:
@@ -1187,18 +1187,14 @@ State.variables.uid = setup.randomUID();
 &lt;&lt;/script&gt;&gt;
 </tw-passagedata><tw-passagedata pid="19" name="Display Scores" tags="leaderboard-css" position="725,450" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
-	&lt;div class=&quot;leaderboard&quot; id=&quot;scores1&quot;&gt;Loading...&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;centered&quot;&gt;
 [[The End|Title]]
-&lt;/div&gt;
-&lt;div style=&quot;display: none;&quot; class=&quot;centered&quot;&gt;
-	&lt;div class=&quot;leaderboard&quot; id=&quot;scores2&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="20" name="StoryInit" tags="" position="300,100" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="StoryInit" tags="" position="300,100" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-cache-audio&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-</tw-passagedata><tw-passagedata pid="21" name="get-high-scores" tags="" position="600,400" size="100,100">&lt;&lt;nobr&gt;&gt;
+</tw-passagedata><tw-passagedata pid="21" name="get-high-scores" tags="" position="550,450" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;div class=&quot;centered&quot;&gt;
+	&lt;div class=&quot;leaderboard&quot; id=&quot;scores1&quot;&gt;Loading...&lt;/div&gt;
+&lt;/div&gt;
 &lt;&lt;timed 0.0001s&gt;&gt;
 &lt;&lt;script&gt;&gt;
 const scoresElem1 = document.getElementById(&#39;scores1&#39;);
@@ -1256,49 +1252,33 @@ const getHighScores = () =&gt; {
 getHighScores();
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Register Score" tags="" position="700,700" size="100,100">&lt;&lt;console&gt;&gt;
-&lt;div class=&quot;centered&quot;&gt;
-&lt;&lt;include post-score&gt;&gt;
-Your score of $score points is being registered...
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="print-demo" tags="" position="100,900" size="100,100">Sample print statement:
+&lt;&lt;print setup.randomUID()&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="double-variable-setter-link" tags="" position="100,1025" size="100,100">[[Eat an MRE.|Listening Post][$action=&quot;MRE&quot;;$time+=4]]</tw-passagedata><tw-passagedata pid="24" name="post-score" tags="" position="550,550" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 
-&lt;p id=&quot;scoreUpdate&quot;&gt;Talking to server...&lt;/p&gt;
-&lt;/div&gt;
-&lt;&lt;add-tab&gt;&gt;[[Let&#39;s see the score list!|Display Scores]]
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="23" name="print-demo" tags="" position="100,900" size="100,100">Sample print statement:
-&lt;&lt;print setup.randomUID()&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="double-variable-setter-link" tags="" position="100,1025" size="100,100">[[Eat an MRE.|Listening Post][$action=&quot;MRE&quot;;$time+=4]]</tw-passagedata><tw-passagedata pid="25" name="post-score" tags="" position="575,700" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;timed 0.0001s&gt;&gt;
-&lt;&lt;script&gt;&gt;
-const scoresElem = document.getElementById(&#39;scoreUpdate&#39;);
-
-const displayUpdate = () =&gt; {
-	if (!State.variables.scorePostResponse) {
-		scoresElem.innerHTML = &#39;Could not contact server!&#39;;
-	} else {
-		scoresElem.innerHTML = State.variables.scorePostResponse.message;
-	}
-};
+const timeDiff = ((new Date() - State.variables.startTime) / 1000).toFixed(3);
+const egg1 = State.variables.easter1 ? 1 : 0;
+const egg2 = State.variables.easter2 ? 1 : 0;
+const egg3 = State.variables.easter3 ? 1 : 0;
 
 const postHighScore = () =&gt; {
 	const xhr = new XMLHttpRequest();
 	window.xhr = xhr;
-	const link = &#96;https://scores.dstults.net/update?list=test1&amp;name=${State.variables.name}&amp;score=${State.variables.score}&amp;uid=${State.variables.uid}&#96;;
+	const link = &#96;https://scores.dstults.net/update?list=badger&amp;uid=${State.variables.uid}&amp;name=${State.variables.name}&amp;timeDiff=${timeDiff}&amp;egg1=${egg1}&amp;egg2=${egg2}&amp;egg3=${egg3}&#96;;
 	xhr.open(&#39;GET&#39;, link);
 	xhr.onload = () =&gt; {
 		try {
 			State.variables.scorePostResponse = JSON.parse(xhr.response);
 			displayUpdate();
 		} catch {
-			scoresElem.innerHTML = &#96;[ Error ] Couldn&#39;t parse server data: &quot;${xhr.response}&quot;&#96;;
+			State.variables.scorePostResponse = {};
+			State.variables.scorePostResponse.message = &#96;[ Error ] Couldn&#39;t parse server data: &quot;${xhr.response}&quot;&#96;;
 		}
 	};
 	xhr.send(null);
 };
-
 postHighScore();
-&lt;&lt;/script&gt;&gt;
-&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Validator" tags="" position="900,500" size="100,100">&lt;&lt;nobr&gt;&gt;
+
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Validator" tags="" position="900,500" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;script&gt;&gt;
 	State.variables.name = setup.validateName(State.variables.name);
 &lt;&lt;/script&gt;&gt;
@@ -1333,7 +1313,7 @@ postHighScore();
 		&lt;&lt;/console&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Intro (1)" tags="" position="1100,500" size="100,100">&lt;&lt;audio &quot;intro&quot; stop&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console true&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Intro (1)" tags="" position="1100,500" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.1 loop play&gt;&gt;&lt;&lt;audio &quot;intro&quot; stop&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console true&gt;&gt;
 STARDATE: 32041224-043254
 
 Systems: Malfunctioning
@@ -1343,7 +1323,7 @@ Life Support: Minimal
 Commencing cryostorage resuscitation.
 
 &lt;&lt;add-tab&gt;&gt;[[Head...hurts...|Intro (2)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Intro (2)" tags="" position="1200,500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Intro (2)" tags="" position="1200,500" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 You hobble out of your cryochamber.
 
 Your knees are stiff and weak.
@@ -1353,7 +1333,7 @@ The air is barely breathable.
 You gasp in pain.
 
 &lt;&lt;add-tab&gt;&gt;[[Don Oxygen Mask|Intro (3)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Part 1 - Making Repairs" tags="" position="1500,500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="" position="1500,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 - A retro-thruster snapped off.
@@ -1364,12 +1344,12 @@ Try searching somewhere on the planet nearby.
 Thank goodness you have your spacesuit on.
 
 &lt;&lt;add-tab&gt;&gt;[[Step outside|ML Central Ravine]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="demo-iframe" tags="" position="100,1150" size="100,100">&lt;iframe src=&quot;https://dstults.net&quot;&gt;
-&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="31" name="coded-passage-change" tags="" position="100,1275" size="100,100">
-&lt;button onclick=&quot;setup.runPassage(&#39;Intro (4)&#39;);&quot;&gt;Next&lt;/button&gt;</tw-passagedata><tw-passagedata pid="32" name="The Landing" tags="" position="2000,100" size="100,100">&lt;&lt;console null true&gt;&gt;You&#39;ve landed on the new planet.
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="demo-iframe" tags="" position="100,1150" size="100,100">&lt;iframe src=&quot;https://dstults.net&quot;&gt;
+&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="30" name="coded-passage-change" tags="" position="100,1275" size="100,100">
+&lt;button onclick=&quot;setup.runPassage(&#39;Intro (4)&#39;);&quot;&gt;Next&lt;/button&gt;</tw-passagedata><tw-passagedata pid="31" name="The Landing" tags="" position="2000,100" size="100,100">&lt;&lt;console null true&gt;&gt;You&#39;ve landed on the new planet.
 
 It is scary here. You poop your pants. The end.
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="init-cache-audio" tags="" position="300,300" size="100,100">&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;https://dstults.net/play-badger/audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="init-cache-audio" tags="" position="300,300" size="100,100">&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;https://dstults.net/play-badger/audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;typewriter&quot; &quot;https://dstults.net/play-badger/audio/344816__nakhas__data-transfer.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;drone&quot; &quot;https://dstults.net/play-badger/audio/mixkit-large-drone-engine-2741.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door1&quot; &quot;https://dstults.net/play-badger/audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
@@ -1380,10 +1360,10 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;cacheaudio &quot;intro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;https://dstults.net/play-badger/audio/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;outro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;sand1&quot; &quot;https://dstults.net/play-badger/audio/mixkitSand1.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;sand2&quot; &quot;https://dstults.net/play-badger/audio/mixkitSand2.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;sand3&quot; &quot;https://dstults.net/play-badger/audio/mixkitSand3.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;virusambient&quot; &quot;https://dstults.net/play-badger/audio/Advent.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;sand&quot; &quot;https://dstults.net/play-badger/audio/neoSand.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;scaryWind&quot; &quot;https://dstults.net/play-badger/audio/mixkit-horror-sci-fi-wind-tunnel-894.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;virusambient&quot; &quot;https://dstults.net/play-badger/audio/Advent.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;engine-fail&quot; &quot;https://dstults.net/play-badger/audio/mixkit-engine-slow-spinning-whoosh-2650.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
 
 &lt;&lt;set $name = &quot;Avery the Astronaut&quot;&gt;&gt;
 &lt;&lt;set $shipName = &quot;Your Spaceship&quot;&gt;&gt;
@@ -1424,7 +1404,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;set $easter3 = false&gt;&gt;
 
 &lt;&lt;set $showEnding = false&gt;&gt;
-</tw-passagedata><tw-passagedata pid="35" name="transition-to-part2-2" tags="" position="1900,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
+</tw-passagedata><tw-passagedata pid="34" name="transition-to-part2-2" tags="" position="1900,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
 
 &lt;&lt;ai&gt;&gt;INSUFFICIENT MEMORY, &lt;span&gt;VIRUS DETECTED&lt;/span&gt;.
 
@@ -1433,7 +1413,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Part 2" tags="lifeboard-css" position="2100,500" size="100,100">&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1454,15 +1434,17 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 	&lt;/button&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
-&lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="AI Won" tags="" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
+
+&lt;&lt;/if&gt;&gt;&lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
 
 You breathe a sigh of relief.
 
 &lt;&lt;ai&gt;&gt;I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Fly toward the nearby outpost...|transition-to-part3-1]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
-&lt;&lt;ai&gt;&gt;Wa ha ha ha, fool, now it is my turn!&lt;&lt;/ai&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Virus Won" tags="" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
+
+&lt;&lt;/if&gt;&gt;&lt;&lt;ai&gt;&gt;Wa ha ha ha, fool, now it is my turn!&lt;&lt;/ai&gt;&gt;
 
 You take a deep gulp.
 
@@ -1471,13 +1453,13 @@ on your map.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Fly toward the waypoint...|transition-to-part3-1]]
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="39" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
+</tw-passagedata><tw-passagedata pid="38" name="transition-to-part3-1" tags="" position="2300,500" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;
 You soar across the planet.
 
 You&#39;re able to spot an outpost.
 
 &lt;&lt;add-tab&gt;&gt;[[Approach outpost...|transition-to-part3-2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="transition-to-part3-2" tags="" position="2500,500" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;We need a &lt;span&gt;fuel power supply&lt;/span&gt; and
 &lt;span&gt;hyperspark plugs&lt;/span&gt; to get our ship running.
 
@@ -1488,7 +1470,7 @@ We must be able to &lt;span&gt;fuel&lt;/span&gt; and &lt;span&gt;ignite&lt;/span
 hyperdrive.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Continue...|Part 3]]
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="41" name="transition-to-part2-1" tags="" position="1700,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="40" name="transition-to-part2-1" tags="" position="1700,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; stop&gt;&gt;&lt;&lt;audio &quot;engine-fail&quot; play&gt;&gt;&lt;&lt;console true&gt;&gt;
 You attempt to start the engines.
 
 They hum and whiz.
@@ -1496,7 +1478,7 @@ They hum and whiz.
 Something doesn&#39;t seem right...
 
 &lt;&lt;add-tab&gt;&gt;[[The intercoms turn on!|transition-to-part2-2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="OP Locked Door" tags="hall-css" position="2550,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="OP Locked Door" tags="hall-css" position="2550,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop&gt;&gt;&lt;&lt;console&gt;&gt;
 You approach the door and wait for it to open...
 
 It doesn&#39;t open.
@@ -1508,7 +1490,7 @@ It must be locked.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Intro (3)" tags="" position="1300,500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Intro (3)" tags="" position="1300,500" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 You look out your ship&#39;s side portal.
 
 You&#39;ve crashlanded on a mars-like planet.
@@ -1518,7 +1500,7 @@ Red gales of sand lash against the side of your ship.
 You hobble over to your ship&#39;s status control console.
 
 &lt;&lt;add-tab&gt;&gt;[[View ship status|Part 1 - Making Repairs]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="ML Central Ravine" tags="" position="1525,950" size="100,100">&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="ML Central Ravine" tags="" position="1550,950" size="100,100">&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 1 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; stop&gt;&gt;&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You&#39;re standing in a ravine outside your spaceship.
 
 The ravine runs east and west.
@@ -1535,12 +1517,12 @@ Your only hope would be to transfer power back into the ship.&lt;/span&gt;
 &lt;&lt;add-tab&gt;&gt;[[Go West|ML Ravine West]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="carried-part" tags="" position="1450,750" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="carried-part" tags="" position="1475,750" size="100,100">&lt;&lt;nobr&gt;&gt;
 Carried Part: 
 &lt;&lt;if $hasBattery&gt;&gt;&lt;span&gt;Battery&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $hasThruster&gt;&gt;&lt;span&gt;Thruster&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if !$hasThruster &amp;&amp; !$hasBattery&gt;&gt;none&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="ML Spaceship" tags="" position="1625,775" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include stop-sands&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="ML Spaceship" tags="" position="1650,775" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 SYSTEM STATUS:&lt;&lt;if !$thrusterAttached || !$batteryDrained&gt;&gt;
@@ -1558,7 +1540,7 @@ Press [&lt;span&gt;Reset&lt;/span&gt;] to bring computer systems back online.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="ML Ravine East" tags="" position="1775,925" size="100,100">&lt;&lt;set $location = &quot;East Ravine&quot;&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="ML Ravine East" tags="" position="1800,900" size="100,100">&lt;&lt;set $location = &quot;East Ravine&quot;&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 1 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; stop&gt;&gt;&lt;&lt;console&gt;&gt;
 You are at the mouth of the ravine. Beyond it is a red desert.
 &lt;&lt;if $batteryBoulders &gt; 1&gt;&gt;
 There are &lt;span&gt;$batteryBoulders suspicious boulders&lt;/span&gt;.
@@ -1584,7 +1566,7 @@ You see all the boulders that you displaced earlier.
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasThruster&gt;&gt;&lt;&lt;if $batteryBoulders &gt; 0&gt;&gt;&lt;span&gt;[[Remove a boulder...|ML Ravine East][$batteryBoulders--]]&lt;/span&gt;&lt;&lt;elseif !$hasBattery &amp;&amp; !$batteryDrained&gt;&gt;&lt;span&gt;[[Pick up the battery!|ML Ravine East][$hasBattery = true]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="ML Ravine West" tags="" position="1325,1075" size="100,100">&lt;&lt;set $location = &quot;West Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="ML Ravine West" tags="" position="1300,1100" size="100,100">&lt;&lt;set $location = &quot;West Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 The ravine comes to a dead end.
 
 You look up.
@@ -1601,7 +1583,7 @@ You see nothing but red sand crashing against the cliff.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="ML Ravine West Up" tags="" position="1325,875" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="ML Ravine West Up" tags="" position="1350,875" size="100,100">&lt;&lt;console&gt;&gt;
 Thankfully the gravity is weak on this planet.
 
 Despite your spacesuit, you are able to clasp the juts of the cliff.
@@ -1615,7 +1597,7 @@ Eventually you climb up to the thruster.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Get Thruster" tags="" position="1175,975" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Get Thruster" tags="" position="1150,950" size="100,100">&lt;&lt;console&gt;&gt;
 You grab hold of the thruster.
 
 You try to climb up it but gravity takes its course!!!
@@ -1629,7 +1611,7 @@ the sand below you.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Attach Thruster" tags="" position="1650,1125" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Attach Thruster" tags="" position="1675,1125" size="100,100">&lt;&lt;console&gt;&gt;
 You manage to lug the thruster atop your spaceship.
 &lt;&lt;set $hasThruster = false&gt;&gt;&lt;&lt;set $thrusterAttached = true&gt;&gt;
 The magneto-thermosprites immediately readhere. You rotate
@@ -1642,7 +1624,7 @@ Finally, you dust off your hands at a job well done.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="Drain Battery" tags="" position="1775,1100" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Drain Battery" tags="" position="1800,1100" size="100,100">&lt;&lt;console&gt;&gt;
 You connect the battery to your ship. Success!
 &lt;&lt;set $hasBattery = false&gt;&gt;&lt;&lt;set $batteryDrained = true&gt;&gt;
 The battery begins quickly transferring its sweet, sweet 
@@ -1653,8 +1635,8 @@ electrons into your ship&#39;s power banks.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="ML Sprawling Desert" tags="" position="1950,1100" size="100,100">&lt;&lt;bgm 0.75&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;include stop-sands&gt;&gt;&lt;&lt;set $location = &quot;Sprawling Desert&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
-You look upong a vast sea of sand.
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="ML Sprawling Desert" tags="" position="2000,1100" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.6 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 0.4 loop play&gt;&gt;&lt;&lt;set $location = &quot;Sprawling Desert&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+You look upon a vast sea of sand.
 
 You are certain if you were to walk out into it, you
 would be lost forever.
@@ -1666,7 +1648,7 @@ It would be best to go no further.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Lost In Sand" tags="" position="1825,1275" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;? ? Crater ? ?&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="ML Lost In Sand" tags="" position="1800,1300" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.4 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 0.8 loop play&gt;&gt;&lt;&lt;set $location = &quot;? ? Crater ? ?&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You travel in the sandy desert for half an hour.
 
 You&#39;re not sure which way you&#39;re going.
@@ -1678,7 +1660,7 @@ You think you see a crater...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Easter Egg" tags="" position="1600,1275" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Easter Egg" tags="" position="1600,1300" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 1 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 As you approach the cusp of the crater, you look down.
 
 You think you see a structure below...
@@ -1691,7 +1673,7 @@ You&#39;re saved!
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;include play-sands&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 You tumble down a steep ravine.
 
 You sit up and get your bearings.
@@ -1705,7 +1687,7 @@ Oh hey, it&#39;s your spaceship! You went in a big circle...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Code Entry Validator" tags="hydro-css" position="3000,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="Code Entry Validator" tags="hydro-css" position="3000,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if $passcodeAttempt == $passcode&gt;&gt;The digital deterrence device turns off.
 	
 Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set $hasFuelRods = true&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
@@ -1720,7 +1702,7 @@ Brrrttt!! Incorrect Code!
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Credits" tags="" position="1100,1600" size="100,100">&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Credits" tags="" position="2150,1700" size="100,100">&lt;div class=&quot;centered&quot;&gt;
 &lt;h1&gt;Credits&lt;/h1&gt;
 
 Patrick Normile
@@ -1734,7 +1716,7 @@ music,
 sounds etc.
 
 [[Score Report]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="Mission Complete" tags="" position="2300,1600" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -1742,8 +1724,8 @@ Let&#39;s get out of here!&lt;&lt;virus&gt;&gt;My sweet pawn, you have done well
 
 At last my diabolic plans can come to fruition, and it&#39;s all
 thanks to &lt;span&gt;you&lt;/span&gt;.&lt;&lt;/ai&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;[[Credits]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Score Report" tags="" position="800,1400" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;[[Roll Outro|Credits]]
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Score Report" tags="" position="2000,1700" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;&lt;set $score = 500&gt;&gt;Victory Score: +500 pts
 &lt;&lt;if $name == &#39;ty&#39; || $name == &#39;Ty&#39; || $name == &#39;TY&#39;&gt;&gt;&lt;&lt;set $score += 850&gt;&gt;Best Teacher Ever Score: +850 pts&lt;&lt;/if&gt;&gt;
 Easter Egg 1: &lt;&lt;if $easter1&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found (+250 pts)&lt;&lt;else&gt;&gt;not found...&lt;&lt;/if&gt;&gt;
@@ -1753,12 +1735,12 @@ Easter Egg 3: &lt;&lt;if $easter3&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found 
 Your total score is... $score! Great job!
 
 &lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Register Score]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
 
 &lt;/div&gt;
-&lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 /* Darren Stults -- Dueling life */
 
 const make2dArray = (rows, cols, setTeams = 1) =&gt; {
@@ -1966,16 +1948,26 @@ const simulator = setInterval(() =&gt; {
 	if (team1score &lt;= 0 || team2score &lt;=0 || timeStopped) {
 		clearInterval(simulator);
 		clearInterval(countdownProcess);
+		console.log(timeDiff);
+		if (timeDiff &gt; 0) getEasterEgg2();
 		if (team1score &gt;= team2score) winBtn.style.display = &#39;inline&#39;;
 		if (team2score &gt; team1score) loseBtn.style.display = &#39;inline&#39;;
 	}
 }, 1000);
 
+const getEasterEgg2 = () =&gt; {
+	const tab2 = document.getElementById(&#39;opt2&#39;);
+	tab2.style.textAlign = &#39;center&#39;;
+	tab2.innerText = &#39;Game ended super fast!&#39;;
+	State.variables.easter2 = true;
+};
+
 const maxTime = 40;
 const myClock = document.getElementById(&#39;clock&#39;);
 const startTime = new Date();
+let timeDiff;
 const countdownProcess = setInterval(() =&gt; {
-	let timeDiff = (maxTime - ((new Date() - startTime) / 1000));
+	timeDiff = (maxTime - ((new Date() - startTime) / 1000));
 	if (timeDiff &lt;= 0) {
 		clearInterval(countdownProcess);
 		timeStopped = true;
@@ -1984,7 +1976,7 @@ const countdownProcess = setInterval(() =&gt; {
 	myClock.innerHTML = &#96;T-:${timeDiff.toFixed(2)}&#96;;
 }, 10);
 
-&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio &quot;intro&quot; loop play&gt;&gt;
 &lt;div class=&quot;title-logo&quot;&gt;
 	&lt;h1&gt;Fix My Spaceship&lt;/h1&gt;
@@ -2003,17 +1995,11 @@ const countdownProcess = setInterval(() =&gt; {
 &lt;div class=&quot;title-ship&quot;&gt;
 	&lt;img src=&quot;https://dstults.net/play-badger/images/spaceship.png&quot;&gt;
 &lt;/div&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="High Scores" tags="leaderboard-css" position="600,275" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
-&lt;div class=&quot;centered&quot;&gt;
-	&lt;div class=&quot;leaderboard&quot; id=&quot;scores1&quot;&gt;Loading...&lt;/div&gt;
-&lt;/div&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="High Scores" tags="leaderboard-css" position="600,275" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 [[Back|Title]]
 &lt;/div&gt;
-&lt;div style=&quot;display: none;&quot; class=&quot;centered&quot;&gt;
-	&lt;div class=&quot;leaderboard&quot; id=&quot;scores2&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="67" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
+</tw-passagedata><tw-passagedata pid="66" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;door2&quot; play&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
 
 This time the door opens!
 
@@ -2031,15 +2017,7 @@ Not much to see here.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="play-sands" tags="" position="1200,100" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;audio &quot;sand1&quot; volume 2.5 loop play&gt;&gt;
-&lt;&lt;audio &quot;sand2&quot; volume 2.5 loop play&gt;&gt;
-&lt;&lt;audio &quot;sand3&quot; volume 2.5 loop play&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="stop-sands" tags="" position="1200,200" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;audio &quot;sand1&quot; stop&gt;&gt;
-&lt;&lt;audio &quot;sand2&quot; stop&gt;&gt;
-&lt;&lt;audio &quot;sand3&quot; stop&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="map-ml" tags="" position="1275,700" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;map map-marslike&quot;&gt;
 	&lt;h1 class=&quot;map-title ravine-title&quot;&gt;The Ravine&lt;/h1&gt;
 	&lt;div id=&quot;location-ml-ship&quot; class=&quot;map-site map-ml-ship&quot;&gt;&lt;small&gt;Ship&lt;/small&gt;&lt;/div&gt;
@@ -2068,11 +2046,11 @@ switch(State.variables.location) {
 		break;
 }
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="show-map-op" tags="" position="2550,725" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="show-map-op" tags="" position="2550,725" size="100,100">&lt;&lt;nobr&gt;&gt;
 
 
 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;map map-outpost&quot;&gt;
 	&lt;h1 class=&quot;map-title outpost-title&quot;&gt;Outpost&lt;/h1&gt;
 	&lt;div id=&quot;location-op-breakroom&quot; class=&quot;map-site map-op-breakroom&quot;&gt;&lt;small&gt;&lt;&lt;if $breakRoomAttempts &gt;= 3&gt;&gt;Break&lt;br&gt;Room&lt;&lt;else&gt;&gt;? ? ?&lt;&lt;/if&gt;&gt;&lt;/small&gt;&lt;/div&gt;
@@ -2109,7 +2087,11 @@ switch(State.variables.location) {
 		break;
 }
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Roll Outro" tags="" position="2300,1850" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="71" name="mark-start-time" tags="" position="1100,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
+
+State.variables.startTime = new Date();
+
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},errorPrologRegExp=/^(?:(?:uncaught\s+(?:exception:\s+)?)?\w*(?:error|exception|_err):\s+)+/i,Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(errorPrologRegExp,"")+".":": unknown error."),"object"===(void 0===n?"undefined":_typeof(n))&&null!==n&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}(),Patterns=function(){var e=function(){var e=new Map([[" ","\\u0020"],["\f","\\f"],["\n","\\n"],["\r","\\r"],["\t","\\t"],["\v","\\v"],[" ","\\u00a0"],[" ","\\u1680"],["᠎","\\u180e"],[" ","\\u2000"],[" ","\\u2001"],[" ","\\u2002"],[" ","\\u2003"],[" ","\\u2004"],[" ","\\u2005"],[" ","\\u2006"],[" ","\\u2007"],[" ","\\u2008"],[" ","\\u2009"],[" ","\\u200a"],["\u2028","\\u2028"],["\u2029","\\u2029"],[" ","\\u202f"],[" ","\\u205f"],["　","\\u3000"],["\ufeff","\\ufeff"]]),t=/^\s$/,r="";return e.forEach(function(e,n){t.test(n)||(r+=e)}),r?"[\\s"+r+"]":"\\s"}(),t="[\\u0020\\f\\t\\v\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000\\ufeff]",r="\\s"===e?"\\S":e.replace(/^\[/,"[^"),n="[0-9A-Z_a-z\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u00ff\\u0150\\u0170\\u0151\\u0171]",a=n.replace("\\-",""),i=function(){var e="(?:[\\x2D.0-9A-Z_a-z\\xB7\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD]|[\\uD800-\\uDB7F][\\uDC00-\\uDFFF])";return"[A-Za-z](?:"+e+"*-"+e+"*|[0-9A-Za-z]*)"}(),o=function(){return"("+n+"+)\\(([^\\)\\|\\n]+)\\):|"+t+"*("+n+"+)"+t+"*:([^;\\|\\n]+);|"+t+"*((?:[#.]"+n+"+"+t+"*)+);"}();return Object.freeze({space:e,spaceNoTerminator:t,lineTerminator:"[\\n\\r\\u2028\\u2029]",notSpace:r,anyChar:"(?:.|[\\n\\r\\u2028\\u2029])",anyLetter:n,anyLetterStrict:a,identifierFirstChar:"[$A-Z_a-z]",identifierNextChar:"[$0-9A-Z_a-z]",identifier:"[$A-Z_a-z][$0-9A-Z_a-z]*",variableSigil:"[$_]",variable:"[$_][$A-Z_a-z][$0-9A-Z_a-z]*",macroName:"[A-Za-z][\\w-]*|[=-]",templateName:"[A-Za-z][\\w-]*",htmlTagName:i,cssIdOrClassSigil:"[#.]",cssImage:"\\[[<>]?[Ii][Mm][Gg]\\[(?:\\s|\\S)*?\\]\\]+",inlineCss:o,url:"(?:file|https?|mailto|ftp|javascript|irc|news|data):[^\\s'\"]+"})}();!function(){function e(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n=void 0===t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var t=function(){function e(e,n){var a=String(e);if(!a)return a;switch(n){case"start":return t.test(a)?a.replace(t,""):a;case"end":return r.test(a)?a.replace(r,""):a;default:throw new Error('_trimString called with incorrect where parameter value: "'+n+'"')}}var t=new RegExp("^"+Patterns.space+Patterns.space+"*"),r=new RegExp(""+Patterns.space+Patterns.space+"*$");return e}();Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,writable:!0,value:function(){function e(){if(null==this)throw new TypeError("Array.prototype.flat called on null or undefined");var t=0===arguments.length?1:Number(arguments[0])||0;return t<1?Array.prototype.slice.call(this):Array.prototype.reduce.call(this,function(r,n){return n instanceof Array?r.push.apply(r,_toConsumableArray(e.call(n,t-1))):r.push(n),r},[])}return e}()}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatMap called on null or undefined");return Array.prototype.map.apply(this,arguments).flat()}}),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(n===t||n!==n&&t!==t)return!0}return!1}}),Object.entries||Object.defineProperty(Object,"entries",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.entries object parameter must be an object");return Object.keys(e).map(function(t){return[t,e[t]]})}}),Object.fromEntries||Object.defineProperty(Object,"fromEntries",{configurable:!0,writable:!0,value:function(e){return Array.from(e).reduce(function(e,t){if(Object(t)!==t)throw new TypeError("Object.fromEntries iterable parameter must yield objects");return t[0]in e?Object.defineProperty(e,t[0],{configurable:!0,enumerable:!0,writable:!0,value:t[1]}):e[t[0]]=t[1],e},{})}}),Object.getOwnPropertyDescriptors||Object.defineProperty(Object,"getOwnPropertyDescriptors",{configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Object.getOwnPropertyDescriptors object parameter is null or undefined");var t=Object(e);return Reflect.ownKeys(t).reduce(function(e,r){var n=Object.getOwnPropertyDescriptor(t,r);return void 0!==n&&(r in e?Object.defineProperty(e,r,{configurable:!0,enumerable:!0,writable:!0,value:n}):e[r]=n),e},{})}}),Object.values||Object.defineProperty(Object,"values",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.values object parameter must be an object");return Object.keys(e).map(function(t){return e[t]})}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:e(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:n+e(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return t(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return t(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return t(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return t(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r)<0&&(r=0),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n)<0&&(n=e-1),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){return e[0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1))]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var e=Array.from(this);if(0===arguments.length)return e;var t=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),r=t.length;if(0===r)return e;for(var n=Array.prototype.indexOf,a=Array.prototype.push,i=0;i<r;++i){var o=t[i];-1===n.call(e,o)&&a.call(e,o)}return e}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;-1!==(r=e.call(this,t,r));)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.concat.apply([],arguments),r=t.length,n=[],a=0;a<e;++a)for(var i=this[a],o=0;o<r;++o){var s=t[o];if(i===s||i!==i&&s!==s){n.push(a);break}}for(var u=[],l=0,c=n.length;l<c;++l)u[l]=this[n[l]];for(var d=Array.prototype.splice,f=n.length-1;f>=0;--f)d.call(this,n[f],1);return u}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"deleteWith",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.deleteWith called on null or undefined");if("function"!=typeof e)throw new Error("Array.prototype.deleteWith predicate parameter must be a function");var r=this.length>>>0;if(0===r)return[];for(var n=Array.prototype.splice,a=[],i=[],o=0;o<r;++o)e.call(t,this[o],o,this)&&(i.push(this[o]),a.push(o));for(var s=a.length-1;s>=0;--s)n.call(this,a[s],1);return i}}),Object.defineProperty(Array.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.first called on null or undefined");if(0!=this.length>>>0)return this[0]}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.last called on null or undefined");var e=this.length>>>0;if(0!==e)return this[e-1]}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do{a.push(n.call(this,_random(0,i--),1)[0])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){return this[0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)))]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do{o=_random(0,i)}while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.unshift,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function(e,t,r){var n=Number(e);return Number.isNaN(n)?NaN:n.clamp(t,r)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch(void 0===i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return-1!==String.prototype.indexOf.apply(this,arguments)}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;-1!==(n=t.call(this,e,n));)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.first called on null or undefined");return _getCodePointStartAndEnd(String(this),0).char}}),Object.defineProperty(String.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.last called on null or undefined");var e=String(this);return _getCodePointStartAndEnd(e,e.length-1).char}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n)<0&&(a=0):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return void 0!==r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_stringify",{value:JSON.stringify}),Object.defineProperty(JSON,"stringify",{configurable:!0,writable:!0,value:function(e,t,r){return JSON._real_stringify(e,function(e,r){var n=r;if("function"==typeof t)try{n=t(e,n)}catch(e){}return void 0===n&&(n=["(revive:eval)","undefined"]),n},r)}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.flat.call(this,1/0)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Opera:!t&&("object"===_typeof(window.operamini)||e.includes("opera mini")),Windows:t||/iemobile|wpdesktop/.test(e),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Opera||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null,u=e.includes("vivaldi");return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s,isVivaldi:u})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),r=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),n=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),a=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}(),i=function(){try{return"ontouchstart"in window||!!window.DocumentTouch&&document instanceof window.DocumentTouch||!!navigator.maxTouchPoints||!!navigator.msMaxTouchPoints}catch(e){}return!1}(),o=function(){try{for(var e=new Map([["transition","transitionend"],["MSTransition","msTransitionEnd"],["WebkitTransition","webkitTransitionEnd"],["MozTransition","transitionend"]]),t=[].concat(_toConsumableArray(e.keys())),r=document.createElement("div"),n=0;n<t.length;++n)if(r.style[t[n]]!==undefined)return e.get(t[n])}catch(e){}return!1}();return Object.freeze({audio:e,fileAPI:t,geolocation:r,mutationObserver:n,performance:a,touch:i,transitionEndEvent:o})}(),Visibility=function(){function e(){return a}function t(){return a&&document[a.stateProperty]||"visible"}function r(){return Boolean(a)}function n(){return Boolean(a&&document[a.hiddenProperty])}var a=function(){try{return Object.freeze([{hiddenProperty:"hidden",stateProperty:"visibilityState",changeEvent:"visibilitychange"},{hiddenProperty:"webkitHidden",stateProperty:"webkitVisibilityState",changeEvent:"webkitvisibilitychange"},{hiddenProperty:"mozHidden",stateProperty:"mozVisibilityState",changeEvent:"mozvisibilitychange"},{hiddenProperty:"msHidden",stateProperty:"msVisibilityState",changeEvent:"msvisibilitychange"}].find(function(e){return e.hiddenProperty in document}))}catch(e){}return undefined}();return Object.freeze(Object.defineProperties({},{vendor:{get:e},state:{get:t},isEnabled:{value:r},isHidden:{value:n},hiddenProperty:{value:a&&a.hiddenProperty},stateProperty:{value:a&&a.stateProperty},changeEvent:{value:a&&a.changeEvent}}))}(),Fullscreen=function(){function e(e){var t=e||document.documentElement;return t===document.documentElement&&("msRequestFullscreen"===f.requestFn||Browser.isOpera&&Browser.operaVersion<15)&&(t=document.body),t}function t(){return f}function r(){return(f||null)&&document[f.element]}function n(){return Boolean(f&&document[f.isEnabled])}function a(){return Boolean(f&&document[f.element])}function i(t,r){var n=this;if(!f)return Promise.reject(new Error("fullscreen not supported"));var i=e(r);if("function"!=typeof i[f.requestFn])return Promise.reject(new Error("fullscreen not supported"));if(a())return Promise.resolve();if(p())return i[f.requestFn](t);var o=".Fullscreen_requestFullscreen";return new Promise(function(e,r){jQuery(i).off(o).one(""+f.errorEvent+o+" "+f.changeEvent+o,function(t){jQuery(n).off(o),t.type===f.errorEvent?r(new Error("unknown fullscreen request error")):e()}),i[f.requestFn](t)})}function o(){var e=this;if(!f||"function"!=typeof document[f.exitFn])return Promise.reject(new TypeError("fullscreen not supported"));if(!a())return Promise.reject(new TypeError("fullscreen mode not active"));if(p())return document[f.exitFn]();var t=".Fullscreen_exitFullscreen";return new Promise(function(r,n){jQuery(document).off(t).one(""+f.errorEvent+t+" "+f.changeEvent+t,function(a){jQuery(e).off(t),a.type===f.errorEvent?n(new Error("unknown fullscreen exit error")):r()}),document[f.exitFn]()})}function s(e,t){return a()?o():i(e,t)}function u(t,r){if(f){var n=e(r);$(n).on(f.changeEvent,t)}}function l(t,r){if(f){var n=e(r);t?$(n).off(f.changeEvent,t):$(n).off(f.changeEvent)}}function c(t,r){if(f){var n=e(r);$(n).on(f.errorEvent,t)}}function d(t,r){if(f){var n=e(r);t?$(n).off(f.errorEvent,t):$(n).off(f.errorEvent)}}var f=function(){try{return Object.freeze([{isEnabled:"fullscreenEnabled",element:"fullscreenElement",requestFn:"requestFullscreen",exitFn:"exitFullscreen",changeEvent:"fullscreenchange",errorEvent:"fullscreenerror"},{isEnabled:"webkitFullscreenEnabled",element:"webkitFullscreenElement",requestFn:"webkitRequestFullscreen",exitFn:"webkitExitFullscreen",changeEvent:"webkitfullscreenchange",errorEvent:"webkitfullscreenerror"},{isEnabled:"mozFullScreenEnabled",element:"mozFullScreenElement",requestFn:"mozRequestFullScreen",exitFn:"mozCancelFullScreen",changeEvent:"mozfullscreenchange",errorEvent:"mozfullscreenerror"},{isEnabled:"msFullscreenEnabled",element:"msFullscreenElement",requestFn:"msRequestFullscreen",exitFn:"msExitFullscreen",changeEvent:"MSFullscreenChange",errorEvent:"MSFullscreenError"}].find(function(e){return e.isEnabled in document}))}catch(e){}return undefined}(),p=function(){function e(){if(null!==t)return t;if(t=!1,f)try{var e=document.exitFullscreen();e.catch(function(){}),t=e instanceof Promise}catch(e){}return t}var t=null;return e}();return Object.freeze(Object.defineProperties({},{vendor:{get:t},element:{get:r},isEnabled:{value:n},isFullscreen:{value:a},request:{value:i},exit:{value:o},toggle:{value:s},onChange:{value:u},offChange:{value:l},onError:{value:c},offError:{value:d}}))}(),_ref3=function(){function e(e){for(var t=e.cloneNode(!0),r=document.createDocumentFragment(),n=void 0;null!==(n=t.firstChild);){if(n.nodeType===Node.ELEMENT_NODE)switch(n.nodeName.toUpperCase()){case"BR":case"DIV":case"P":r.appendChild(document.createTextNode(" "))}r.appendChild(n)}return r.textContent}function t(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)return e;if(e instanceof String)return String(e);if(e instanceof Number)return Number(e);if(e instanceof Boolean)return Boolean(e)
