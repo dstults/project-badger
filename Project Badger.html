@@ -539,17 +539,20 @@ body.leaderboard-css {
 
 /* -------------------------------------------------------- */
 /* start map css */
-
+.scoot-left{
+	transform: translateX(-6rem);
+}
 .map {
-	border: 3px solid aqua;
+	border: 4px solid rgb(159 128 204);
 	border-radius: 8px;
 	display: block;
-	position: fixed;
-	right: 8rem;
-	top: 5rem;
+	position: absolute;
+	left: 60rem;
+    top: 8.5rem;
 	overflow: hidden;
-	box-shadow: 0 0 8px black, 0 0 4px aqua;
+	box-shadow: 0 0 6px black,  0 0 3px black;
 	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
 	white-space: nowrap;
 	transform: scale(1.5);
 }
@@ -570,7 +573,7 @@ body.leaderboard-css {
 }
 .outpost-title {
 	font-size: 600%;
-	top: 5.4rem;
+	top: 3.4rem;
 	left: -3.5rem;
 	transform: rotate(55deg);
 }
@@ -735,17 +738,18 @@ setup.runPassage = function (passageName) {
 Macro.add('bgm', {
 	tags: null,
 	handler: function () {
-		let audioName;
 		let volume = this.args[0] ? this.args[0] : '1';
-		if (!State.variables.virusWon) {
-			audioName = 'ambientPN';
-		} else {
-			audioName = 'virusambient';
-		}
 		if (volume === 'stop') volume = 0;
 		if (volume === 'play') volume = 1;
 		if (volume > 1) volume = 1;
 		if (volume <= 0) volume = 0;
+		let audioName;
+		if (!State.variables.virusWon) {
+			audioName = 'ambientPN';
+		} else {
+			if (volume > 0) volume /= 2;
+			audioName = 'virusambient';
+		}
 		if (volume > 0) {
 			$(this.output).wiki(`<<audio "intro" stop>><<audio "${audioName}" volume ${volume} loop play>>`);
 		} else {
@@ -785,7 +789,7 @@ Macro.add('console', {
 	handler: function () {
 		const title = this.args[1] ? this.args[1] : State.variables.name + ' - [ <span>' + State.variables.location + '</span> ]';
 		let mainText = this.payload[0].contents.trim();
-		let html = `<div class="game-console"><<nobr>><div class="console-head">${title}</div><</nobr>><div id="typewriter" class="console-main cursor-blink">${mainText}</div><<nobr>>`;
+		let html = `<div id="game-console" class="game-console"><<nobr>><div class="console-head">${title}</div><</nobr>><div id="typewriter" class="console-main cursor-blink">${mainText}</div><<nobr>>`;
 
 		const timerPrefix = this.args[0] ? '<<timed 1.2s>>' : '';
 		const timerSuffix = this.args[0] ? '<</timed>>' : '';
@@ -921,22 +925,24 @@ that we can use to engage the hyperdrive.
 Failure will not be tolerated.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Beam to outpost|Teleporting]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="hall-css" position="2700,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;Northern Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="OP Northern Corridor" tags="hall-css" position="2700,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;set $location = &quot;Northern Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 You are in a T-shaped corridor.
 
 There are two doors and a long hallway that extends south.
-
+&lt;&lt;if $breakRoomAttempts &lt; 3&gt;&gt;
 The west door is unlabeled.
-
+&lt;&lt;else&gt;&gt;
+The west door leads to the break room.
+&lt;&lt;/if&gt;&gt;
 The east door is labeled &lt;span&gt;Machine Room&lt;/span&gt;.
 
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if $openAttempts &gt;= 2&gt;&gt;[[Enter unlabeled door|OP Break Room]]&lt;&lt;else&gt;&gt;[[Enter unlabeled door|OP Locked Door]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;[[Enter unlabeled door|OP Break Room]]&lt;&lt;elseif $breakRoomAttempts &gt;= 3&gt;&gt;[[Enter the Break Room|OP Break Room]]&lt;&lt;else&gt;&gt;[[Enter unlabeled door|OP Locked Door]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Enter the Machine Room|OP Machine Room]]
 &lt;&lt;add-tab&gt;&gt;[[Walk down the passageway|OP Central Corridor]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="OP Central Corridor" tags="hall-css" position="2775,1100" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;set $location = &quot;Central Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="OP Central Corridor" tags="hall-css" position="2775,1100" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;set $location = &quot;Central Corridor&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 A red beam scans you as you pass through the corridor.
 
 Ahead is the generator room.
@@ -951,18 +957,20 @@ Behind is the outpost landing spot.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="machine-css" position="2900,900" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &#39;drone&#39; volume 0.1&gt;&gt;&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="OP Machine Room" tags="machine-css" position="2900,900" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &#39;drone&#39; volume 0.1&gt;&gt;&lt;&lt;set $location = &#39;Machine Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
 
 This is a pretty small machine room. More like a closet. 
-
+&lt;&lt;if !$hasHyperplugs&gt;&gt;
 You see:&lt;&lt;if !$hasPliers&gt;&gt;&lt;br&gt; - A pair of &lt;span&gt;pliers&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if !$hasDriver&gt;&gt;&lt;br&gt; - A &lt;span&gt;screwdriver&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if !$hasWrench&gt;&gt;&lt;br&gt;- A &lt;span&gt;pipe wrench&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hasPliers &amp;&amp; $hasDriver &amp;&amp; $hasWrench&gt;&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;nothing of value here&lt;&lt;/if&gt;&gt;
-
+&lt;&lt;else&gt;&gt;
+You don&#39;t need anything from here.
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Leave Machine Room|OP Northern Corridor]]
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasPliers &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up pliers|OP Machine Room][$hasPliers = true]]&lt;&lt;elseif $hasPliers&gt;&gt;[[Put pliers back|OP Machine Room][$hasPliers = false]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasDriver &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up screwdriver|OP Machine Room][$hasDriver = true]]&lt;&lt;elseif $hasDriver&gt;&gt;[[Put screwdriver back|OP Machine Room][$hasDriver = false]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasWrench &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up wrench|OP Machine Room][$hasWrench = true]]&lt;&lt;elseif $hasWrench&gt;&gt;[[Put wrench back|OP Machine Room][$hasWrench = false]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;&lt;if !$hasPliers &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up pliers|OP Machine Room][$hasPliers = true]]&lt;&lt;elseif $hasPliers&gt;&gt;[[Put pliers back|OP Machine Room][$hasPliers = false]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;&lt;if !$hasDriver &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up screwdriver|OP Machine Room][$hasDriver = true]]&lt;&lt;elseif $hasDriver&gt;&gt;[[Put screwdriver back|OP Machine Room][$hasDriver = false]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;&lt;if !$hasWrench &amp;&amp; $freeHands &gt; 0&gt;&gt;[[Pick up wrench|OP Machine Room][$hasWrench = true]]&lt;&lt;elseif $hasWrench&gt;&gt;[[Put wrench back|OP Machine Room][$hasWrench = false]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="generator-css" position="2700,1300" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 1&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="OP Power Generator" tags="generator-css" position="2700,1300" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 1&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You see a door labeled &lt;span&gt;hydroponics&lt;/span&gt;.
 &lt;&lt;if !$hasHyperplugs&gt;&gt;
 You see a &lt;span&gt;coil of hyperplugs&lt;/span&gt; locked in place by
@@ -976,8 +984,7 @@ There is a large power generator here.
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;[[Get the hyperplugs|Get Plugs]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
 You see &lt;span&gt;6 fuel rods&lt;/span&gt; locked behind a
 digital deterrence device.
 
@@ -990,8 +997,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;add-tab&gt;&gt;[[Enter the control room|OP Control Room]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="OP Control Room" tags="control-css" position="2700,1700" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.1&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Wow, what an impressive control room.&lt;&lt;virus&gt;&gt;What kind of hackneyed attempt at control is this?&lt;&lt;/ai&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;/if&gt;&gt;Computer terminals and blinking lights illuminate the area.
 
 &lt;&lt;if !$hasFuelRods&gt;&gt;&lt;&lt;ai&gt;&gt;Ah, what&#39;s this? A code fragment in a biometric buffer.&lt;&lt;virus&gt;&gt;There, a code fragment. Well what are you waiting for?&lt;&lt;/ai&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -1001,8 +1007,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="8" name="Code Fragment" tags="control-css" position="2700,1900" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console true&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Code Fragment" tags="control-css" position="2700,1900" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console true&gt;&gt;
 
 %^DFEJ e fe &lt;span&gt;$passcode&lt;/span&gt; Je ne sa i4 5s 5p as fe a# @
 
@@ -1011,8 +1016,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="9" name="Blast-Doors-Closed" tags="blast-css" position="2650,1100" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Blast-Doors-Closed" tags="blast-css" position="2650,1100" size="100,100">&lt;&lt;bgm 0.5&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 A red beam scans you as you pass through the corridor.
 
 A robot voice blares out, &quot;&lt;span&gt;VIRUS DETECTED!!!!&lt;/span&gt;&quot;
@@ -1029,7 +1033,7 @@ doors recede.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="hydro-css" position="2850,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="hydro-css" position="2850,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 
 Enter 4-Digit Passcode:
 &lt;&lt;textbox &#39;$passcodeAttempt&#39; $passcodeAttempt [[Code Entry Validator]]&gt;&gt;
@@ -1039,8 +1043,7 @@ Enter 4-Digit Passcode:
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Get Plugs" tags="generator-css" position="2850,1300" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Get Plugs" tags="generator-css" position="2850,1300" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Power Generator&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if !$hasWrench&gt;&gt;You&#39;ll need &lt;span&gt;a tool that can undo nuts&lt;/span&gt; to get it loose.
 
 Perhaps in the &lt;span&gt;Machine Room&lt;/span&gt;.
@@ -1058,8 +1061,7 @@ You leave the wrench behind.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="12" name="demo-items-display" tags="" position="100,775" size="100,100">&lt;&lt;set $proteinBars++&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="demo-items-display" tags="" position="100,775" size="100,100">&lt;&lt;set $proteinBars++&gt;&gt;&lt;&lt;console&gt;&gt;
 You pick up a &lt;span&gt;protein bar&lt;/span&gt; off the ground.
 
 &lt;&lt;ai&gt;&gt;Those should come in handy!&lt;&lt;virus&gt;&gt;Human food is disgusting.&lt;&lt;/ai&gt;&gt;
@@ -1494,7 +1496,7 @@ They hum and whiz.
 Something doesn&#39;t seem right...
 
 &lt;&lt;add-tab&gt;&gt;[[The intercoms turn on!|transition-to-part2-2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="OP Locked Door" tags="hall-css" position="2550,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop&gt;&gt;&lt;&lt;set $location = &#39;Northern Cooridor&#39;&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="OP Locked Door" tags="hall-css" position="2550,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.2 loop&gt;&gt;&lt;&lt;console&gt;&gt;
 You approach the door and wait for it to open...
 
 It doesn&#39;t open.
@@ -1506,7 +1508,7 @@ It must be locked.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Intro (3)" tags="" position="1300,500" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Intro (3)" tags="" position="1300,500" size="100,100">&lt;&lt;console&gt;&gt;
 You look out your ship&#39;s side portal.
 
 You&#39;ve crashlanded on a mars-like planet.
@@ -1718,8 +1720,7 @@ Brrrttt!! Incorrect Code!
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="58" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Credits" tags="" position="1100,1600" size="100,100">&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Credits" tags="" position="1100,1600" size="100,100">&lt;div class=&quot;centered&quot;&gt;
 &lt;h1&gt;Credits&lt;/h1&gt;
 
 Patrick Normile
@@ -2012,14 +2013,14 @@ const countdownProcess = setInterval(() =&gt; {
 &lt;div style=&quot;display: none;&quot; class=&quot;centered&quot;&gt;
 	&lt;div class=&quot;leaderboard&quot; id=&quot;scores2&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="67" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $openAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
+</tw-passagedata><tw-passagedata pid="67" name="OP Break Room" tags="breakroom-css" position="2400,900" size="100,100">&lt;&lt;audio &quot;drone&quot; volume 0.1 loop&gt;&gt;&lt;&lt;set $location = &#39;Break Room&#39;&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $breakRoomAttempts == 2&gt;&gt;You realized you were &lt;span&gt;pushing&lt;/span&gt; instead of &lt;span&gt;pulling&lt;/span&gt;.
 
 This time the door opens!
 
 You are inside what looks to be a break room.
 
 There is a fridge with delicious sandwiches, so you eat one.
-&lt;&lt;set $openAttempts++&gt;&gt;
+&lt;&lt;set $breakRoomAttempts++&gt;&gt;
 &lt;span&gt;Easter Egg #3&lt;/span&gt; found!!&lt;&lt;set $easter3 = true&gt;&gt;
 &lt;&lt;else&gt;&gt;You are in the break room.
 
@@ -2030,7 +2031,7 @@ Not much to see here.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="play-sands" tags="" position="1200,100" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="play-sands" tags="" position="1200,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio &quot;sand1&quot; volume 2.5 loop play&gt;&gt;
 &lt;&lt;audio &quot;sand2&quot; volume 2.5 loop play&gt;&gt;
 &lt;&lt;audio &quot;sand3&quot; volume 2.5 loop play&gt;&gt;
@@ -2048,6 +2049,7 @@ Not much to see here.
 	&lt;div id=&quot;location-ml-desert&quot; class=&quot;map-site map-ml-desert&quot;&gt;&lt;small&gt;Desert&lt;/small&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;&lt;timed 0.001s&gt;&gt;&lt;&lt;script&gt;&gt;
+document.getElementById(&#39;game-console&#39;).classList.add(&#39;scoot-left&#39;);
 switch(State.variables.location) {
 	case &#39;Central Ravine&#39;:
 		document.getElementById(&#39;location-ml-cravine&#39;).classList.add(&#39;at-site&#39;);
@@ -2070,6 +2072,43 @@ switch(State.variables.location) {
 
 
 
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="map-op" tags="" position="2900,750" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;div class=&quot;map map-outpost&quot;&gt;
+	&lt;h1 class=&quot;map-title outpost-title&quot;&gt;Outpost&lt;/h1&gt;
+	&lt;div id=&quot;location-op-breakroom&quot; class=&quot;map-site map-op-breakroom&quot;&gt;&lt;small&gt;Break&lt;br&gt;Room&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-corridor3&quot; class=&quot;map-site map-op-corridor3&quot;&gt;&lt;small&gt;Corridor&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-machineroom&quot; class=&quot;map-site map-op-machineroom&quot;&gt;&lt;small&gt;Machine&lt;br&gt;Room&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-corridor2&quot; class=&quot;map-site map-op-corridor2&quot;&gt;&lt;small&gt;Corridor&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-powergen&quot; class=&quot;map-site map-op-powergen&quot;&gt;&lt;small&gt;Power&lt;br&gt;Generator&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-hydroponics&quot; class=&quot;map-site map-op-hydroponics&quot;&gt;&lt;small&gt;Hydro-&lt;br&gt;ponics&lt;/small&gt;&lt;/div&gt;
+	&lt;div id=&quot;location-op-controlroom&quot; class=&quot;map-site map-op-controlroom&quot;&gt;&lt;small&gt;Control&lt;br&gt;Room&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;&lt;timed 0.001s&gt;&gt;&lt;&lt;script&gt;&gt;
+document.getElementById(&#39;game-console&#39;).classList.add(&#39;scoot-left&#39;);
+switch(State.variables.location) {
+	case &#39;Break Room&#39;:
+		document.getElementById(&#39;location-op-breakroom&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Northern Corridor&#39;:
+		document.getElementById(&#39;location-op-corridor3&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Machine Room&#39;:
+		document.getElementById(&#39;location-op-machineroom&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Central Corridor&#39;:
+		document.getElementById(&#39;location-op-corridor2&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Power Generator&#39;:
+		document.getElementById(&#39;location-op-powergen&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Hydroponics&#39;:
+		document.getElementById(&#39;location-op-hydroponics&#39;).classList.add(&#39;at-site&#39;);
+		break;
+	case &#39;Control Room&#39;:
+		document.getElementById(&#39;location-op-controlroom&#39;).classList.add(&#39;at-site&#39;);
+		break;
+}
+&lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
