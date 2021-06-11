@@ -540,14 +540,14 @@ body.leaderboard-css {
 /* -------------------------------------------------------- */
 /* start map css */
 .scoot-left{
-	transform: translateX(-16rem);
+	transform: translateX(-11rem);
 }
 .map {
 	border: 4px solid rgb(159 128 204);
 	border-radius: 8px;
 	display: block;
 	position: absolute;
-	left: 50rem;
+	left: 55rem;
     top: 8.5rem;
 	overflow: hidden;
 	box-shadow: 0 0 6px black,  0 0 3px black;
@@ -1300,9 +1300,6 @@ postHighScore();
 			&lt;&lt;add-tab&gt;&gt;[[I hate my name, go back.|Start]]
 		&lt;&lt;/console&gt;&gt;
 		&lt;br&gt;
-		&lt;div class=&quot;centered&quot;&gt;
-		&lt;h2&gt;[[Scoreboard!|Display Scores]]&lt;/h2&gt;
-		&lt;/div&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;console false &#39;Confirm Setup&#39;&gt;&gt;
 		Your name: &lt;span&gt;$name&lt;/span&gt;&lt;br&gt;&lt;br&gt;
@@ -1673,7 +1670,7 @@ You&#39;re saved!
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="ML Stumble Down" tags="" position="1475,1125" size="100,100">&lt;&lt;set $location = &quot;Central Ravine&quot;&gt;&gt;&lt;&lt;console&gt;&gt;
 You tumble down a steep ravine.
 
 You sit up and get your bearings.
@@ -1716,7 +1713,7 @@ music,
 sounds etc.
 
 [[Score Report]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -1734,7 +1731,7 @@ Easter Egg 3: &lt;&lt;if $easter3&gt;&gt;&lt;&lt;set $score += 250&gt;&gt;found 
 
 Your total score is... $score! Great job!
 
-&lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Register Score]]
+&lt;&lt;add-tab&gt;&gt;[[Register your High Score Online|Display Scores]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
 &lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
