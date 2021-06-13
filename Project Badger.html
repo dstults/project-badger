@@ -273,20 +273,38 @@ div#ui-bar {
 body.shipcryo-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-shipcryo.jpg");
 }
+body.donmask-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-donmask.jpg");
+}p1-offline
 body.shipwindow-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-shipwindow.jpg");
 }
-body.shipcontrols-css {
-	background-image: url("https://dstults.net/play-badger/images/p1-shipcontrols.jpg");
+body.shipoffline-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-offline.jpg");
+}
+body.shiponline-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-online.jpg");
+}
+body.shipcontrols1-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-shipcontrols1.jpg");
+}
+body.shipcontrols2-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-shipcontrols2.jpg");
 }
 body.desert-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-desert.jpg");
+}
+body.crater-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-crater.jpg");
 }
 body.endless-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-endless.jpg");
 }
 body.wravine-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-wravine.jpg");
+}
+body.climbing-css {
+	background-image: url("https://dstults.net/play-badger/images/p1-climbing.jpg");
 }
 body.cravine-css {
 	background-image: url("https://dstults.net/play-badger/images/p1-cravine.jpg");
@@ -323,6 +341,9 @@ body.blast-css {
 }
 body.teleporting-css {
   background-image: url("https://dstults.net/play-badger/images/giphy.gif");
+}
+body.theend-css {
+  background-image: url("https://dstults.net/play-badger/images/theend.jpg");
 }
 
 
@@ -1362,7 +1383,7 @@ Life Support: Minimal
 Commencing cryostorage resuscitation.
 
 &lt;&lt;add-tab&gt;&gt;[[Head...hurts...|Intro (2)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Intro (2)" tags="shipwindow-css" position="1200,500" size="100,100">&lt;&lt;audio &quot;door3&quot; play&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Intro (2)" tags="donmask-css" position="1200,500" size="100,100">&lt;&lt;audio &quot;door3&quot; play&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;console true&gt;&gt;
 You hobble out of your cryochamber.
 
 Your knees are stiff and weak.
@@ -1372,7 +1393,7 @@ The air is barely breathable.
 You gasp in pain.
 
 &lt;&lt;add-tab&gt;&gt;[[Don Oxygen Mask|Intro (3)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="shipcontrols-css" position="1500,500" size="100,100">&lt;&lt;set $gameProgress = 1&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="shipoffline-css" position="1500,500" size="100,100">&lt;&lt;set $gameProgress = 1&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 - A retro-thruster snapped off.
@@ -1444,7 +1465,7 @@ It is scary here. You poop your pants. The end.
 &lt;&lt;set $easter3 = false&gt;&gt;
 
 &lt;&lt;set $showEnding = false&gt;&gt;
-</tw-passagedata><tw-passagedata pid="34" name="transition-to-part2-2" tags="shipcontrols-css" position="1900,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
+</tw-passagedata><tw-passagedata pid="34" name="transition-to-part2-2" tags="shiponline-css" position="1900,500" size="100,100">&lt;&lt;audio &quot;classicAlarm&quot; loop play&gt;&gt;&lt;&lt;console&gt;&gt;You hear the Ship&#39;s AI talking over the intercom.
 
 &lt;&lt;ai&gt;&gt;INSUFFICIENT MEMORY, &lt;span&gt;VIRUS DETECTED&lt;/span&gt;.
 
@@ -1453,7 +1474,7 @@ VIRUS CELLS MUST BE ELIMINATED.
 ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;[[Examine Main Console|Part 2]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Part 2" tags="lifeboard-css shipcontrols-css" position="2100,500" size="100,100">&lt;&lt;set $gameProgress = 2&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Part 2" tags="lifeboard-css shipcontrols1-css" position="2100,500" size="100,100">&lt;&lt;set $gameProgress = 2&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;classicAlarm&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;duelinglife-bgm&quot; play&gt;&gt;&lt;&lt;console false &#39;&lt;p class=&quot;centered blinking&quot;&gt;ELIMINATE ALL VIRUSES&lt;/p&gt;&#39;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div id=&quot;clock&quot; class=&quot;part2-clock&quot;&gt;
 		T-:40.00
@@ -1474,7 +1495,7 @@ ADVANCE TO MAIN CONSOLE, TERMINATE IMMEDIATELY.&lt;&lt;/ai&gt;&gt;
 	&lt;/button&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="AI Won" tags="shipcontrols-css" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
+&lt;&lt;/console&gt;&gt;&lt;&lt;include dueling-life&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="AI Won" tags="shipcontrols2-css" position="2050,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = false&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
 
 &lt;&lt;/if&gt;&gt;&lt;&lt;ai&gt;&gt;Thank you so much for saving me!&lt;&lt;/ai&gt;&gt;
 
@@ -1482,7 +1503,7 @@ You breathe a sigh of relief.
 
 &lt;&lt;ai&gt;&gt;I am detecting an outpost nearby. Go there.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Fly toward the nearby outpost...|transition-to-part3-1]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Virus Won" tags="shipcontrols-css" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Virus Won" tags="shipcontrols2-css" position="2150,800" size="100,100">&lt;&lt;audio &quot;duelinglife-bgm&quot; stop&gt;&gt;&lt;&lt;set $virusWon = true&gt;&gt;&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if $easter2&gt;&gt;You got &lt;span&gt;Easter Egg #2&lt;/span&gt;!
 
 &lt;&lt;/if&gt;&gt;&lt;&lt;ai&gt;&gt;Wa ha ha ha, fool, now it is my turn!&lt;&lt;/ai&gt;&gt;
 
@@ -1510,7 +1531,7 @@ We must be able to &lt;span&gt;fuel&lt;/span&gt; and &lt;span&gt;ignite&lt;/span
 hyperdrive.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Continue...|Part 3]]
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="40" name="transition-to-part2-1" tags="shipcontrols-css" position="1700,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; stop&gt;&gt;&lt;&lt;audio &quot;engine-fail&quot; play&gt;&gt;&lt;&lt;console true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="40" name="transition-to-part2-1" tags="shiponline-css" position="1700,500" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; stop&gt;&gt;&lt;&lt;audio &quot;engine-fail&quot; play&gt;&gt;&lt;&lt;console true&gt;&gt;
 You attempt to start the engines.
 
 They hum and whiz.
@@ -1562,7 +1583,7 @@ Carried Part:
 &lt;&lt;if $hasBattery&gt;&gt;&lt;span&gt;Battery&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $hasThruster&gt;&gt;&lt;span&gt;Thruster&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if !$hasThruster &amp;&amp; !$hasBattery&gt;&gt;none&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="ML Spaceship" tags="shipcontrols-css" position="1650,775" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="ML Spaceship" tags="shipoffline-css" position="1650,775" size="100,100">&lt;&lt;bgm&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 You examine the console.
 
 SYSTEM STATUS:&lt;&lt;if !$thrusterAttached || !$batteryDrained&gt;&gt;
@@ -1651,7 +1672,7 @@ the sand below you.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Attach Thruster" tags="" position="1675,1125" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Attach Thruster" tags="cravine-css" position="1675,1125" size="100,100">&lt;&lt;console&gt;&gt;
 You manage to lug the thruster atop your spaceship.
 &lt;&lt;set $hasThruster = false&gt;&gt;&lt;&lt;set $thrusterAttached = true&gt;&gt;
 The magneto-thermosprites immediately readhere. You rotate
@@ -1664,7 +1685,7 @@ Finally, you dust off your hands at a job well done.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Drain Battery" tags="" position="1800,1100" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Drain Battery" tags="cravine-css" position="1800,1100" size="100,100">&lt;&lt;console&gt;&gt;
 You connect the battery to your ship. Success!
 &lt;&lt;set $hasBattery = false&gt;&gt;&lt;&lt;set $batteryDrained = true&gt;&gt;
 The battery begins quickly transferring its sweet, sweet 
@@ -1700,7 +1721,7 @@ You think you see a crater...
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Easter Egg" tags="endless-css" position="1600,1300" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 1 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="ML Easter Egg" tags="crater-css" position="1600,1300" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.2 loop play&gt;&gt;&lt;&lt;audio &quot;scaryWind&quot; volume 1 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
 As you approach the cusp of the crater, you look down.
 
 You think you see a structure below...
@@ -1742,7 +1763,7 @@ Brrrttt!! Incorrect Code!
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;[[Enter the control room|OP Control Room]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Credits" tags="" position="900,1600" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="check-complete" tags="" position="3000,1300" size="100,100">&lt;&lt;if $hasHyperplugs &amp; $hasFuelRods&gt;&gt;&lt;&lt;set $showEnding = true&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Credits" tags="" position="1100,1600" size="100,100">&lt;&lt;console&gt;&gt;
 &lt;h1&gt;Credits&lt;/h1&gt;
 Patrick Normile
 Ahmed Elmi
@@ -1754,7 +1775,7 @@ music,
 sounds etc.
 
 &lt;&lt;add-tab&gt;&gt;[[Score Report|Display Scores]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="theend-css" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
