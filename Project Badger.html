@@ -1262,7 +1262,7 @@ The main winding was of the normal lotus-o-delta type placed in panendermic semi
 The turbo-encabulator has now reached a high level of development, and it’s being successfully used in the operation of novertrunnions. Moreover, whenever a forescent skor motion is required, it may also be employed in conjunction with a drawn reciprocation dingle arm, to reduce sinusoidal repleneration.”
 
 &lt;&lt;/console&gt;&gt;
-</tw-passagedata><tw-passagedata pid="15" name="Closet" tags="" position="3000,100" size="100,100">Patrick, it&#39;s time to come out.</tw-passagedata><tw-passagedata pid="16" name="to-do" tags="" position="3100,100" size="100,100">FIX transition into outpost. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="17" name="Start" tags="" position="900,300" size="100,100">&lt;&lt;include mark-start-time&gt;&gt;&lt;&lt;console false &#39;WELCOME&#39;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="15" name="Closet" tags="" position="3000,100" size="100,100">Patrick, it&#39;s time to come out.</tw-passagedata><tw-passagedata pid="16" name="to-do" tags="" position="3100,100" size="100,100">FIX transition into outpost. Whatever we decide to call it.</tw-passagedata><tw-passagedata pid="17" name="Start" tags="" position="900,300" size="100,100">&lt;&lt;include mark-start-time&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console false &#39;WELCOME&#39;&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;&lt;&lt;if $errorMessage&gt;&gt;&lt;span class=&quot;error&quot;&gt;$errorMessage&lt;/span&gt;&lt;&lt;else&gt;&gt;Please input and &lt;span&gt;press ENTER&lt;/span&gt; when done!&lt;&lt;/if&gt;&gt;
 
 Enter your name:
@@ -1353,6 +1353,8 @@ getHighScores();
 
 const uid = State.variables.uid;
 const name = State.variables.name;
+const shipName = State.variables.shipName;
+const ai = State.variables.virusWon ? &#39;virus&#39; : &#39;normal&#39;;
 const timeDiff = ((new Date() - State.variables.startTime) / 1000).toFixed(3);
 const egg1 = State.variables.easter1 ? 1 : 0;
 const egg2 = State.variables.easter2 ? 1 : 0;
@@ -1362,7 +1364,7 @@ const progress = State.variables.gameProgress;
 const postHighScore = () =&gt; {
 	const xhr = new XMLHttpRequest();
 	window.xhr = xhr;
-	const link = &#96;https://scores.dstults.net/update?list=badger&amp;uid=${uid}&amp;name=${name}&amp;timeDiff=${timeDiff}&amp;egg1=${egg1}&amp;egg2=${egg2}&amp;egg3=${egg3}&amp;progress=${progress}&#96;;
+	const link = &#96;https://scores.dstults.net/update?list=badger&amp;uid=${uid}&amp;name=${name}&amp;shipName=${shipName}&amp;ai=${ai}&amp;timeDiff=${timeDiff}&amp;egg1=${egg1}&amp;egg2=${egg2}&amp;egg3=${egg3}&amp;progress=${progress}&#96;;
 	xhr.open(&#39;GET&#39;, link);
 	xhr.onload = () =&gt; {
 		try {
@@ -1429,7 +1431,7 @@ The air is barely breathable.
 You gasp in pain.
 
 &lt;&lt;add-tab&gt;&gt;[[Don Oxygen Mask|Intro (3)]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="shipoffline-css" position="1500,500" size="100,100">&lt;&lt;set $gameProgress = 1&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Part 1 - Making Repairs" tags="shipoffline-css" position="1500,500" size="100,100">&lt;&lt;set $gameProgress = 1&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;console true&gt;&gt;
 You examine the console.
 
 - A retro-thruster snapped off.
@@ -1600,7 +1602,7 @@ It must be locked.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Intro (3)" tags="shipwindow-css" position="1300,500" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Intro (3)" tags="shipwindow-css" position="1300,500" size="100,100">&lt;&lt;audio &quot;sand&quot; volume 0.5 loop play&gt;&gt;&lt;&lt;console true&gt;&gt;
 You look out your ship&#39;s side portal.
 
 You&#39;ve crashlanded on a mars-like planet.
@@ -1873,7 +1875,7 @@ https://ericaofanderson.tumblr.com/
 &lt;/div&gt;
  
 &lt;&lt;add-tab&gt;&gt;[[Score Report|Display Scores]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="theend-css" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; loop play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="theend-css" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -2123,7 +2125,7 @@ const countdownProcess = setInterval(() =&gt; {
 }, 10);
 
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;audio &quot;intro&quot; loop play&gt;&gt;
+&lt;&lt;audio &quot;intro&quot; play&gt;&gt;
 &lt;&lt;audio &quot;outro&quot; stop&gt;&gt;
 &lt;div class=&quot;title-logo&quot;&gt;
 	&lt;h1&gt;Fix My Spaceship&lt;/h1&gt;
