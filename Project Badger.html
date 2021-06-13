@@ -1147,7 +1147,7 @@ Enter 4-Digit Passcode:
 Perhaps in the &lt;span&gt;Machine Room&lt;/span&gt;.
 &lt;&lt;else&gt;&gt;You use the &lt;span&gt;wrench&lt;/span&gt; and disconnect the &lt;span&gt;hyperplug&lt;/span&gt;
 retaining nuts.
-&lt;&lt;set $hasHyperplugs = true&gt;&gt;
+&lt;&lt;set $hasHyperplugs = true&gt;&gt;&lt;&lt;audio &quot;get-fanfare&quot; play&gt;&gt;
 Congrats, you got the &lt;span&gt;hyperplugs&lt;/span&gt;!
 &lt;&lt;set $hasPliers = false&gt;&gt;&lt;&lt;set $hasDriver = false&gt;&gt;&lt;&lt;set $hasWrench = false&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
 You leave the wrench behind.
@@ -1445,21 +1445,34 @@ Thank goodness you have your spacesuit on.
 &lt;button onclick=&quot;setup.runPassage(&#39;Intro (4)&#39;);&quot;&gt;Next&lt;/button&gt;</tw-passagedata><tw-passagedata pid="31" name="The Landing" tags="" position="2000,100" size="100,100">&lt;&lt;console null true&gt;&gt;You&#39;ve landed on the new planet.
 
 It is scary here. You poop your pants. The end.
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="init-cache-audio" tags="" position="300,300" size="100,100">&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;https://dstults.net/play-badger/audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="init-cache-audio" tags="" position="300,300" size="100,100">&lt;!-- HUD/GUI --&gt;
 &lt;&lt;cacheaudio &quot;typewriter&quot; &quot;https://dstults.net/play-badger/audio/344816__nakhas__data-transfer.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;get-fanfare&quot; &quot;https://dstults.net/play-badger/audio/cha-ching-3.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;error-tune&quot; &quot;https://dstults.net/play-badger/audio/mixkit-wrong-long-buzzer-954.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;good-job-fanfare&quot; &quot;https://dstults.net/play-badger/audio/449069_9215381-lq.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;hud-hover&quot; &quot;https://dstults.net/play-badger/audio/select_hover.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;hud-select&quot; &quot;https://dstults.net/play-badger/audio/select_select.mp3&quot;&gt;&gt;
+
+&lt;!-- BGM --&gt;
+&lt;&lt;cacheaudio &quot;intro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;https://dstults.net/play-badger/audio/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;duelinglife-bgm&quot; &quot;https://dstults.net/play-badger/audio/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;virusambient&quot; &quot;https://dstults.net/play-badger/audio/Advent.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;outro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
+
+&lt;!-- part1 ambience &amp; sfx --&gt;
+&lt;&lt;cacheaudio &quot;engine-fail&quot; &quot;https://dstults.net/play-badger/audio/mixkit-engine-slow-spinning-whoosh-2650.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;sand&quot; &quot;https://dstults.net/play-badger/audio/neoSand.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;scaryWind&quot; &quot;https://dstults.net/play-badger/audio/mixkit-horror-sci-fi-wind-tunnel-894.mp3&quot;&gt;&gt;
+
+&lt;!-- part3 ambience &amp; sfx --&gt;
+&lt;&lt;cacheaudio &quot;teleport&quot; &quot;https://dstults.net/play-badger/audio/Appear-KP-1137861048.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;drone&quot; &quot;https://dstults.net/play-badger/audio/mixkit-large-drone-engine-2741.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door1&quot; &quot;https://dstults.net/play-badger/audio/mixkit-old-church-door-open-193.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door2&quot; &quot;https://dstults.net/play-badger/audio/mixkit-scary-wooden-door-opening-190.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door3&quot; &quot;https://dstults.net/play-badger/audio/tos-turboliftdoor.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;appear&quot; &quot;https://dstults.net/play-badger/audio/Appear-KP-1137861048.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;duelinglife-bgm&quot; &quot;https://dstults.net/play-badger/audio/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;intro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;ambientPN&quot; &quot;https://dstults.net/play-badger/audio/Art-Of-Silence_V2.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;outro&quot; &quot;https://dstults.net/play-badger/audio/alexander-nakarada-superepic.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;sand&quot; &quot;https://dstults.net/play-badger/audio/neoSand.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;scaryWind&quot; &quot;https://dstults.net/play-badger/audio/mixkit-horror-sci-fi-wind-tunnel-894.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;virusambient&quot; &quot;https://dstults.net/play-badger/audio/Advent.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;engine-fail&quot; &quot;https://dstults.net/play-badger/audio/mixkit-engine-slow-spinning-whoosh-2650.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;classicAlarm&quot; &quot;https://dstults.net/play-badger/audio/mixkit-classic-alarm-995.mp3&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="33" name="init-set-vars" tags="" position="300,200" size="100,100">&lt;&lt;set $errorMessage = &quot;&quot;&gt;&gt;
 
 &lt;&lt;set $name = &quot;Avery the Astronaut&quot;&gt;&gt;
 &lt;&lt;set $shipName = &quot;Your Spaceship&quot;&gt;&gt;
@@ -1708,7 +1721,7 @@ the sand below you.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Attach Thruster" tags="cravine-css" position="1675,1125" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Attach Thruster" tags="cravine-css" position="1675,1125" size="100,100">&lt;&lt;audio &quot;good-job-fanfare&quot; play&gt;&gt;&lt;&lt;console&gt;&gt;
 You manage to lug the thruster atop your spaceship.
 &lt;&lt;set $hasThruster = false&gt;&gt;&lt;&lt;set $thrusterAttached = true&gt;&gt;
 The magneto-thermosprites immediately readhere. You rotate
@@ -1721,7 +1734,7 @@ Finally, you dust off your hands at a job well done.
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;include carried-part&gt;&gt;
-&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Drain Battery" tags="cravine-css" position="1800,1100" size="100,100">&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Drain Battery" tags="cravine-css" position="1800,1100" size="100,100">&lt;&lt;audio &quot;good-job-fanfare&quot; play&gt;&gt;&lt;&lt;console&gt;&gt;
 You connect the battery to your ship. Success!
 &lt;&lt;set $hasBattery = false&gt;&gt;&lt;&lt;set $batteryDrained = true&gt;&gt;
 The battery begins quickly transferring its sweet, sweet 
@@ -1787,11 +1800,11 @@ Oh hey, it&#39;s your spaceship! You went in a big circle...
 &lt;&lt;/console&gt;&gt;&lt;&lt;include map-ml&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="Code Entry Validator" tags="hydro-css" position="3000,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;if $passcodeAttempt == $passcode&gt;&gt;The digital deterrence device turns off.
 	
-Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set $hasFuelRods = true&gt;&gt;&lt;&lt;include check-tools&gt;&gt;
+Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set $hasFuelRods = true&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;audio &quot;get-fanfare&quot; play&gt;&gt;
 
 &lt;&lt;include check-complete&gt;&gt;
 &lt;&lt;else&gt;&gt;
-Brrrttt!! Incorrect Code!
+Brrrttt!! Incorrect Code!&lt;&lt;audio &quot;error-tune&quot; play&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;&lt;span&gt;[[Mission Complete]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
@@ -1871,9 +1884,8 @@ thanks to &lt;span&gt;you&lt;/span&gt;.&lt;&lt;/ai&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Roll Outro|Credits]]
 &lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Game Restart" tags="" position="800,300" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-run-scripts&#39;&gt;&gt;
-&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;appear&quot; play&gt;&gt;&lt;div class=&quot;centered&quot;&gt;
+&lt;&lt;goto Start&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Teleporting" tags="teleporting-css" position="2700,700" size="100,100">&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;teleport&quot; play&gt;&gt;
 
-&lt;/div&gt;
 &lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;OP Northern Corridor&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="dueling-life" tags="" position="2100,650" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;timed 0.0001s&gt;&gt;&lt;&lt;script&gt;&gt;
 /* Darren Stults -- Dueling life */
 
