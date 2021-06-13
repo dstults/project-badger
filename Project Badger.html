@@ -540,7 +540,7 @@ body.leaderboard-css {
 	position: relative;
 	cursor: pointer;
 	display: grid;
-	grid-template-columns: 32px auto 52px 72px 52px;
+	grid-template-columns: 32px auto auto 52px 96px 52px;
 	gap: 10px;
 	font-size: 14px;
 	padding: 11px 10px;
@@ -1301,14 +1301,22 @@ const appendScore = (i, score, arr) =&gt; {
 	let rankClass;
 	if (i &lt;= 5) {
 		rankClass = &#39;r&#39; + i;
-	} else if (i &lt;= 10) {
+	} else if (i &gt;= 6 &amp;&amp; i &lt;= 7) {
 		rankClass = &#39;r6&#39;;
+	} else if (i &gt;= 8 &amp;&amp; i &lt;= 10) {
+		rankClass = &#39;r7&#39;;
 	}
+	let name = score.name ? score.name : &#39;-&#39;;
+	let shipName = score.shipName ? score.shipName : &#39;-&#39;;
 	let eggs = &#39;&#39;;
+	if (score.ai) {
+		if (score.ai === &#39;normal&#39;) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/aiNormal.png&quot;&gt;&#39;;
+		if (score.ai === &#39;virus&#39;) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/aiVirus.png&quot;&gt;&#39;;
+	}
 	if (score.egg1) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg1.png&quot;&gt;&#39;;
 	if (score.egg2) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg2.png&quot;&gt;&#39;;
 	if (score.egg3) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg3.png&quot;&gt;&#39;;
-	arr.push(&#96;&lt;li class=&quot;${rankClass}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${score.name}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;div class=&quot;eggs&quot;&gt;${eggs}&lt;/div&gt;&lt;div class=&quot;time&quot;&gt;${score.time}&lt;/div&gt;&lt;/li&gt;&#96;);
+	arr.push(&#96;&lt;li class=&quot;${rankClass}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${name}&lt;/div&gt;&lt;div class=&quot;shipName&quot;&gt;${shipName}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;div class=&quot;eggs&quot;&gt;${eggs}&lt;/div&gt;&lt;div class=&quot;time&quot;&gt;${score.time}&lt;/div&gt;&lt;/li&gt;&#96;);
 };
 
 const displayScores = () =&gt; {
