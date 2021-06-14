@@ -2142,7 +2142,6 @@ const simulator = setInterval(() =&gt; {
 	if (team1score &lt;= 0 || team2score &lt;=0 || timeStopped) {
 		clearInterval(simulator);
 		clearInterval(countdownProcess);
-		console.log(timeDiff);
 		if (timeDiff &gt; 0) getEasterEgg2();
 		if (team1score &gt;= team2score) winBtn.style.display = &#39;inline&#39;;
 		if (team2score &gt; team1score) loseBtn.style.display = &#39;inline&#39;;
