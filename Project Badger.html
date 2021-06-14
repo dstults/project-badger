@@ -1307,6 +1307,7 @@ State.variables.uid = setup.randomUID();
 &lt;&lt;/script&gt;&gt;
 </tw-passagedata><tw-passagedata pid="19" name="Display Scores" tags="leaderboard-css" position="700,1300" size="100,100">&lt;&lt;include get-high-scores&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
+&lt;p id=&quot;this-result&quot;&gt;&lt;/p&gt;
 [[The End|Title]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="StoryInit" tags="" position="300,100" size="100,100">&lt;&lt;include &#39;init-set-vars&#39;&gt;&gt;
 &lt;&lt;include &#39;init-cache-audio&#39;&gt;&gt;
@@ -1318,6 +1319,11 @@ State.variables.uid = setup.randomUID();
 &lt;&lt;timed 0.0001s&gt;&gt;
 &lt;&lt;script&gt;&gt;
 const scoresElem1 = document.getElementById(&#39;scores1&#39;);
+const scoresReporter = document.getElementById(&#39;this-result&#39;);
+
+if (scoresReporter) {
+	scoresReporter.innerHTML = State.variables.scorePostResponse.message;
+}
 
 const appendScore = (i, score, arr) =&gt; {
 	let rankClass;
@@ -1399,7 +1405,6 @@ const postHighScore = () =&gt; {
 	xhr.onload = () =&gt; {
 		try {
 			State.variables.scorePostResponse = JSON.parse(xhr.response);
-			displayUpdate();
 		} catch {
 			State.variables.scorePostResponse = {};
 			State.variables.scorePostResponse.message = &#96;[ Error ] Couldn&#39;t parse server data: &quot;${xhr.response}&quot;&#96;;
