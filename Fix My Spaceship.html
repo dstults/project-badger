@@ -1106,7 +1106,7 @@ There is a large power generator here.
 
 &lt;&lt;add-tab&gt;&gt;[[Go back to the corridor|OP Central Corridor]]
 &lt;&lt;add-tab&gt;&gt;[[Enter the Hydroponics Room|OP Hydro-ponics]]
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;[[Get the hyperplugs|Get Plugs]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasHyperplugs&gt;&gt;&lt;span&gt;[[Get the hyperplugs|Get Plugs]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="OP Hydro-ponics" tags="hydro-css" position="2700,1500" size="100,100">&lt;&lt;audio &quot;door3&quot; play&gt;&gt;&lt;&lt;include check-tools&gt;&gt;&lt;&lt;set $location = &quot;Hydroponics&quot;&gt;&gt;&lt;&lt;audio &quot;drone&quot; volume 0.6&gt;&gt;&lt;&lt;console&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;
@@ -1117,7 +1117,7 @@ It looks like you&#39;ll need a 4-digit passcode.
 &lt;&lt;else&gt;&gt;There are six emply fuel rod slots.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;&lt;span&gt;[[Enter Code]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;[[Return to the Generator Room|OP Power Generator]]
 &lt;&lt;add-tab&gt;&gt;[[Enter the control room|OP Control Room]]
 &lt;&lt;add-tab&gt;&gt;
@@ -1755,7 +1755,7 @@ You grab hold of the thruster.
 
 You try to climb up it but gravity takes its course!!!
 
-The thurster comes dislodged and the two of you boom into
+The thruster comes dislodged and the two of you boom into
 the sand below you.
 &lt;&lt;set $hasThruster = true&gt;&gt;
 
@@ -1848,6 +1848,8 @@ Congratulations! You got the &lt;span&gt;six fuel rods&lt;/span&gt;.&lt;&lt;set 
 &lt;&lt;include check-complete&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Brrrttt!! Incorrect Code!&lt;&lt;audio &quot;error-tune&quot; play&gt;&gt;
+
+Maybe &lt;span&gt;it&#39;s written down&lt;/span&gt; somewhere else?
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;add-tab&gt;&gt;&lt;&lt;if !$showEnding&gt;&gt;&lt;&lt;if !$hasFuelRods&gt;&gt;[[Enter Code]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;&lt;span&gt;[[Mission Complete]]&lt;/span&gt;&lt;&lt;/if&gt;&gt;
@@ -1922,7 +1924,7 @@ https://ericaofanderson.tumblr.com/
 &lt;/div&gt;
  
 &lt;&lt;add-tab&gt;&gt;[[Score Report|Display Scores]]
-&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="theend-css" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
+&lt;&lt;/console&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Mission Complete" tags="theend-css" position="2300,1700" size="100,100">&lt;&lt;set $gameProgress = 4&gt;&gt;&lt;&lt;include post-score&gt;&gt;&lt;&lt;audio &quot;drone&quot; stop&gt;&gt;&lt;&lt;bgm stop&gt;&gt;&lt;&lt;/bgm&gt;&gt;&lt;&lt;audio &quot;outro&quot; volume 0.7 play&gt;&gt;&lt;&lt;set $location = $shipName&gt;&gt;&lt;&lt;console&gt;&gt;
 &lt;&lt;ai&gt;&gt;Marvelous! We can now finish our quest to save
 the universe!
 
@@ -2171,7 +2173,7 @@ const countdownProcess = setInterval(() =&gt; {
 }, 10);
 
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Title" tags="title-css" position="800,125" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;audio &quot;intro&quot; play&gt;&gt;
+&lt;&lt;audio &quot;intro&quot; volume 0.7 play&gt;&gt;
 &lt;&lt;audio &quot;outro&quot; stop&gt;&gt;
 &lt;div class=&quot;title-logo&quot;&gt;
 	&lt;h1&gt;Fix My Spaceship&lt;/h1&gt;
