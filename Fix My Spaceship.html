@@ -141,7 +141,13 @@ input:hover, select:hover, textarea:hover, input:focus, select:focus, textarea:f
 	background-color: transparent !important;
 }
 input {
-  text-align: center;
+	text-align: center;
+}
+input#textbox-passcodeattempt {
+	border: 3px solid white;
+	font-size: 200%;
+	width: 9rem;
+	min-width: 9rem;
 }
 p {
 	margin: 0;
@@ -1160,10 +1166,12 @@ doors recede.
 &lt;&lt;add-tab&gt;&gt;$tools
 &lt;&lt;/console&gt;&gt;&lt;&lt;include map-op&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Enter Code" tags="hydro-css" position="2850,1500" size="100,100">&lt;&lt;include check-tools&gt;&gt;&lt;&lt;console&gt;&gt;
 
-Enter 4-Digit Passcode:
+&lt;div class=&quot;centered narrow&quot;&gt;
+Enter 4-Digit Passcode and &lt;span&gt;press ENTER&lt;/span&gt;:
 &lt;&lt;textbox &#39;$passcodeAttempt&#39; $passcodeAttempt [[Code Entry Validator]]&gt;&gt;
+&lt;/div&gt;
 
-&lt;&lt;add-tab&gt;&gt;
+&lt;&lt;add-tab&gt;&gt;[[Confirm|Code Entry Validator]]
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
 &lt;&lt;add-tab&gt;&gt;
@@ -1306,6 +1314,7 @@ Your Unique Identifier: [ &lt;span&gt;$uid&lt;/span&gt; ]
 --&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
+&lt;&lt;add-tab&gt;&gt;[[Confirm|Validator]]
 &lt;&lt;/console&gt;&gt;
 </tw-passagedata><tw-passagedata pid="18" name="init-run-scripts" tags="" position="300,400" size="100,100">&lt;&lt;script&gt;&gt;
 State.variables.uid = setup.randomUID();
