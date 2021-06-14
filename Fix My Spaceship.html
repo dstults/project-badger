@@ -515,12 +515,18 @@ body.leaderboard-css {
 	transition: none;
 }
 .leaderboard {
-	width: 460px;
+	display: inline-block;
+	vertical-align: top;
+	width: 440px;
 	background: linear-gradient(160deg, #3a404d, #181c26);
 	border-radius: 10px;
 	box-shadow: 0 6px 20px rgb(0, 0, 0);
-	margin: 0 auto;
   	padding: 0.4rem 2px 2px 2px;
+	margin-left: 1.4rem;
+}
+.leaderboard2 {
+	width: 440px;
+	background: linear-gradient(160deg, #3a404d, #181c26);
 }
 .leaderboard h1 {
 	font-size: 24px;
@@ -535,18 +541,20 @@ body.leaderboard-css {
 	margin: 0 10px;
 }
 .leaderboard ul {
-	counter-reset: leaderboard;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	padding: 0;
 	margin: 2px;
 	background-color: rgb(245, 181, 97);
 }
+.leaderboard2 ul {
+	background-color: rgb(0, 0, 0);
+}
 .leaderboard li {
 	position: relative;
 	cursor: pointer;
 	display: grid;
-	grid-template-columns: 32px 178px 52px 96px 52px;
+	grid-template-columns: 32px 158px 52px 96px 52px;
 	gap: 10px;
 	font-size: 14px;
 	padding: 11px 10px;
@@ -1330,10 +1338,13 @@ State.variables.uid = setup.randomUID();
 </tw-passagedata><tw-passagedata pid="21" name="get-high-scores" tags="" position="550,450" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;div class=&quot;centered&quot;&gt;
 	&lt;div class=&quot;leaderboard&quot; id=&quot;scores1&quot;&gt;Loading...&lt;/div&gt;
+	&lt;div class=&quot;leaderboard leaderboard2&quot; id=&quot;scores2&quot;&gt;Loading...&lt;/div&gt;
 &lt;/div&gt;
 &lt;&lt;timed 0.0001s&gt;&gt;
 &lt;&lt;script&gt;&gt;
 const scoresElem1 = document.getElementById(&#39;scores1&#39;);
+const scoresElem2 = document.getElementById(&#39;scores2&#39;);
+scoresElem2.style.display = &#39;none&#39;;
 const scoresReporter = document.getElementById(&#39;this-result&#39;);
 
 if (scoresReporter) {
@@ -1376,13 +1387,17 @@ const displayScores = () =&gt; {
 			appendScore(i, score, i &lt;= 10 ? arr1 : arr2);
 		});
 		scoresElem1.innerHTML = &#96;&lt;h1&gt;&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;Top Ten&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;&lt;/h1&gt;&lt;ul&gt;${arr1.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
+		if (arr2.length &gt; 0) {
+			scoresElem2.innerHTML = &#96;&lt;h1&gt;&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;11-30th&lt;img class=&quot;ico-cup&quot; src=&quot;https://dstults.net/play-badger/cup.svg&quot;&gt;&lt;/h1&gt;&lt;ul&gt;${arr2.join(&#39;&#39;)}&lt;/ul&gt;&#96;;
+			scoresElem2.style.display = &#39;block&#39;;
+		};
 	}
 };
 
 const getHighScores = () =&gt; {
 	const xhr = new XMLHttpRequest();
 	window.xhr = xhr;
-	const link = &#39;https://scores.dstults.net/top-ten?list=badger&#39;;
+	const link = &#39;https://scores.dstults.net/top-thirty?list=badger&#39;;
 	xhr.open(&#39;GET&#39;, link);
 	xhr.onload = () =&gt; {
 		try {
@@ -1693,7 +1708,7 @@ SYSTEM STATUS:&lt;&lt;if !$thrusterAttached || !$batteryDrained&gt;&gt;
 Main computer systems &lt;span&gt;offline&lt;/span&gt;.
 &lt;&lt;else&gt;&gt;
 - &lt;span&gt;Power Levels Low&lt;/span&gt;
-- &lt;span&gt;Flight-cabable&lt;/span&gt;
+- &lt;span&gt;Flight-capable&lt;/span&gt;
 
 Press [&lt;span&gt;Reset&lt;/span&gt;] to bring computer systems back online.
 &lt;&lt;/if&gt;&gt;
