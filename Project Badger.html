@@ -509,7 +509,7 @@ body.leaderboard-css {
 	transition: none;
 }
 .leaderboard {
-	width: 420px;
+	width: 460px;
 	background: linear-gradient(160deg, #3a404d, #181c26);
 	border-radius: 10px;
 	box-shadow: 0 6px 20px rgb(0, 0, 0);
@@ -540,11 +540,17 @@ body.leaderboard-css {
 	position: relative;
 	cursor: pointer;
 	display: grid;
-	grid-template-columns: 32px auto auto 52px 96px 52px;
+	grid-template-columns: 32px 178px 52px 96px 52px;
 	gap: 10px;
 	font-size: 14px;
 	padding: 11px 10px;
 }
+/*
+.leaderboard li>* {
+	white-space: nowrap;
+	overflow: hidden;
+}
+*/
 .leaderboard li {
 	text-shadow: 1px 1px black; 
 }
@@ -579,8 +585,30 @@ body.leaderboard-css {
 	color: rgb(221, 168, 98);
 	background: white;
 }
+.leaderboard .names {
+	position: relative;
+}
 .leaderboard .name {
+	position: absolute;
+	top: -5px;
+	left: 0;
 	line-height: 20px;
+	font-size: 120%;
+	text-align: left;
+	z-index: 3;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.leaderboard .shipName {
+	position: absolute;
+	right: -15px;
+	bottom: -5px;
+	font-size: 80%;
+	text-align: right;
+	color: yellow;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+	white-space: nowrap;
+	overflow: hidden;
 }
 .leaderboard .score {
 	line-height: 20px;
@@ -755,11 +783,8 @@ body.leaderboard-css {
 /* end map css */
 /* -------------------------------------------------------- */
 
-/* Credits ------------------------------------------------ */
-
-
-
-
+/* -------------------------------------------------------- */
+/* start credits css */
 
 .wrapperCredits {
 	display: flex;
@@ -785,11 +810,8 @@ body.leaderboard-css {
   to { top: -2250px; }
 }
 
-
-
-
-
-
+/* end credits css */
+/* -------------------------------------------------------- */
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">const debugMode = true;
 State.variables.debugMode = debugMode;
 
@@ -1316,7 +1338,7 @@ const appendScore = (i, score, arr) =&gt; {
 	if (score.egg1) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg1.png&quot;&gt;&#39;;
 	if (score.egg2) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg2.png&quot;&gt;&#39;;
 	if (score.egg3) eggs += &#39;&lt;img src=&quot;https://dstults.net/play-badger/images/egg3.png&quot;&gt;&#39;;
-	arr.push(&#96;&lt;li class=&quot;${rankClass}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;name&quot;&gt;${name}&lt;/div&gt;&lt;div class=&quot;shipName&quot;&gt;${shipName}&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;div class=&quot;eggs&quot;&gt;${eggs}&lt;/div&gt;&lt;div class=&quot;time&quot;&gt;${score.time}&lt;/div&gt;&lt;/li&gt;&#96;);
+	arr.push(&#96;&lt;li class=&quot;${rankClass}&quot;&gt;&lt;div class=&quot;rank&quot;&gt;${i}&lt;/div&gt;&lt;div class=&quot;names&quot;&gt;&lt;div class=&quot;name&quot;&gt;${name}&lt;/div&gt;&lt;div class=&quot;shipName&quot;&gt;${shipName}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;${score.score}&lt;/div&gt;&lt;div class=&quot;eggs&quot;&gt;${eggs}&lt;/div&gt;&lt;div class=&quot;time&quot;&gt;${score.time}&lt;/div&gt;&lt;/li&gt;&#96;);
 };
 
 const displayScores = () =&gt; {
