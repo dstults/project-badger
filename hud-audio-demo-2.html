@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>hover + (mouseup/mousedown, click) demo</title>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+
+  <p class="up">Press mouse and release here.</p>
+  <p class="hover1">Press mouse and release here. HOVER+UP/DOWN</p>
+  <p class="hover2">Press mouse and release here. HOVER.UP/DOWN</p>
+  <p class="hover3">Press mouse and release here. HOVER.CLICK</p>
+
+  <script>
+    $("p.up")
+      .mouseup(function() {
+        $(this).append("<span style='color:#f00;'>Mouse up.</span>");
+      })
+      .mousedown(function() {
+        $(this).append("<span style='color:#00f;'>Mouse down.</span>");
+      });
+    $("p.hover1")
+      .hover(
+        function() {
+          $(this).append("<span style='color:#f00;'>Hover IN.</span>");
+        },
+        function() {
+          $(this).append("<span style='color:#00f;'>Homer OUT.</span>");
+        })
+      .mouseup(function() {
+        $(this).append("<span style='color:#f00;'>Mouse up.</span>");
+      })
+      .mousedown(function() {
+        $(this).append("<span style='color:#00f;'>Mouse down.</span>");
+      });
+    $("p.hover2")
+      .hover(
+        function() {
+          $(this).append("<span style='color:#f00;'>Hover IN.</span>");
+        },
+        function() {
+          $(this).append("<span style='color:#00f;'>Homer OUT.</span>");
+        });
+    $("p.hover2")
+      .mouseup(function() {
+        $(this).append("<span style='color:#f00;'>Mouse up.</span>");
+      })
+      .mousedown(function() {
+        $(this).append("<span style='color:#00f;'>Mouse down.</span>");
+      });
+    $("p.hover3")
+      .hover(
+        function() {
+          $(this).append("<span style='color:#f00;'>Hover IN.</span>");
+        },
+        function() {
+          $(this).append("<span style='color:#00f;'>Homer OUT.</span>");
+        });
+    $("p.hover3")
+      .click(function() {
+        $(this).append("<span style='color:#00f;'>CLICK.</span>");
+      });
+
+    
+
+  </script>
+
+</body>
+
+</html>
