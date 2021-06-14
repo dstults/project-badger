@@ -1423,6 +1423,7 @@ postHighScore();
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Validator" tags="" position="900,500" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;script&gt;&gt;
 	State.variables.name = setup.validateName(State.variables.name);
+	State.variables.shipName = setup.validateName(State.variables.shipName);
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;if $name == &#39;&#39;&gt;&gt;
 	&lt;&lt;set $errorMessage = &quot;I had trouble reading your name.&quot;&gt;&gt;
