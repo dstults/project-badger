@@ -1,0 +1,84 @@
++<html>
+<head>
+<style>
+@font-face {
+	font-family: consoleFont;
+	src: url("../fonts/VCR_OSD_MONO_1.001.ttf");
+}
+@font-face {
+	font-family: aiFont;
+	src: url("../archive/fonts/visitor1.ttf");
+}
+
+body {
+	position: relative;
+	min-height: 450px;
+	background: black;
+	color: white;
+	font-family: consoleFont;
+	text-align: center;
+	white-space: nowrap;
+}
+.vert-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90%;
+}
+.centered {
+	text-align: center;
+	vertical-align: center;
+}
+img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1.5);
+	z-index: -10;
+}
+h1 {
+	display: inline-block;
+}
+.top-title {
+	display: inline;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 8rem;
+	z-index: 12;
+}
+p {
+	display: inline;
+}
+.bottom-name {
+	font-family: aiFont;
+	display: inline;
+	position: absolute;
+	bottom: 16%;
+	font-size: 3rem;
+	z-index: 11;
+}
+.bn1 {
+	left: 30%;
+	transform: translateX(-50%);
+}
+.bn2 {
+	bottom: 6%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.bn3 {
+	right: 30%;
+	transform: translateX(50%);
+}
+</style>
+</head>
+<body>
+	<h1 class="top-title">Fix My Spaceship</h1>
+	<img src="../images/spaceship.png">
+	<p class="bottom-name bn1">Darren Stults</p>
+	<p class="bottom-name bn2">Patrick Normile</p>
+	<p class="bottom-name bn3">Ahmed Elmi</p>
+</body>
+</html>
