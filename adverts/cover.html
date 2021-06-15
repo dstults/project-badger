@@ -10,9 +10,16 @@
 	src: url("../archive/fonts/VCR_OSD_MONO_1.001.ttf");
 }
 
+html {
+	display: flex;
+	background: black;
+	justify-content: center;
+	align-items: center;
+}
 body {
 	position: relative;
-	min-height: 450px;
+	width: 630px;
+	height: 500px;
 	background-image: url("../images/pexels-lucas-pezeta-3772378Small.jpg");
 	background-size: cover;
 	background-attachment: fixed;
@@ -22,6 +29,12 @@ body {
 	font-family: consoleFont;
 	text-align: center;
 	white-space: nowrap;
+}
+.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 .vert-center {
 	display: flex;
@@ -37,8 +50,7 @@ img {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%) scale(1.5);
-	z-index: -10;
+	transform: translate(-50%, -50%);
 }
 h1 {
 	display: inline-block;
@@ -46,10 +58,10 @@ h1 {
 .top-title {
 	display: inline;
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 8rem;
+	font-size: 4rem;
 	z-index: 12;
 }
 p {
@@ -58,30 +70,32 @@ p {
 .bottom-name {
 	display: inline;
 	position: absolute;
-	bottom: 21%;
+	bottom: 8%;
 	font-size: 2rem;
 	z-index: 11;
 }
 .bn1 {
-	left: 30%;
+	left: 21%;
 	transform: translateX(-50%);
 }
 .bn2 {
-	bottom: 18%;
+	bottom: -3%;
 	left: 50%;
 	transform: translateX(-50%);
 }
 .bn3 {
-	right: 30%;
+	right: 16%;
 	transform: translateX(50%);
 }
 </style>
 </head>
 <body>
+	<div class="container">
 	<h1 class="top-title">Fix My Spaceship</h1>
 	<img src="../images/spaceship.png">
 	<p class="bottom-name bn1">Darren Stults</p>
 	<p class="bottom-name bn2">Patrick Normile</p>
 	<p class="bottom-name bn3">Ahmed Elmi</p>
+	</div>
 </body>
 </html>
